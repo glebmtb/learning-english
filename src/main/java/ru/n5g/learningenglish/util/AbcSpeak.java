@@ -1,4 +1,4 @@
-package ru.n5g.learningenglish;
+package ru.n5g.learningenglish.util;
 
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.advanced.AdvancedPlayer;

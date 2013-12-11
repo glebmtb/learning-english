@@ -1,6 +1,7 @@
 package ru.n5g.learningenglish;
 
 import org.junit.Test;
+import ru.n5g.learningenglish.util.AbcSpeak;
 
 /**
  * @author Belyaev

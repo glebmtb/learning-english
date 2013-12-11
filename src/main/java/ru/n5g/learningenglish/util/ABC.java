@@ -1,4 +1,4 @@
-package ru.n5g.learningenglish;
+package ru.n5g.learningenglish.util;
 
 /**
  * @author Belyaev
