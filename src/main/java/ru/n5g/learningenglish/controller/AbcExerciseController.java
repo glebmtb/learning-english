@@ -14,6 +14,10 @@ public class AbcExerciseController {
     }
 
     public void clickStart() {
-        view.setVisibleButtonStart(false);
+        view.setVisibleStartPage(false);
+        view.setVisibleLessonPage(true);
+        view.setCounterRepetition("0/50");
+        view.setCorrectAnswers("0");
+        view.setPassedQuestions("0");
     }
 }

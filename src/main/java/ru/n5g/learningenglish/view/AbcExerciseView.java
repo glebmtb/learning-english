@@ -5,5 +5,29 @@ package ru.n5g.learningenglish.view;
  * 11.12.13.
  */
 public interface AbcExerciseView {
-    void setVisibleButtonStart(boolean isVisible);
+    /**
+     * Задать видимость странице старта
+     */
+    void setVisibleStartPage(boolean isVisible);
+
+    /**
+     * Задать видимость страницы занятия
+     */
+    void setVisibleLessonPage(boolean isVisible);
+
+    /**
+     * Записать количество пройденых повторов и сколько осталось
+     * пример: "0/50"
+     */
+    void setCounterRepetition(String counterRepetition);
+
+    /**
+     * Записать количество правельных ответов
+     */
+    void setCorrectAnswers(String correctAnswers);
+
+    /**
+     * Записать количество пройденых вопросов
+     */
+    void setPassedQuestions(String passedQuestions);
 }
