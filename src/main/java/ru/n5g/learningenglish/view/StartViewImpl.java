@@ -1,6 +1,6 @@
 package ru.n5g.learningenglish.view;
 
-import ru.n5g.learningenglish.controller.Controller;
+import ru.n5g.learningenglish.controller.StartController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,12 +11,12 @@ import java.awt.event.ActionListener;
  * Belyaev Gleb 11.12.13.
  */
 public class StartViewImpl implements StartView{
-    private final static int WIDTH_WINDOW = 300;
-    private final static int HEIGHT_WINDOW = 590;
-    private Controller controller;
+    private final static int WIDTH_WINDOW = 305;
+    private final static int HEIGHT_WINDOW = 595;
+    private StartController controller;
 
     public StartViewImpl() throws HeadlessException {
-        controller = new Controller(this);
+        controller = new StartController(this);
         initComponents();
     }
 

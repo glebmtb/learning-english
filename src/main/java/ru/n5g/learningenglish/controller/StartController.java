@@ -1,5 +1,7 @@
 package ru.n5g.learningenglish.controller;
 
+import ru.n5g.learningenglish.view.AbcExerciseView;
+import ru.n5g.learningenglish.view.AbcExerciseViewImpl;
 import ru.n5g.learningenglish.view.StartView;
 import ru.n5g.learningenglish.view.StartViewImpl;
 
@@ -7,9 +9,9 @@ import ru.n5g.learningenglish.view.StartViewImpl;
  * Belyaev Gleb
  * 11.12.13.
  */
-public class Controller {
+public class StartController {
     private StartView startView;
-    public Controller(StartView startView) {
+    public StartController(StartView startView) {
         this.startView = startView;
     }
 
@@ -24,7 +26,7 @@ public class Controller {
      * Диктовка алфавита
      */
     public void clickAbcExercise() {
-
+        new AbcExerciseViewImpl(this);
     }
 
     /**
