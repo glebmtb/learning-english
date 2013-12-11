@@ -13,7 +13,7 @@ public class AbcExerciseController {
         this.view = view;
     }
 
-    public void startLesson() {
-
+    public void clickStart() {
+        view.setVisibleButtonStart(false);
     }
 }

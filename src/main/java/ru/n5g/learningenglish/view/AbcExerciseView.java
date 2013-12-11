@@ -5,4 +5,5 @@ package ru.n5g.learningenglish.view;
  * 11.12.13.
  */
 public interface AbcExerciseView {
+    void setVisibleButtonStart(boolean isVisible);
 }
