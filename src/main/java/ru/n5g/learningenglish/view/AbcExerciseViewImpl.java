@@ -13,7 +13,7 @@ public class AbcExerciseViewImpl implements AbcExerciseView{
     private AbcExerciseController controller;
 
 
-    public AbcExerciseViewImpl(StartController startController) {
+    public AbcExerciseViewImpl() {
         this.controller = new AbcExerciseController(this);
         initComponents();
     }
@@ -23,5 +23,6 @@ public class AbcExerciseViewImpl implements AbcExerciseView{
         frame.setBounds(400, 400, 400, 400);
         frame.setLayout(null);
         frame.setVisible(true);
+        controller.startLesson();
     }
 }

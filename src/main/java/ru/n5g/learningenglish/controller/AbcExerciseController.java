@@ -12,4 +12,8 @@ public class AbcExerciseController {
     public AbcExerciseController(AbcExerciseView view) {
         this.view = view;
     }
+
+    public void startLesson() {
+
+    }
 }

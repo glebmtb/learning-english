@@ -1,9 +1,7 @@
 package ru.n5g.learningenglish.controller;
 
-import ru.n5g.learningenglish.view.AbcExerciseView;
 import ru.n5g.learningenglish.view.AbcExerciseViewImpl;
 import ru.n5g.learningenglish.view.StartView;
-import ru.n5g.learningenglish.view.StartViewImpl;
 
 /**
  * Belyaev Gleb
@@ -26,7 +24,7 @@ public class StartController {
      * Диктовка алфавита
      */
     public void clickAbcExercise() {
-        new AbcExerciseViewImpl(this);
+        new AbcExerciseViewImpl();
     }
 
     /**
