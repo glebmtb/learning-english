@@ -34,6 +34,7 @@ public class StartViewImpl implements StartView{
                 controller.clickAllExercises();
             }
         });
+        allExercises.setEnabled(false); //TODO
 
         JButton abcExercise = new JButton("Алфавит");
         abcExercise.setBounds(leftMargin, yPosition += 80, widthButton, heightButton);
@@ -52,6 +53,7 @@ public class StartViewImpl implements StartView{
                 controller.clickNumberFrom1To10Exercise();
             }
         });
+        numberFrom1To10Exercise.setEnabled(false); //TODO
 
         JButton numberFrom1To1999999999Exercise = new JButton("Числа N1-1,999,999,999");
         numberFrom1To1999999999Exercise.setBounds(leftMargin, yPosition += 50, widthButton, heightButton);
@@ -61,6 +63,7 @@ public class StartViewImpl implements StartView{
                 controller.clickNumberFrom1To1999999999Exercise();
             }
         });
+        numberFrom1To1999999999Exercise.setEnabled(false); //TODO
 
         JButton numberFrom1stTo31thExercise = new JButton("Числительные N1st-31th");
         numberFrom1stTo31thExercise.setBounds(leftMargin, yPosition += 50, widthButton, heightButton);
@@ -70,6 +73,7 @@ public class StartViewImpl implements StartView{
                 controller.clickNumberFrom1stTo31thExercise();
             }
         });
+        numberFrom1stTo31thExercise.setEnabled(false); //TODO
 
         JButton clockExercise = new JButton("Время");
         clockExercise.setBounds(leftMargin, yPosition += 50, widthButton, heightButton);
@@ -79,6 +83,7 @@ public class StartViewImpl implements StartView{
                 controller.clickClockExercise();
             }
         });
+        clockExercise.setEnabled(false); //TODO
 
         JButton daysWeekExercise = new JButton("Дни недели");
         daysWeekExercise.setBounds(leftMargin, yPosition += 50, widthButton, heightButton);
@@ -88,6 +93,7 @@ public class StartViewImpl implements StartView{
                 controller.clickDaysWeekExercise();
             }
         });
+        daysWeekExercise.setEnabled(false); //TODO
 
         JButton monthExercise = new JButton("Месяца");
         monthExercise.setBounds(leftMargin, yPosition += 50, widthButton, heightButton);
@@ -97,6 +103,7 @@ public class StartViewImpl implements StartView{
                 controller.clickMonthExercise();
             }
         });
+        monthExercise.setEnabled(false); //TODO
 
         JButton yearExercise = new JButton("Года");
         yearExercise.setBounds(leftMargin, yPosition += 50, widthButton, heightButton);
@@ -106,6 +113,7 @@ public class StartViewImpl implements StartView{
                 controller.clickYearExercise();
             }
         });
+        yearExercise.setEnabled(false); //TODO
 
         JButton result = new JButton("Результаты");
         result.setBounds(leftMargin, yPosition += 70, 130, heightButton);
@@ -115,6 +123,7 @@ public class StartViewImpl implements StartView{
                 controller.clickResult();
             }
         });
+        result.setEnabled(false); //TODO
 
         JButton settings = new JButton("Настройки");
         settings.setBounds(136 + leftMargin + 6, yPosition, 130, heightButton);
@@ -124,6 +133,7 @@ public class StartViewImpl implements StartView{
                 controller.clickSettings();
             }
         });
+        settings.setEnabled(false); //TODO
 
         JFrame mainFrame = new JFrame("Изучение английского");
         mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
