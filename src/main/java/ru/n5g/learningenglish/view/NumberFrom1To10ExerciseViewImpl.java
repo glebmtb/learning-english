@@ -1,20 +1,19 @@
 package ru.n5g.learningenglish.view;
 
-import ru.n5g.learningenglish.controller.AbcExerciseController;
+import ru.n5g.learningenglish.controller.NumberFrom1To10ExerciseController;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.net.URL;
 
 /**
- * Belyaev Gleb
- * 11.12.13.
+ * Gleb Belyaev
+ * 12.12.13.
  */
-public class AbcExerciseViewImpl implements AbcExerciseView {
-    private AbcExerciseController controller;
+public class NumberFrom1To10ExerciseViewImpl implements NumberFrom1To10ExerciseView {
+    private NumberFrom1To10ExerciseController controller;
+
     private JButton startButton;
 
     private JLabel counterRepetitionLabel;
@@ -22,22 +21,24 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
     private JLabel correctAnswersLabel;
     private JLabel correctAnswersTextFromLabel;
     private JLabel passedQuestionsLabel;
-    private JLabel enteringLetterTextStartLabel;
-    private JTextField enteringLetterText;
+
+    private JLabel commandInfoLabel;
+    private JLabel textForInputLabel;
+    private JLabel rightAnswerLabel;
+    private JTextField inputFieldResponse;
     private JLabel inputResultLabel;
 
-    private JButton replaceButton;
+    private JButton verifyButton;
     private JButton nextButton;
 
-
-    public AbcExerciseViewImpl() {
-        this.controller = new AbcExerciseController(this);
+    public NumberFrom1To10ExerciseViewImpl() {
+        controller = new NumberFrom1To10ExerciseController(this);
         initComponents();
     }
 
     /**
-     * Портатип страницы
-     * http://joxi.ru/qymoUv3JTJC-IcBiTYw
+     * Протатип
+     * http://joxi.ru/VJ6pUhjKTJB8eZpFMCg
      */
     private void initComponents() {
         startButton = new JButton("Начать");
@@ -69,52 +70,54 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
         passedQuestionsLabel.setBounds(310, 15, 30, 20);
         passedQuestionsLabel.setVisible(false);
 
-        enteringLetterTextStartLabel = new JLabel("Введите букву которая прозвучала:");
-        enteringLetterTextStartLabel.setBounds(25, 45, 235, 20);
-        enteringLetterTextStartLabel.setVisible(false);
+        commandInfoLabel = new JLabel("Введите цифру на английском языке:");
+        commandInfoLabel.setBounds(30, 35, 250, 20);
+        commandInfoLabel.setVisible(false);
 
-        enteringLetterText = new JTextField();
-        enteringLetterText.setBounds(265, 45, 20, 20);
-        enteringLetterText.setVisible(false);
-        enteringLetterText.addActionListener(new ActionListener() {
+        textForInputLabel = new JLabel();
+        textForInputLabel.setBounds(30, 55, 250, 20);
+        textForInputLabel.setVisible(false);
+
+        rightAnswerLabel = new JLabel();
+        rightAnswerLabel.setBounds(30, 80, 250, 20);
+        rightAnswerLabel.setVisible(false);
+
+        inputFieldResponse = new JTextField();
+        inputFieldResponse.setBounds(30, 100, 250, 20);
+        inputFieldResponse.setVisible(false);
+        inputFieldResponse.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                controller.clickNext();
-            }
-        });
-        enteringLetterText.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent keyEvent) {
-                controller.enteredSymbol();
+                controller.clickEnterInInputField();
             }
         });
 
         inputResultLabel = new JLabel();
-        inputResultLabel.setBounds(295, 42, 24, 24);
+        inputResultLabel.setBounds(295, 98, 24, 24);
         inputResultLabel.setVisible(false);
 
-        replaceButton = new JButton("Повторить");
-        replaceButton.setBounds(20, 80, 110, 25);
-        replaceButton.setVisible(false);
-        replaceButton.addActionListener(new ActionListener() {
+        verifyButton = new JButton("Проверить");
+        verifyButton.setBounds(20, 135, 110, 25);
+        verifyButton.setVisible(false);
+        verifyButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                controller.clickReplace();
+            public void actionPerformed(ActionEvent e) {
+                controller.clickVerify();
             }
         });
 
-        nextButton = new JButton("Следующая буква");
-        nextButton.setBounds(150, 80, 180, 25);
+        nextButton = new JButton("Следующая цифра");
+        nextButton.setBounds(150,135,180,25);
         nextButton.setVisible(false);
         nextButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent actionEvent) {
+            public void actionPerformed(ActionEvent e) {
                 controller.clickNext();
             }
         });
 
-        JFrame frame = new JFrame("Диктовка английского алфовита");
-        frame.setBounds(400, 400, 350, 150);
+        JFrame frame = new JFrame("Диктовка цифр");
+        frame.setBounds(400, 400, 360, 210);
         frame.setLayout(null);
 
         frame.add(startButton);
@@ -123,10 +126,12 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
         frame.add(correctAnswersLabel);
         frame.add(correctAnswersTextFromLabel);
         frame.add(passedQuestionsLabel);
-        frame.add(enteringLetterTextStartLabel);
-        frame.add(enteringLetterText);
+        frame.add(commandInfoLabel);
+        frame.add(rightAnswerLabel);
+        frame.add(textForInputLabel);
+        frame.add(inputFieldResponse);
         frame.add(inputResultLabel);
-        frame.add(replaceButton);
+        frame.add(verifyButton);
         frame.add(nextButton);
 
         frame.setVisible(true);
@@ -144,14 +149,13 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
         correctAnswersLabel.setVisible(isVisible);
         correctAnswersTextFromLabel.setVisible(isVisible);
         passedQuestionsLabel.setVisible(isVisible);
-        enteringLetterTextStartLabel.setVisible(isVisible);
-        enteringLetterText.setVisible(isVisible);
+        commandInfoLabel.setVisible(isVisible);
+        rightAnswerLabel.setVisible(isVisible);
+        textForInputLabel.setVisible(isVisible);
+        inputFieldResponse.setVisible(isVisible);
         inputResultLabel.setVisible(isVisible);
-        replaceButton.setVisible(isVisible);
+        verifyButton.setVisible(isVisible);
         nextButton.setVisible(isVisible);
-
-        if (isVisible)
-            enteringLetterText.grabFocus();
     }
 
     @Override
@@ -185,17 +189,23 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
 
     @Override
     public void clearInformantsResultQuestion() {
+        inputFieldResponse.setText("");
+        rightAnswerLabel.setText("");
         inputResultLabel.setIcon(null);
-        enteringLetterText.setText("");
     }
 
     @Override
     public String getEnteredText() {
-        String word = enteringLetterText.getText();
-        String symbol = "none";
-        if (word != null && !word.isEmpty()) {
-            symbol = String.valueOf(word.charAt(0)).toUpperCase();
-        }
-        return symbol;
+        return inputFieldResponse.getText();
+    }
+
+    @Override
+    public void setTextForInput(String textForInput) {
+        textForInputLabel.setText(textForInput);
+    }
+
+    @Override
+    public void setRightAnswer(String rightAnswer) {
+        rightAnswerLabel.setText(rightAnswer);
     }
 }

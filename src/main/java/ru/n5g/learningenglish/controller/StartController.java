@@ -1,6 +1,7 @@
 package ru.n5g.learningenglish.controller;
 
 import ru.n5g.learningenglish.view.AbcExerciseViewImpl;
+import ru.n5g.learningenglish.view.NumberFrom1To10ExerciseViewImpl;
 import ru.n5g.learningenglish.view.StartView;
 
 /**
@@ -31,7 +32,7 @@ public class StartController {
      * Диктовка цифр с 1 до 10
      */
     public void clickNumberFrom1To10Exercise() {
-
+        new NumberFrom1To10ExerciseViewImpl();
     }
 
     /**

@@ -53,7 +53,6 @@ public class StartViewImpl implements StartView{
                 controller.clickNumberFrom1To10Exercise();
             }
         });
-        numberFrom1To10Exercise.setEnabled(false); //TODO
 
         JButton numberFrom1To1999999999Exercise = new JButton("Числа N1-1,999,999,999");
         numberFrom1To1999999999Exercise.setBounds(leftMargin, yPosition += 50, widthButton, heightButton);

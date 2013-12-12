@@ -55,7 +55,7 @@ public class AbcExerciseController {
             clickNext();
             return;
         }
-        String enteredSymbol = view.getEnteredSymbol();
+        String enteredSymbol = view.getEnteredText();
         if (enteredSymbol == null || enteredSymbol.isEmpty() || enteredSymbol.length() > 1) {
             return;
         }
