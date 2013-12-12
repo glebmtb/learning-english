@@ -30,4 +30,14 @@ public interface AbcExerciseView {
      * Записать количество пройденых вопросов
      */
     void setPassedQuestions(String passedQuestions);
+
+    /**
+     * Записать результат успешности ответа
+     */
+    void setResultQuestion(boolean isSuccessfully);
+
+    /**
+     * Очистить информацию об резльтате ответа
+     */
+    void clearInformantsResultQuestion();
 }

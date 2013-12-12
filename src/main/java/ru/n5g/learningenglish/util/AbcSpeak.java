@@ -14,7 +14,8 @@ public class AbcSpeak
     public void speakABC(ABC abc) throws IOException, JavaLayerException
     {
         String bip = abc.toString().toLowerCase().concat(".mp3");
-        URL resource = getClass().getResource(bip);
+        String packageMp3="/ru/n5g/learningenglish/mp3/";
+        URL resource = getClass().getResource(packageMp3+bip);
         if (resource == null)
         {
             throw new RuntimeException("not found sample: " + bip);

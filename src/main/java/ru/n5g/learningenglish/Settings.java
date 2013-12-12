@@ -5,5 +5,8 @@ package ru.n5g.learningenglish;
  * 11.12.13.
  */
 public class Settings {
+  /**
+   * Количество повторов
+   */
     public static Integer numberRepetitions = 50;
 }

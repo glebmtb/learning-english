@@ -5,6 +5,7 @@ import ru.n5g.learningenglish.controller.AbcExerciseController;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 /**
  * Belyaev Gleb
@@ -74,9 +75,6 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
         enteringLetterText.setBounds(265, 45, 20, 20);
         enteringLetterText.setVisible(false);
 
-        //24pic
-        Icon inputResultIcon;
-        inputResultIcon = new ImageIcon();
         inputResultLabel = new JLabel();
         inputResultLabel.setBounds(295, 42, 24, 24);
         inputResultLabel.setVisible(false);
@@ -94,7 +92,6 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
         frame.setLayout(null);
 
         frame.add(startButton);
-
         frame.add(counterRepetitionLabel);
         frame.add(correctAnswersTextStartLabel);
         frame.add(correctAnswersLabel);
@@ -144,5 +141,24 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
     @Override
     public void setPassedQuestions(String passedQuestions) {
         passedQuestionsLabel.setText(passedQuestions);
+    }
+
+    @Override
+    public void setResultQuestion(boolean isSuccessfully) {
+        String packageIco = "/ru/n5g/learningenglish/ico/";
+        URL iconFile;
+        if (isSuccessfully) {
+            iconFile = getClass().getResource(packageIco + "yes.png");
+        } else {
+            iconFile = getClass().getResource(packageIco + "no.png");
+        }
+        Icon inputResultIcon;
+        inputResultIcon = new ImageIcon(iconFile.getFile());
+        inputResultLabel.setIcon(inputResultIcon);
+    }
+
+    @Override
+    public void clearInformantsResultQuestion() {
+        inputResultLabel.setIcon(null);
     }
 }

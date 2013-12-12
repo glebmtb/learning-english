@@ -19,5 +19,7 @@ public class AbcExerciseController {
         view.setCounterRepetition("0/50");
         view.setCorrectAnswers("0");
         view.setPassedQuestions("0");
+        view.setResultQuestion(true);
+        view.clearInformantsResultQuestion();
     }
 }
