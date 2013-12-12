@@ -45,4 +45,15 @@ public interface ExerciseView {
      * Получения введенный ответ пользователем
      */
     String getEnteredText();
+
+    /**
+     * Записать правельный ответ
+     */
+    void setRightAnswer(String rightAnswer);
+
+    /**
+     * Записать результат тестов
+     * Пример: "10 правельных из 20"
+     */
+    void setResultTest(String resultTest);
 }

@@ -15,7 +15,10 @@ import java.net.URL;
  */
 public class AbcExerciseViewImpl implements AbcExerciseView {
     private AbcExerciseController controller;
+
     private JButton startButton;
+    private JLabel resultTestTextLabel;
+    private JLabel resultTestLabel;
 
     private JLabel counterRepetitionLabel;
     private JLabel correctAnswersTextStartLabel;
@@ -24,6 +27,7 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
     private JLabel passedQuestionsLabel;
     private JLabel enteringLetterTextStartLabel;
     private JTextField enteringLetterText;
+    private JLabel rightAnswerLabel;
     private JLabel inputResultLabel;
 
     private JButton replaceButton;
@@ -48,6 +52,22 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
                 controller.clickStart();
             }
         });
+        startButton.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    controller.clickStart();
+                }
+            }
+        });
+
+        resultTestTextLabel = new JLabel("Ваше результат:");
+        resultTestTextLabel.setBounds(30, 80, 110, 20);
+        resultTestTextLabel.setVisible(false);
+
+        resultTestLabel = new JLabel();
+        resultTestLabel.setBounds(140, 80, 200, 20);
+        resultTestLabel.setVisible(false);
 
         counterRepetitionLabel = new JLabel();
         counterRepetitionLabel.setBounds(20, 15, 40, 20);
@@ -58,15 +78,15 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
         correctAnswersTextStartLabel.setVisible(false);
 
         correctAnswersLabel = new JLabel();
-        correctAnswersLabel.setBounds(260, 15, 30, 20);
+        correctAnswersLabel.setBounds(255, 15, 30, 20);
         correctAnswersLabel.setVisible(false);
 
         correctAnswersTextFromLabel = new JLabel("из:");
-        correctAnswersTextFromLabel.setBounds(290, 15, 20, 20);
+        correctAnswersTextFromLabel.setBounds(270, 15, 20, 20);
         correctAnswersTextFromLabel.setVisible(false);
 
         passedQuestionsLabel = new JLabel();
-        passedQuestionsLabel.setBounds(310, 15, 30, 20);
+        passedQuestionsLabel.setBounds(290, 15, 30, 20);
         passedQuestionsLabel.setVisible(false);
 
         enteringLetterTextStartLabel = new JLabel("Введите букву которая прозвучала:");
@@ -74,7 +94,7 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
         enteringLetterTextStartLabel.setVisible(false);
 
         enteringLetterText = new JTextField();
-        enteringLetterText.setBounds(265, 45, 20, 20);
+        enteringLetterText.setBounds(240, 45, 20, 20);
         enteringLetterText.setVisible(false);
         enteringLetterText.addActionListener(new ActionListener() {
             @Override
@@ -89,6 +109,10 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
             }
         });
 
+        rightAnswerLabel = new JLabel();
+        rightAnswerLabel.setBounds(265, 45, 20, 20);
+        rightAnswerLabel.setVisible(false);
+
         inputResultLabel = new JLabel();
         inputResultLabel.setBounds(295, 42, 24, 24);
         inputResultLabel.setVisible(false);
@@ -100,6 +124,7 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 controller.clickReplace();
+                enteringLetterText.grabFocus();
             }
         });
 
@@ -110,6 +135,7 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 controller.clickNext();
+                enteringLetterText.grabFocus();
             }
         });
 
@@ -118,6 +144,8 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
         frame.setLayout(null);
 
         frame.add(startButton);
+        frame.add(resultTestTextLabel);
+        frame.add(resultTestLabel);
         frame.add(counterRepetitionLabel);
         frame.add(correctAnswersTextStartLabel);
         frame.add(correctAnswersLabel);
@@ -125,6 +153,7 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
         frame.add(passedQuestionsLabel);
         frame.add(enteringLetterTextStartLabel);
         frame.add(enteringLetterText);
+        frame.add(rightAnswerLabel);
         frame.add(inputResultLabel);
         frame.add(replaceButton);
         frame.add(nextButton);
@@ -135,6 +164,10 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
     @Override
     public void setVisibleStartPage(boolean isVisible) {
         startButton.setVisible(isVisible);
+        resultTestTextLabel.setVisible(isVisible);
+        resultTestLabel.setVisible(isVisible);
+        if (isVisible)
+            startButton.grabFocus();
     }
 
     @Override
@@ -146,6 +179,7 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
         passedQuestionsLabel.setVisible(isVisible);
         enteringLetterTextStartLabel.setVisible(isVisible);
         enteringLetterText.setVisible(isVisible);
+        rightAnswerLabel.setVisible(isVisible);
         inputResultLabel.setVisible(isVisible);
         replaceButton.setVisible(isVisible);
         nextButton.setVisible(isVisible);
@@ -197,5 +231,15 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
             symbol = String.valueOf(word.charAt(0)).toUpperCase();
         }
         return symbol;
+    }
+
+    @Override
+    public void setRightAnswer(String rightAnswer) {
+        rightAnswerLabel.setText(rightAnswer);
+    }
+
+    @Override
+    public void setResultTest(String resultTest) {
+        resultTestLabel.setText(resultTest);
     }
 }

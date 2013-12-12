@@ -3,7 +3,6 @@ package ru.n5g.learningenglish.view;
 import ru.n5g.learningenglish.controller.NumberFrom0To20ExerciseController;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -57,7 +56,7 @@ public class NumberFrom0To20ExerciseViewImpl implements NumberFrom0To20ExerciseV
         startButton.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode()==KeyEvent.VK_ENTER){
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     controller.clickStart();
                 }
             }
@@ -124,6 +123,7 @@ public class NumberFrom0To20ExerciseViewImpl implements NumberFrom0To20ExerciseV
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.clickVerify();
+                inputFieldResponse.grabFocus();
             }
         });
 
@@ -134,6 +134,7 @@ public class NumberFrom0To20ExerciseViewImpl implements NumberFrom0To20ExerciseV
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.clickNext();
+                inputFieldResponse.grabFocus();
             }
         });
 

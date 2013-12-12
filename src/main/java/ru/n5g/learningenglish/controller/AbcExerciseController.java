@@ -44,9 +44,11 @@ public class AbcExerciseController {
     }
 
     public void clickNext() {
-        if(currentQuestion.equals(currentQuestion)){
+        if (currentQuestion.equals(totalQuestions)) {
+            view.setResultTest("правельных ответов: " + trueQuestions + " из: " + totalQuestions);
             view.setVisibleStartPage(true);
             view.setVisibleLessonPage(false);
+            return;
         }
         nextQuestions();
     }
@@ -65,6 +67,8 @@ public class AbcExerciseController {
         view.setResultQuestion(trueQuestion);
         if (trueQuestion) {
             trueQuestions++;
+        } else {
+            view.setRightAnswer(String.valueOf(symbol).toUpperCase());
         }
 
         isEnteredSymbol = true;
@@ -83,5 +87,6 @@ public class AbcExerciseController {
         isEnteredSymbol = false;
         refreshInfo();
         abcSpeak.speakABC(symbol);
+        view.setRightAnswer("");
     }
 }

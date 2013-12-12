@@ -59,6 +59,7 @@ public class NumberFrom0To20ExerciseController {
             view.setResultTest("правельных ответов: " + trueQuestions + " из: " + totalQuestions);
             view.setVisibleStartPage(true);
             view.setVisibleLessonPage(false);
+            return;
         }
         nextQuestion();
     }
