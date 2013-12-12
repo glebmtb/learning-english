@@ -8,5 +8,5 @@ public class Settings {
   /**
    * Количество повторов
    */
-    public static Integer numberRepetitions = 50;
+    public static int numberRepetitions = 50;
 }

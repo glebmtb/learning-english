@@ -50,7 +50,7 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
         });
 
         counterRepetitionLabel = new JLabel();
-        counterRepetitionLabel.setBounds(20, 15, 30, 20);
+        counterRepetitionLabel.setBounds(20, 15, 40, 20);
         counterRepetitionLabel.setVisible(false);
 
         correctAnswersTextStartLabel = new JLabel("Правельных ответов:");
@@ -58,7 +58,7 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
         correctAnswersTextStartLabel.setVisible(false);
 
         correctAnswersLabel = new JLabel();
-        correctAnswersLabel.setBounds(270, 15, 10, 20);
+        correctAnswersLabel.setBounds(260, 15, 30, 20);
         correctAnswersLabel.setVisible(false);
 
         correctAnswersTextFromLabel = new JLabel("из:");
@@ -66,7 +66,7 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
         correctAnswersTextFromLabel.setVisible(false);
 
         passedQuestionsLabel = new JLabel();
-        passedQuestionsLabel.setBounds(320, 15, 10, 20);
+        passedQuestionsLabel.setBounds(310, 15, 30, 20);
         passedQuestionsLabel.setVisible(false);
 
         enteringLetterTextStartLabel = new JLabel("Введите букву которая прозвучала:");
@@ -186,6 +186,7 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
     @Override
     public void clearInformantsResultQuestion() {
         inputResultLabel.setIcon(null);
+        enteringLetterText.setText("");
     }
 
     @Override
