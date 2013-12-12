@@ -1,9 +1,7 @@
 package ru.n5g.learningenglish.util;
 
-import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 
-import java.io.IOException;
 import java.net.URL;
 
 /**
@@ -11,7 +9,7 @@ import java.net.URL;
  */
 public class AbcSpeak
 {
-    public void speakABC(ABC abc) throws IOException, JavaLayerException
+    public void speakABC(ABC abc)
     {
         String bip = abc.toString().toLowerCase().concat(".mp3");
         String packageMp3="/ru/n5g/learningenglish/mp3/";
@@ -21,7 +19,11 @@ public class AbcSpeak
             throw new RuntimeException("not found sample: " + bip);
         }
         AdvancedPlayer player;
-        player = new AdvancedPlayer(resource.openStream());
-        player.play();
+        try {
+            player = new AdvancedPlayer(resource.openStream());
+            player.play();
+        } catch (Exception ignore) {
+
+        }
     }
 }

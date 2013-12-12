@@ -5,6 +5,8 @@ import ru.n5g.learningenglish.controller.AbcExerciseController;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.net.URL;
 
 /**
@@ -74,6 +76,18 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
         enteringLetterText = new JTextField();
         enteringLetterText.setBounds(265, 45, 20, 20);
         enteringLetterText.setVisible(false);
+        enteringLetterText.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                controller.clickNext();
+            }
+        });
+        enteringLetterText.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent keyEvent) {
+                controller.enteredSymbol();
+            }
+        });
 
         inputResultLabel = new JLabel();
         inputResultLabel.setBounds(295, 42, 24, 24);
@@ -82,10 +96,22 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
         replaceButton = new JButton("Повторить");
         replaceButton.setBounds(20, 80, 110, 25);
         replaceButton.setVisible(false);
+        replaceButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                controller.clickReplace();
+            }
+        });
 
         nextButton = new JButton("Следующая буква");
         nextButton.setBounds(150, 80, 180, 25);
         nextButton.setVisible(false);
+        nextButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                controller.clickNext();
+            }
+        });
 
         JFrame frame = new JFrame("Диктовка английского алфовита");
         frame.setBounds(400, 400, 350, 150);
@@ -160,5 +186,15 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
     @Override
     public void clearInformantsResultQuestion() {
         inputResultLabel.setIcon(null);
+    }
+
+    @Override
+    public String getEnteredSymbol() {
+        String word = enteringLetterText.getText();
+        String symbol = "none";
+        if (word != null && !word.isEmpty()) {
+            symbol = String.valueOf(word.charAt(0)).toUpperCase();
+        }
+        return symbol;
     }
 }

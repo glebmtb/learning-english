@@ -40,4 +40,9 @@ public interface AbcExerciseView {
      * Очистить информацию об резльтате ответа
      */
     void clearInformantsResultQuestion();
+
+    /**
+     * Получения введенного сивола пользователем
+     */
+    String getEnteredSymbol();
 }
