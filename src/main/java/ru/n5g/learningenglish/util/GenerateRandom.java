@@ -9,8 +9,13 @@ import java.util.Random;
  * 12.12.13.
  */
 public class GenerateRandom {
+    private static Random random = new Random(System.nanoTime());
+
     public static ABC randomABC(){
-        Random random = new Random(System.nanoTime());
         return ABC.values()[random.nextInt(ABC.values().length)];
+    }
+
+    public static Integer randomNumberTo20() {
+        return random.nextInt(21);
     }
 }

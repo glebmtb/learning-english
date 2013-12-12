@@ -24,7 +24,7 @@ public interface ExerciseView {
     /**
      * Записать количество правельных ответов
      */
-    void setCorrectAnswers(String correctAnswers);
+    void setTrueQuestions(String correctAnswers);
 
     /**
      * Записать количество пройденых вопросов

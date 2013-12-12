@@ -160,7 +160,7 @@ public class AbcExerciseViewImpl implements AbcExerciseView {
     }
 
     @Override
-    public void setCorrectAnswers(String correctAnswers) {
+    public void setTrueQuestions(String correctAnswers) {
         correctAnswersLabel.setText(correctAnswers);
     }
 

@@ -45,7 +45,8 @@ public class AbcExerciseController {
 
     public void clickNext() {
         if(currentQuestion.equals(currentQuestion)){
-            //TODO the end
+            view.setVisibleStartPage(true);
+            view.setVisibleLessonPage(false);
         }
         nextQuestions();
     }
@@ -71,7 +72,7 @@ public class AbcExerciseController {
 
     private void refreshInfo() {
         view.setCounterRepetition(currentQuestion + "/" + totalQuestions);
-        view.setCorrectAnswers(trueQuestions.toString());
+        view.setTrueQuestions(trueQuestions.toString());
         view.setPassedQuestions(String.valueOf(currentQuestion - 1));
         view.clearInformantsResultQuestion();
     }

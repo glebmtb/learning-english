@@ -1,20 +1,25 @@
 package ru.n5g.learningenglish.view;
 
-import ru.n5g.learningenglish.controller.NumberFrom1To10ExerciseController;
+import ru.n5g.learningenglish.controller.NumberFrom0To20ExerciseController;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.net.URL;
 
 /**
  * Gleb Belyaev
  * 12.12.13.
  */
-public class NumberFrom1To10ExerciseViewImpl implements NumberFrom1To10ExerciseView {
-    private NumberFrom1To10ExerciseController controller;
+public class NumberFrom0To20ExerciseViewImpl implements NumberFrom0To20ExerciseView {
+    private NumberFrom0To20ExerciseController controller;
 
     private JButton startButton;
+    private JLabel resultTestTextLabel;
+    private JLabel resultTestLabel;
 
     private JLabel counterRepetitionLabel;
     private JLabel correctAnswersTextStartLabel;
@@ -31,14 +36,14 @@ public class NumberFrom1To10ExerciseViewImpl implements NumberFrom1To10ExerciseV
     private JButton verifyButton;
     private JButton nextButton;
 
-    public NumberFrom1To10ExerciseViewImpl() {
-        controller = new NumberFrom1To10ExerciseController(this);
+    public NumberFrom0To20ExerciseViewImpl() {
+        controller = new NumberFrom0To20ExerciseController(this);
         initComponents();
     }
 
     /**
      * Протатип
-     * http://joxi.ru/VJ6pUhjKTJB8eZpFMCg
+     * http://joxi.ru/TaypUv3JTJDAIVQRmQs
      */
     private void initComponents() {
         startButton = new JButton("Начать");
@@ -49,6 +54,22 @@ public class NumberFrom1To10ExerciseViewImpl implements NumberFrom1To10ExerciseV
                 controller.clickStart();
             }
         });
+        startButton.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode()==KeyEvent.VK_ENTER){
+                    controller.clickStart();
+                }
+            }
+        });
+
+        resultTestTextLabel = new JLabel("Ваше результат:");
+        resultTestTextLabel.setBounds(30, 125, 110, 20);
+        resultTestTextLabel.setVisible(false);
+
+        resultTestLabel = new JLabel();
+        resultTestLabel.setBounds(140, 125, 200, 20);
+        resultTestLabel.setVisible(false);
 
         counterRepetitionLabel = new JLabel();
         counterRepetitionLabel.setBounds(20, 15, 40, 20);
@@ -107,7 +128,7 @@ public class NumberFrom1To10ExerciseViewImpl implements NumberFrom1To10ExerciseV
         });
 
         nextButton = new JButton("Следующая цифра");
-        nextButton.setBounds(150,135,180,25);
+        nextButton.setBounds(150, 135, 180, 25);
         nextButton.setVisible(false);
         nextButton.addActionListener(new ActionListener() {
             @Override
@@ -121,6 +142,8 @@ public class NumberFrom1To10ExerciseViewImpl implements NumberFrom1To10ExerciseV
         frame.setLayout(null);
 
         frame.add(startButton);
+        frame.add(resultTestTextLabel);
+        frame.add(resultTestLabel);
         frame.add(counterRepetitionLabel);
         frame.add(correctAnswersTextStartLabel);
         frame.add(correctAnswersLabel);
@@ -140,6 +163,10 @@ public class NumberFrom1To10ExerciseViewImpl implements NumberFrom1To10ExerciseV
     @Override
     public void setVisibleStartPage(boolean isVisible) {
         startButton.setVisible(isVisible);
+        resultTestTextLabel.setVisible(isVisible);
+        resultTestLabel.setVisible(isVisible);
+        if (isVisible)
+            startButton.grabFocus();
     }
 
     @Override
@@ -156,6 +183,8 @@ public class NumberFrom1To10ExerciseViewImpl implements NumberFrom1To10ExerciseV
         inputResultLabel.setVisible(isVisible);
         verifyButton.setVisible(isVisible);
         nextButton.setVisible(isVisible);
+        if (isVisible)
+            inputFieldResponse.grabFocus();
     }
 
     @Override
@@ -164,7 +193,7 @@ public class NumberFrom1To10ExerciseViewImpl implements NumberFrom1To10ExerciseV
     }
 
     @Override
-    public void setCorrectAnswers(String correctAnswers) {
+    public void setTrueQuestions(String correctAnswers) {
         correctAnswersLabel.setText(correctAnswers);
     }
 
@@ -207,5 +236,10 @@ public class NumberFrom1To10ExerciseViewImpl implements NumberFrom1To10ExerciseV
     @Override
     public void setRightAnswer(String rightAnswer) {
         rightAnswerLabel.setText(rightAnswer);
+    }
+
+    @Override
+    public void setResultTest(String resultTest) {
+        resultTestLabel.setText(resultTest);
     }
 }
