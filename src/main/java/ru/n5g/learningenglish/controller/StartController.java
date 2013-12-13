@@ -1,7 +1,8 @@
 package ru.n5g.learningenglish.controller;
 
-import ru.n5g.learningenglish.view.AbcExerciseViewImpl;
-import ru.n5g.learningenglish.view.NumberFrom0To20ExerciseViewImpl;
+import ru.n5g.learningenglish.view.AbcExerciseView;
+import ru.n5g.learningenglish.view.NumberFrom0To20ExerciseView;
+import ru.n5g.learningenglish.view.NumberFrom0ToMoreExerciseView;
 import ru.n5g.learningenglish.view.StartView;
 
 /**
@@ -25,21 +26,21 @@ public class StartController {
      * Диктовка алфавита
      */
     public void clickAbcExercise() {
-        new AbcExerciseViewImpl();
+        new AbcExerciseView();
     }
 
     /**
      * Диктовка цифр с 1 до 10
      */
     public void clickNumberFrom1To10Exercise() {
-        new NumberFrom0To20ExerciseViewImpl();
+        new NumberFrom0To20ExerciseView();
     }
 
     /**
      * Диктовка цифр с 1 до 1.999.999.999
      */
     public void clickNumberFrom1To1999999999Exercise() {
-
+        new NumberFrom0ToMoreExerciseView();
     }
 
     /**

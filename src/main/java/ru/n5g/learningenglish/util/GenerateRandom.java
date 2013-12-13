@@ -18,4 +18,8 @@ public class GenerateRandom {
     public static Integer randomNumberTo20() {
         return random.nextInt(21);
     }
+
+    public static Integer randomNumberToMax() {
+        return random.nextInt(Integer.MAX_VALUE);
+    }
 }

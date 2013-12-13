@@ -12,25 +12,26 @@ import java.net.URL;
  */
 public abstract class ExerciseViewAbs implements ExerciseView {
 
+    protected JButton startButton;
+    protected JLabel resultTestTextLabel;
+    protected JLabel resultTestLabel;
 
-    private JButton startButton;
-    private JLabel resultTestTextLabel;
-    private JLabel resultTestLabel;
+    protected JLabel counterRepetitionLabel;
+    protected JLabel correctAnswersTextStartLabel;
+    protected JLabel correctAnswersLabel;
+    protected JLabel correctAnswersTextFromLabel;
+    protected JLabel passedQuestionsLabel;
 
-    private JLabel counterRepetitionLabel;
-    private JLabel correctAnswersTextStartLabel;
-    private JLabel correctAnswersLabel;
-    private JLabel correctAnswersTextFromLabel;
-    private JLabel passedQuestionsLabel;
+    protected JLabel commandInfoLabel;
+    protected JLabel textForInputLabel;
+    protected JLabel rightAnswerLabel;
+    protected JTextField inputFieldResponse;
+    protected JLabel inputResultLabel;
 
-    private JLabel commandInfoLabel;
-    private JLabel textForInputLabel;
-    private JLabel rightAnswerLabel;
-    private JTextField inputFieldResponse;
-    private JLabel inputResultLabel;
+    protected JButton verifyButton;
+    protected JButton nextButton;
 
-    private JButton verifyButton;
-    private JButton nextButton;
+    protected JFrame frame;
 
     public ExerciseViewAbs() {
         initComponents();
@@ -40,7 +41,7 @@ public abstract class ExerciseViewAbs implements ExerciseView {
      * Протатип
      * http://joxi.ru/TaypUv3JTJDAIVQRmQs
      */
-    private void initComponents() {
+    protected void initComponents() {
         startButton = new JButton("Начать");
         startButton.setBounds(75, 30, 200, 40);
         startButton.addActionListener(new ActionListener() {
@@ -75,15 +76,15 @@ public abstract class ExerciseViewAbs implements ExerciseView {
         correctAnswersTextStartLabel.setVisible(false);
 
         correctAnswersLabel = new JLabel();
-        correctAnswersLabel.setBounds(260, 15, 30, 20);
+        correctAnswersLabel.setBounds(250, 15, 30, 20);
         correctAnswersLabel.setVisible(false);
 
         correctAnswersTextFromLabel = new JLabel("из:");
-        correctAnswersTextFromLabel.setBounds(290, 15, 20, 20);
+        correctAnswersTextFromLabel.setBounds(270, 15, 20, 20);
         correctAnswersTextFromLabel.setVisible(false);
 
         passedQuestionsLabel = new JLabel();
-        passedQuestionsLabel.setBounds(310, 15, 30, 20);
+        passedQuestionsLabel.setBounds(290, 15, 30, 20);
         passedQuestionsLabel.setVisible(false);
 
         commandInfoLabel = new JLabel("Введите цифру на английском языке:");
@@ -134,7 +135,7 @@ public abstract class ExerciseViewAbs implements ExerciseView {
             }
         });
 
-        JFrame frame = new JFrame("Диктовка цифр");
+        frame = new JFrame("Диктовка цифр");
         frame.setBounds(400, 400, 360, 210);
         frame.setLayout(null);
 

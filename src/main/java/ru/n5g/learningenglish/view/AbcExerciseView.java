@@ -13,7 +13,7 @@ import java.net.URL;
  * Belyaev Gleb
  * 11.12.13.
  */
-public class AbcExerciseViewImpl implements ExerciseView {
+public class AbcExerciseView implements ExerciseView {
     private AbcExerciseController controller;
 
     private JButton startButton;
@@ -34,7 +34,7 @@ public class AbcExerciseViewImpl implements ExerciseView {
     private JButton nextButton;
 
 
-    public AbcExerciseViewImpl() {
+    public AbcExerciseView() {
         this.controller = new AbcExerciseController(this);
         initComponents();
     }

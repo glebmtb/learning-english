@@ -6,10 +6,10 @@ import ru.n5g.learningenglish.controller.NumberFrom0To20ExerciseController;
  * Gleb Belyaev
  * 12.12.13.
  */
-public class NumberFrom0To20ExerciseViewImpl extends ExerciseViewAbs {
+public class NumberFrom0To20ExerciseView extends ExerciseViewAbs {
     private NumberFrom0To20ExerciseController controller;
 
-    public NumberFrom0To20ExerciseViewImpl() {
+    public NumberFrom0To20ExerciseView() {
         controller = new NumberFrom0To20ExerciseController(this);
     }
 
