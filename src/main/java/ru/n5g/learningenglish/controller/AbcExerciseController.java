@@ -3,7 +3,7 @@ package ru.n5g.learningenglish.controller;
 import ru.n5g.learningenglish.Settings;
 import ru.n5g.learningenglish.util.ABC;
 import ru.n5g.learningenglish.util.AbcSpeak;
-import ru.n5g.learningenglish.view.AbcExerciseView;
+import ru.n5g.learningenglish.view.ExerciseView;
 
 import static ru.n5g.learningenglish.util.GenerateRandom.randomABC;
 
@@ -12,7 +12,7 @@ import static ru.n5g.learningenglish.util.GenerateRandom.randomABC;
  * 11.12.13.
  */
 public class AbcExerciseController {
-    private AbcExerciseView view;
+    private ExerciseView view;
     private AbcSpeak abcSpeak;
 
     private Integer currentQuestion;
@@ -21,7 +21,7 @@ public class AbcExerciseController {
     private ABC symbol;
     private boolean isEnteredSymbol;
 
-    public AbcExerciseController(AbcExerciseView view) {
+    public AbcExerciseController(ExerciseView view) {
         this.view = view;
         abcSpeak = new AbcSpeak();
     }

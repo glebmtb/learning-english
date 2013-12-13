@@ -3,14 +3,14 @@ package ru.n5g.learningenglish.controller;
 import ru.n5g.learningenglish.Settings;
 import ru.n5g.learningenglish.util.GenerateRandom;
 import ru.n5g.learningenglish.util.TextForNumber;
-import ru.n5g.learningenglish.view.NumberFrom0To20ExerciseView;
+import ru.n5g.learningenglish.view.ExerciseView;
 
 /**
  * Gleb Belyaev
  * 12.12.13.
  */
 public class NumberFrom0To20ExerciseController {
-    private NumberFrom0To20ExerciseView view;
+    private ExerciseView view;
 
     private Integer currentQuestion;
     private Integer totalQuestions;
@@ -19,7 +19,7 @@ public class NumberFrom0To20ExerciseController {
 
     private Integer number;
 
-    public NumberFrom0To20ExerciseController(NumberFrom0To20ExerciseView view) {
+    public NumberFrom0To20ExerciseController(ExerciseView view) {
         this.view = view;
     }
 

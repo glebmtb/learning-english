@@ -56,4 +56,9 @@ public interface ExerciseView {
      * Пример: "10 правельных из 20"
      */
     void setResultTest(String resultTest);
+
+    /**
+     * Показать текст который нужжно ввести на английском
+     */
+    void setTextForInput(String textForInput);
 }
