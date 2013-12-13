@@ -20,6 +20,8 @@ public class StartViewImpl implements StartView{
         initComponents();
     }
 
+    //TODO добавить времена года
+    //TODO добавить неправельные глаголы
     private void initComponents() {
         int yPosition = 0;
         int leftMargin = 10;
@@ -101,7 +103,6 @@ public class StartViewImpl implements StartView{
                 controller.clickMonthExercise();
             }
         });
-        monthExercise.setEnabled(false); //TODO
 
         JButton yearExercise = new JButton("Года");
         yearExercise.setBounds(leftMargin, yPosition += 50, widthButton, heightButton);

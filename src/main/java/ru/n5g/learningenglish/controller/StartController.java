@@ -1,9 +1,6 @@
 package ru.n5g.learningenglish.controller;
 
-import ru.n5g.learningenglish.view.AbcExerciseView;
-import ru.n5g.learningenglish.view.NumberFrom0To20ExerciseView;
-import ru.n5g.learningenglish.view.NumberFrom0ToMoreExerciseView;
-import ru.n5g.learningenglish.view.StartView;
+import ru.n5g.learningenglish.view.*;
 
 /**
  * Belyaev Gleb
@@ -11,6 +8,7 @@ import ru.n5g.learningenglish.view.StartView;
  */
 public class StartController {
     private StartView startView;
+
     public StartController(StartView startView) {
         this.startView = startView;
     }
@@ -68,7 +66,7 @@ public class StartController {
      * Диктовка названия месяцов
      */
     public void clickMonthExercise() {
-
+        new MonthExerciseView();
     }
 
     /**
