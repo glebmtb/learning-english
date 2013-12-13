@@ -213,7 +213,7 @@ public class AbcExerciseView implements ExerciseView {
             iconFile = getClass().getResource(packageIco + "no.png");
         }
         Icon inputResultIcon;
-        inputResultIcon = new ImageIcon(iconFile.getFile());
+        inputResultIcon = new ImageIcon(iconFile);
         inputResultLabel.setIcon(inputResultIcon);
     }
 
