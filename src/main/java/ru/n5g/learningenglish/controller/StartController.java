@@ -95,4 +95,11 @@ public class StartController {
     public void clickTimesYearExercise() {
         new TimesYearExerciseView();
     }
+
+    /**
+     * Неправельные глаголы
+     */
+    public void clickIrregularVerbsExercise() {
+
+    }
 }
