@@ -46,7 +46,7 @@ public class StartViewImpl implements StartView {
             }
         });
 
-        JButton numberFrom1To10Exercise = new JButton("Числа N0-20");
+        JButton numberFrom1To10Exercise = new JButton("Числа от 0 до 20");
         numberFrom1To10Exercise.setBounds(leftMargin, yPosition += heightButton + topMargin, widthButton, heightButton);
         numberFrom1To10Exercise.addActionListener(new ActionListener() {
             @Override
@@ -55,7 +55,7 @@ public class StartViewImpl implements StartView {
             }
         });
 
-        JButton numberFrom1To1999999999Exercise = new JButton("Числа N0-1,999,999,999");
+        JButton numberFrom1To1999999999Exercise = new JButton("Числа от 0 до 1,999,999,999");
         numberFrom1To1999999999Exercise.setBounds(leftMargin, yPosition += heightButton + topMargin, widthButton, heightButton);
         numberFrom1To1999999999Exercise.addActionListener(new ActionListener() {
             @Override
