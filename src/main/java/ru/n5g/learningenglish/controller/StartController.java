@@ -44,7 +44,7 @@ public class StartController {
      * Диктовка числительных с 1 до 31
      */
     public void clickNumberFrom1stTo31thExercise() {
-
+        new NumeralExerciseView();
     }
 
     /**

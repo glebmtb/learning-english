@@ -9,10 +9,10 @@ import java.util.Random;
  * 13.12.13.
  */
 public class TimesYears {
-    private static Map<String, String> months = getMonths();
+    private static Map<String, String> timesYears = getTimesYears();
     private static Random random = new Random(System.nanoTime());
 
-    private static Map<String, String> getMonths() {
+    private static Map<String, String> getTimesYears() {
         Map<String, String> months = new HashMap<String, String>();
         months.put("весна", "spring");
         months.put("лето", "summer");
@@ -24,10 +24,10 @@ public class TimesYears {
 
     public static String getRandomTimesYear(){
         int month = random.nextInt(4);
-        return String.valueOf(months.keySet().toArray()[month]);
+        return String.valueOf(timesYears.keySet().toArray()[month]);
     }
 
-    public static String translateTimesYear(String month){
-        return months.get(month);
+    public static String translateTimesYear(String timesYear){
+        return timesYears.get(timesYear);
     }
 }

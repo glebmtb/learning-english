@@ -20,7 +20,6 @@ public class StartViewImpl implements StartView {
         initComponents();
     }
 
-    //TODO добавить неправельные глаголы
     private void initComponents() {
         int yPosition = 0;
         int leftMargin = 10;
@@ -73,7 +72,6 @@ public class StartViewImpl implements StartView {
                 controller.clickNumberFrom1stTo31thExercise();
             }
         });
-        numberFrom1stTo31thExercise.setEnabled(false); //TODO
 
         JButton clockExercise = new JButton("Время");
         clockExercise.setBounds(leftMargin, yPosition += heightButton + topMargin, widthButton, heightButton);

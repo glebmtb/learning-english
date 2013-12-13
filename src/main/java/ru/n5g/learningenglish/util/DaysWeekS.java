@@ -9,10 +9,10 @@ import java.util.Random;
  * 13.12.13.
  */
 public class DaysWeeks {
-    private static Map<String, String> months = getMonths();
+    private static Map<String, String> daysWeeks = getDaysWeeks();
     private static Random random = new Random(System.nanoTime());
 
-    private static Map<String, String> getMonths() {
+    private static Map<String, String> getDaysWeeks() {
         Map<String, String> months = new HashMap<String, String>();
         months.put("понедельник", "monday");
         months.put("вторник", "tuesday");
@@ -27,10 +27,10 @@ public class DaysWeeks {
 
     public static String getRandomDaysWeek(){
         int month = random.nextInt(7);
-        return String.valueOf(months.keySet().toArray()[month]);
+        return String.valueOf(daysWeeks.keySet().toArray()[month]);
     }
 
-    public static String translateDaysWeek(String month){
-        return months.get(month);
+    public static String translateDaysWeek(String daysWeek){
+        return daysWeeks.get(daysWeek);
     }
 }
