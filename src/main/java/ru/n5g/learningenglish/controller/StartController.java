@@ -59,7 +59,7 @@ public class StartController {
      * Диктовка дней недели
      */
     public void clickDaysWeekExercise() {
-
+        new DaysWeekExerciseView();
     }
 
     /**

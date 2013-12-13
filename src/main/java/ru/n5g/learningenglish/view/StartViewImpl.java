@@ -93,7 +93,6 @@ public class StartViewImpl implements StartView{
                 controller.clickDaysWeekExercise();
             }
         });
-        daysWeekExercise.setEnabled(false); //TODO
 
         JButton monthExercise = new JButton("Месяца");
         monthExercise.setBounds(leftMargin, yPosition += 50, widthButton, heightButton);

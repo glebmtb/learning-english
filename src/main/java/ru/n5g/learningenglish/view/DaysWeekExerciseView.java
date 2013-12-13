@@ -1,24 +1,24 @@
 package ru.n5g.learningenglish.view;
 
-import ru.n5g.learningenglish.controller.MonthExerciseController;
+import ru.n5g.learningenglish.controller.DaysWeekExerciseController;
 
 /**
  * Gleb Belyaev
  * 13.12.13.
  */
-public class MonthExerciseView extends ExerciseViewAbs {
+public class DaysWeekExerciseView extends ExerciseViewAbs{
+    private DaysWeekExerciseController controller;
 
-    private MonthExerciseController controller;
-
-    public MonthExerciseView() {
-        controller = new MonthExerciseController(this);
+    public DaysWeekExerciseView() {
+        controller = new DaysWeekExerciseController(this);
     }
 
     @Override
     protected void initComponents() {
         super.initComponents();
-        frame.setTitle("Диктовка название месяца");
-        commandInfoLabel.setText("Введите название месяца на английском:");
+        frame.setTitle("Диктовка дней недели");
+        commandInfoLabel.setText("Введите название дня недели на английском:");
+        commandInfoLabel.setBounds(30, 35, 300, 20);
     }
 
     @Override
