@@ -5,8 +5,14 @@ package ru.n5g.learningenglish;
  * 11.12.13.
  */
 public class Settings {
-  /**
-   * Количество повторов
-   */
-    public static int numberRepetitions = 50;
+    /**
+     * Количество повторов
+     */
+    public static int numberRepetitionsAbc = 60;
+    public static int numberRepetitionsNumberFrom0To20 = 40;
+    public static int numberRepetitionsNumberFrom0ToMore = 10;
+    public static int numberRepetitionsMonth = 40;
+    public static int numberRepetitionsTimesYear = 20;
+    public static int numberRepetitionsNumeral = 40;
+    public static int numberRepetitionsDaysWeek = 30;
 }

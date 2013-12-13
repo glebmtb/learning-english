@@ -1,5 +1,6 @@
 package ru.n5g.learningenglish.controller;
 
+import ru.n5g.learningenglish.Settings;
 import ru.n5g.learningenglish.util.GenerateRandom;
 import ru.n5g.learningenglish.util.TextForNumber;
 import ru.n5g.learningenglish.view.ExerciseView;
@@ -18,6 +19,11 @@ public class NumberFrom0ToMoreExerciseController extends ExerciseControllerAbs{
     public NumberFrom0ToMoreExerciseController(ExerciseView view) {
         super(view);
         myFormatter = new DecimalFormat("###,###");
+    }
+
+    @Override
+    protected Integer getTotalQuestions() {
+        return Settings.numberRepetitionsNumberFrom0ToMore;
     }
 
     @Override

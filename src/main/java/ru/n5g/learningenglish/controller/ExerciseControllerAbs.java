@@ -24,11 +24,13 @@ public abstract class ExerciseControllerAbs {
         view.setVisibleLessonPage(true);
 
         currentQuestion = 0;
-        totalQuestions = Settings.numberRepetitions;
+        totalQuestions = getTotalQuestions();
         trueQuestions = 0;
         view.setTrueQuestions("0");
         nextQuestion();
     }
+
+    protected abstract Integer getTotalQuestions();
 
     public void clickNext() {
         if (currentQuestion.equals(totalQuestions)) {

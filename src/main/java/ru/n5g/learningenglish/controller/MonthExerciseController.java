@@ -1,5 +1,6 @@
 package ru.n5g.learningenglish.controller;
 
+import ru.n5g.learningenglish.Settings;
 import ru.n5g.learningenglish.util.Months;
 import ru.n5g.learningenglish.view.ExerciseView;
 
@@ -20,6 +21,11 @@ public class MonthExerciseController extends ExerciseControllerAbs {
 
     public MonthExerciseController(ExerciseView view) {
         super(view);
+    }
+
+    @Override
+    protected Integer getTotalQuestions() {
+        return Settings.numberRepetitionsMonth;
     }
 
     @Override

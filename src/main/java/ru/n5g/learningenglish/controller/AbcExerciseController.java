@@ -31,7 +31,7 @@ public class AbcExerciseController {
         view.setVisibleLessonPage(true);
 
         currentQuestion = 0;
-        totalQuestions = Settings.numberRepetitions;
+        totalQuestions = Settings.numberRepetitionsAbc;
         trueQuestions = 0;
         symbol = null;
         isEnteredSymbol = false;

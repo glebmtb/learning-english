@@ -1,5 +1,6 @@
 package ru.n5g.learningenglish.controller;
 
+import ru.n5g.learningenglish.Settings;
 import ru.n5g.learningenglish.util.TextForNumber;
 import ru.n5g.learningenglish.view.ExerciseView;
 
@@ -16,6 +17,11 @@ public class NumberFrom0To20ExerciseController extends ExerciseControllerAbs {
 
     public NumberFrom0To20ExerciseController(ExerciseView view) {
         super(view);
+    }
+
+    @Override
+    protected Integer getTotalQuestions() {
+        return Settings.numberRepetitionsNumberFrom0To20;
     }
 
     @Override
