@@ -2,6 +2,7 @@ package ru.n5g.learningenglish.controller;
 
 import ru.n5g.learningenglish.Settings;
 import ru.n5g.learningenglish.util.Months;
+import ru.n5g.learningenglish.util.PlayerMpr3;
 import ru.n5g.learningenglish.view.ExerciseView;
 
 import static ru.n5g.learningenglish.util.Months.getRandomMonth;
@@ -16,9 +17,6 @@ public class MonthExerciseController extends ExerciseControllerAbs {
     private String month;
 
 
-    //TODO прикрутить звук после ответа
-    //http://englishon-line.narod.ru/grammatika-spravochnik24.html
-
     public MonthExerciseController(ExerciseView view) {
         super(view);
     }
@@ -30,7 +28,9 @@ public class MonthExerciseController extends ExerciseControllerAbs {
 
     @Override
     protected String getRightAnswer() {
-        return translateMonth(month);
+        String translate = translateMonth(month);
+        PlayerMpr3.play("month/" + translate);
+        return translate;
     }
 
     @Override

@@ -8,11 +8,9 @@ import java.util.concurrent.Executors;
 /**
  * @author Belyaev
  */
-public class AbcSpeak
-{
-    public void speakABC(final ABC abc)
-    {
+public class AbcSpeak {
+    public void speakABC(final ABC abc) {
         String bip = abc.toString();
-        PlayerMpr3.play(bip);
+        PlayerMpr3.play("abc/" + bip);
     }
 }
