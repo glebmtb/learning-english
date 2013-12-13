@@ -7,10 +7,9 @@ import ru.n5g.learningenglish.view.*;
  * 11.12.13.
  */
 public class StartController {
-    private StartView startView;
 
     public StartController(StartView startView) {
-        this.startView = startView;
+
     }
 
     /**
@@ -88,5 +87,12 @@ public class StartController {
      */
     public void clickSettings() {
 
+    }
+
+    /**
+     * Времена года
+     */
+    public void clickTimesYearExercise() {
+        new TimesYearExerciseView();
     }
 }

@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
  */
 public class StartViewImpl implements StartView{
     private final static int WIDTH_WINDOW = 305;
-    private final static int HEIGHT_WINDOW = 595;
+    private final static int HEIGHT_WINDOW = 645;
     private StartController controller;
 
     public StartViewImpl() throws HeadlessException {
@@ -103,6 +103,15 @@ public class StartViewImpl implements StartView{
             }
         });
 
+        JButton timesYearExercise = new JButton("Времена года");
+        timesYearExercise.setBounds(leftMargin, yPosition += 50, widthButton, heightButton);
+        timesYearExercise.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.clickTimesYearExercise();
+            }
+        });
+
         JButton yearExercise = new JButton("Года");
         yearExercise.setBounds(leftMargin, yPosition += 50, widthButton, heightButton);
         yearExercise.addActionListener(new ActionListener() {
@@ -146,6 +155,7 @@ public class StartViewImpl implements StartView{
         mainFrame.add(clockExercise);
         mainFrame.add(daysWeekExercise);
         mainFrame.add(monthExercise);
+        mainFrame.add(timesYearExercise);
         mainFrame.add(yearExercise);
         mainFrame.add(result);
         mainFrame.add(settings);
