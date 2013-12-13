@@ -83,6 +83,15 @@ public class StartViewImpl implements StartView {
         });
         clockExercise.setEnabled(false); //TODO
 
+        JButton timeDayExercise = new JButton("Время суток");
+        timeDayExercise.setBounds(leftMargin, yPosition += heightButton + topMargin, widthButton, heightButton);
+        timeDayExercise.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.clickTimeDayExercise();
+            }
+        });
+
         JButton daysWeekExercise = new JButton("Дни недели");
         daysWeekExercise.setBounds(leftMargin, yPosition += heightButton + topMargin, widthButton, heightButton);
         daysWeekExercise.addActionListener(new ActionListener() {
@@ -161,6 +170,7 @@ public class StartViewImpl implements StartView {
         mainFrame.add(numberFrom1To1999999999Exercise);
         mainFrame.add(numberFrom1stTo31thExercise);
         mainFrame.add(clockExercise);
+        mainFrame.add(timeDayExercise);
         mainFrame.add(daysWeekExercise);
         mainFrame.add(monthExercise);
         mainFrame.add(timesYearExercise);

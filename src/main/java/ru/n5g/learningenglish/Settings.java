@@ -15,4 +15,5 @@ public class Settings {
     public static int numberRepetitionsTimesYear = 20;
     public static int numberRepetitionsNumeral = 40;
     public static int numberRepetitionsDaysWeek = 30;
+    public static int numberRepetitionsTimeDay = 20;
 }

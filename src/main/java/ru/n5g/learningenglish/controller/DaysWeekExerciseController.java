@@ -1,11 +1,11 @@
 package ru.n5g.learningenglish.controller;
 
 import ru.n5g.learningenglish.Settings;
+import ru.n5g.learningenglish.util.PlayerMpr3;
 import ru.n5g.learningenglish.view.ExerciseView;
 
 import static ru.n5g.learningenglish.util.DaysWeeks.getRandomDaysWeek;
 import static ru.n5g.learningenglish.util.DaysWeeks.translateDaysWeek;
-
 
 /**
  * Gleb Belyaev
@@ -26,7 +26,9 @@ public class DaysWeekExerciseController extends  ExerciseControllerAbs{
 
     @Override
     protected String getRightAnswer() {
-        return translateDaysWeek(daysWeek);
+        String translate = translateDaysWeek(daysWeek);
+        PlayerMpr3.play("daysweek/" + translate);
+        return translate;
     }
 
     @Override

@@ -102,4 +102,11 @@ public class StartController {
     public void clickIrregularVerbsExercise() {
 
     }
+
+    /**
+     * время суток
+     */
+    public void clickTimeDayExercise() {
+        new TimeDayExerciseView();
+    }
 }
