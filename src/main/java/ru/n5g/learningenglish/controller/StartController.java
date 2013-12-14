@@ -109,4 +109,8 @@ public class StartController {
     public void clickTimeDayExercise() {
         new TimeDayExerciseView();
     }
+
+    public void clickAdverbsOfFrequencyExercise() {
+        new AdverbsOfFrequencyExerciseView();
+    }
 }

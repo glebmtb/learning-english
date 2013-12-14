@@ -139,6 +139,15 @@ public class StartViewImpl implements StartView {
         });
         irregularVerbsExercise.setEnabled(false); //TODO
 
+        JButton adverbsOfFrequencyExercise = new JButton("Наречия частотности");
+        adverbsOfFrequencyExercise.setBounds(leftMargin, yPosition += heightButton + topMargin, widthButton, heightButton);
+        adverbsOfFrequencyExercise.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.clickAdverbsOfFrequencyExercise();
+            }
+        });
+
         JButton result = new JButton("Результаты");
         result.setBounds(leftMargin, yPosition += heightButton + topMargin + 20, 130, heightButton);
         result.addActionListener(new ActionListener() {
@@ -176,6 +185,7 @@ public class StartViewImpl implements StartView {
         mainFrame.add(timesYearExercise);
         mainFrame.add(yearExercise);
         mainFrame.add(irregularVerbsExercise);
+        mainFrame.add(adverbsOfFrequencyExercise);
         mainFrame.add(result);
         mainFrame.add(settings);
 

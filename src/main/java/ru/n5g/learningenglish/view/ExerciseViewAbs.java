@@ -124,7 +124,7 @@ public abstract class ExerciseViewAbs implements ExerciseView {
             }
         });
 
-        nextButton = new JButton("Следующая цифра");
+        nextButton = new JButton("Дальше");
         nextButton.setBounds(150, 135, 180, 25);
         nextButton.setVisible(false);
         nextButton.addActionListener(new ActionListener() {
