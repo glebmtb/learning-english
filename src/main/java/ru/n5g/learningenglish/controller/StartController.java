@@ -100,7 +100,7 @@ public class StartController {
      * Неправельные глаголы
      */
     public void clickIrregularVerbsExercise() {
-
+        new IrregularVerbsView();
     }
 
     /**

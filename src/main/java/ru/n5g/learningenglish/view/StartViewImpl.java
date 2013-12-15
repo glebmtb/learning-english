@@ -137,7 +137,6 @@ public class StartViewImpl implements StartView {
                 controller.clickIrregularVerbsExercise();
             }
         });
-        irregularVerbsExercise.setEnabled(false); //TODO
 
         JButton adverbsOfFrequencyExercise = new JButton("Наречия частотности");
         adverbsOfFrequencyExercise.setBounds(leftMargin, yPosition += heightButton + topMargin, widthButton, heightButton);
