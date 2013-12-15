@@ -1,7 +1,7 @@
 package ru.n5g.learningenglish.view;
 
 import ru.n5g.learningenglish.controller.ExerciseControllerAbsImpl;
-import ru.n5g.learningenglish.util.AdverbsOfFrequency;
+import ru.n5g.learningenglish.util.RandomAndTranslate;
 
 /**
  * @author Belyaev
@@ -10,8 +10,8 @@ public class ExerciseViewImpl extends ExerciseViewAbs {
     private ExerciseControllerAbsImpl controller;
 
 
-    public ExerciseViewImpl() {
-        controller = new ExerciseControllerAbsImpl(this, new AdverbsOfFrequency());
+    public ExerciseViewImpl(RandomAndTranslate randomAndTranslate) {
+        controller = new ExerciseControllerAbsImpl(this, randomAndTranslate);
     }
 
     @Override

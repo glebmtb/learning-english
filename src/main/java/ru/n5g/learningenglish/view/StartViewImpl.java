@@ -148,6 +148,15 @@ public class StartViewImpl implements StartView {
             }
         });
 
+        JButton questionWordsExercise = new JButton("Вопросительные слова");
+        questionWordsExercise.setBounds(leftMargin, yPosition += heightButton + topMargin, widthButton, heightButton);
+        questionWordsExercise.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.clickQuestionWordsExercise();
+            }
+        });
+
         JButton result = new JButton("Результаты");
         result.setBounds(leftMargin, yPosition += heightButton + topMargin + 20, 130, heightButton);
         result.addActionListener(new ActionListener() {
@@ -186,6 +195,7 @@ public class StartViewImpl implements StartView {
         mainFrame.add(yearExercise);
         mainFrame.add(irregularVerbsExercise);
         mainFrame.add(adverbsOfFrequencyExercise);
+        mainFrame.add(questionWordsExercise);
         mainFrame.add(result);
         mainFrame.add(settings);
 

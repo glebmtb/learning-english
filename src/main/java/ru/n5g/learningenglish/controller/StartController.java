@@ -113,4 +113,8 @@ public class StartController {
     public void clickAdverbsOfFrequencyExercise() {
         new AdverbsOfFrequencyExerciseView();
     }
+
+    public void clickQuestionWordsExercise() {
+        new QuestionWordsView();
+    }
 }
