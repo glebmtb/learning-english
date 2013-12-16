@@ -17,6 +17,17 @@ public class IrregularVerbs {
         Map<String, String[]> words = new HashMap<String, String[]>();
         words.put("быть", new String[]{"be", "was were", "been"});
         words.put("бить", new String[]{"beat", "beat", "beaten"});
+        words.put("становиться", new String[]{"become", "became", "become"});
+        words.put("начинать", new String[]{"begin", "began", "begun"});
+        words.put("кровоточить", new String[]{"bleed", "bled", "bled"});
+        words.put("дуть", new String[]{"blow", "blew", "blown"});
+        words.put("ломать", new String[]{"break", "broke", "broken"});
+        words.put("приносить", new String[]{"bring", "brought", "brought"});
+        words.put("строить", new String[]{"build", "built", "built"});
+        words.put("гореть", new String[]{"burn", "burnt", "burnt"});
+        words.put("раразиться", new String[]{"burst", "burst", "burst"});
+        words.put("покупать", new String[]{"buy", "bought", "bought"});
+//        words.put("", new String[]{"", "", ""});
         return words;
     }
 
