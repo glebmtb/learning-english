@@ -46,7 +46,7 @@ public class IrregularVerbsView extends ExerciseViewAbs {
         inputField1Response.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                clickEnterInInputField();
+                inputField2Response.grabFocus();
             }
         });
 
@@ -60,7 +60,7 @@ public class IrregularVerbsView extends ExerciseViewAbs {
         inputField2Response.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                clickEnterInInputField();
+                inputField3Response.grabFocus();
             }
         });
 

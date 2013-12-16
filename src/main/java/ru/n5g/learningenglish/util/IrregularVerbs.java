@@ -6,6 +6,8 @@ import java.util.Random;
 
 /**
  * @author Belyaev
+ *
+ * Неправельные глаголы
  */
 public class IrregularVerbs {
     private Map<String, String[]> map = getMap();
@@ -13,8 +15,8 @@ public class IrregularVerbs {
 
     protected Map<String, String[]> getMap() {
         Map<String, String[]> words = new HashMap<String, String[]>();
-        words.put("привет", new String[]{"1", "2", "3"});
-        words.put("привет", new String[]{"1", "2", "3"});
+        words.put("быть", new String[]{"be", "was were", "been"});
+        words.put("бить", new String[]{"beat", "beat", "beaten"});
         return words;
     }
 
