@@ -118,8 +118,8 @@ public class IrregularVerbsView extends ExerciseViewAbs {
 
     @Override
     protected void clickEnterInInputField() {
+        inputField3Response.grabFocus();
         controller.clickEnterInInputField();
-        grabFocus();
     }
 
     @Override
@@ -135,7 +135,7 @@ public class IrregularVerbsView extends ExerciseViewAbs {
     }
 
     @Deprecated  //используете getEnteredTexts
-    public String getEnteredText(){
+    public String getEnteredText() {
         //не требуеться смотрите getEnteredTexts
         return "";
     }
@@ -151,6 +151,8 @@ public class IrregularVerbsView extends ExerciseViewAbs {
         inputField1Response.setText("");
         inputField2Response.setText("");
         inputField3Response.setText("");
+
+        grabFocus();
     }
 
     public String[] getEnteredTexts() {
