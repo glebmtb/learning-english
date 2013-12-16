@@ -120,7 +120,7 @@ public abstract class ExerciseViewAbs implements ExerciseView {
             @Override
             public void actionPerformed(ActionEvent e) {
                 clickVerify();
-                inputFieldResponse.grabFocus();
+                grabFocus();
             }
         });
 
@@ -131,7 +131,7 @@ public abstract class ExerciseViewAbs implements ExerciseView {
             @Override
             public void actionPerformed(ActionEvent e) {
                 clickNext();
-                inputFieldResponse.grabFocus();
+                grabFocus();
             }
         });
 
@@ -190,7 +190,7 @@ public abstract class ExerciseViewAbs implements ExerciseView {
         verifyButton.setVisible(isVisible);
         nextButton.setVisible(isVisible);
         if (isVisible)
-            inputFieldResponse.grabFocus();
+            grabFocus();
     }
 
     @Override
@@ -247,5 +247,9 @@ public abstract class ExerciseViewAbs implements ExerciseView {
     @Override
     public void setResultTest(String resultTest) {
         resultTestLabel.setText(resultTest);
+    }
+    
+    protected void grabFocus(){
+        inputFieldResponse.grabFocus();
     }
 }
