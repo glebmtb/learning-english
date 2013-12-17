@@ -61,7 +61,7 @@ public class SmartRandom<WordRusType, WordEngType> implements WordRandom<WordRus
 
     private boolean isItClear() {
         for (Integer understandingWord : smartRandom.values()) {
-            if (understandingWord <= understanding) {
+            if (understandingWord < understanding) {
                 return false;
             }
         }
