@@ -12,11 +12,16 @@ public class SmartRandom<WordRusType, WordEngType> implements WordRandom<WordRus
     private final Map<WordRusType, WordEngType> map;
     private Random random;
     private Map<WordRusType, Integer> smartRandom;
-    private int understanding = 3;
+    private int understanding;
 
     public SmartRandom(Map<WordRusType, WordEngType> map) {
-        random = new Random(System.nanoTime());
+        this(map, 2);
+    }
+
+    public SmartRandom(Map<WordRusType, WordEngType> map, int understanding) {
         this.map = map;
+        this.understanding = understanding;
+        random = new Random(System.nanoTime());
         smartRandom = getSmartRandom(map);
     }
 
@@ -34,7 +39,7 @@ public class SmartRandom<WordRusType, WordEngType> implements WordRandom<WordRus
         while (true) {
             int item = random.nextInt(map.size());
             word = (WordRusType) map.keySet().toArray()[item];
-            if (smartRandom.get(word) <= understanding) {
+            if (smartRandom.get(word) < understanding) {
                 break;
             }
         }
