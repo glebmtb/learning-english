@@ -29,7 +29,7 @@ public class IrregularVerbs implements WordRandom<String>, WordTranslate<String[
         words.put("приносить", new String[]{"bring", "brought", "brought"});
         words.put("строить", new String[]{"build", "built", "built"});
         words.put("гореть", new String[]{"burn", "burnt", "burnt"});
-        words.put("раразиться", new String[]{"burst", "burst", "burst"});
+        words.put("ворваться, разрываться, взрываться", new String[]{"burst", "burst", "burst"});
         words.put("покупать", new String[]{"buy", "bought", "bought"});
 //        words.put("", new String[]{"", "", ""});
         return words;
