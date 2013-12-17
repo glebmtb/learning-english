@@ -1,6 +1,5 @@
 package ru.n5g.learningenglish.controller;
 
-import ru.n5g.learningenglish.Settings;
 import ru.n5g.learningenglish.view.ExerciseView;
 
 /**

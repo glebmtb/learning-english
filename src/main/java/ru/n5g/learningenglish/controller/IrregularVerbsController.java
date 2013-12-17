@@ -38,6 +38,7 @@ public class IrregularVerbsController extends ExerciseControllerAbs {
         view.setResultQuestion(isRight);
         if (isRight) {
             trueQuestions++;
+            irregularVerbs.rideAnswer(word);
         } else {
             view.setRightAnswers(rightWords);
         }
@@ -47,7 +48,7 @@ public class IrregularVerbsController extends ExerciseControllerAbs {
 
     @Override
     protected Integer getTotalQuestions() {
-        return 20;
+        return 60;
     }
 
     @Override

@@ -2,16 +2,20 @@ package ru.n5g.learningenglish.util;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 /**
  * @author Belyaev
  *
  * Неправельные глаголы
  */
-public class IrregularVerbs {
-    private Map<String, String[]> map = getMap();
-    private Random random = new Random(System.nanoTime());
+public class IrregularVerbs implements WordRandom<String>, WordTranslate<String[], String>{
+    private Map<String, String[]> map;
+    private SmartRandom<String, String[]> smartRandom;
+
+    public IrregularVerbs() {
+        map = getMap();
+        smartRandom = new SmartRandom<String, String[]>(map);
+    }
 
     protected Map<String, String[]> getMap() {
         Map<String, String[]> words = new HashMap<String, String[]>();
@@ -31,13 +35,17 @@ public class IrregularVerbs {
         return words;
     }
 
-
+    @Override
     public String getRandom() {
-        int month = random.nextInt(map.size());
-        return String.valueOf(map.keySet().toArray()[month]);
+        return smartRandom.getRandom();
     }
 
+    @Override
     public String[] translate(String timesYear) {
         return map.get(timesYear);
+    }
+
+    public void rideAnswer(String word){
+        smartRandom.understand(word);
     }
 }
