@@ -37,6 +37,26 @@ public class IrregularVerbs implements WordRandom<String>, WordTranslate<String[
         words.put("стоить", new String[]{"cost", "cost", "cost"});
         words.put("ползать", new String[]{"creep", "crept", "crept"});
         words.put("резать", new String[]{"cut", "cut", "cut"});
+        words.put("делать", new String[]{"do", "did", "done"});
+        words.put("рисовать, тащить", new String[]{"draw", "drew", "drawn"});
+        words.put("мечтать, дремать", new String[]{"dream", "dreamt", "dreamt"});
+        words.put("пить", new String[]{"drink", "drank", "drunk"});
+        words.put("водить", new String[]{"drive", "drove", "driven"});
+        words.put("есть", new String[]{"eat", "ate", "eaten"});
+        words.put("падать", new String[]{"fall", "fell", "fallen"});
+        words.put("кормить", new String[]{"feed", "fed", "fed"});
+        words.put("чувствовать", new String[]{"feel", "felt", "felt"});
+        words.put("бороться", new String[]{"fight", "fought", "fought"});
+        words.put("находить", new String[]{"find", "found", "found"});
+        words.put("соответствовать, подходить", new String[]{"fit", "fit", "fit"});
+        words.put("летать", new String[]{"fly", "flew", "flown"});
+        words.put("забывать", new String[]{"forget", "forgot", "forgotten"});
+        words.put("прощать", new String[]{"forgive", "forgave", "forgiven"});
+        words.put("замерзать", new String[]{"freeze", "froze", "frozen"});
+        words.put("получать", new String[]{"get", "got", "got"});
+        words.put("давать", new String[]{"give", "gave", "given"});
+        words.put("идти", new String[]{"go", "went", "gone"});
+        words.put("расти", new String[]{"grow", "grew", "grown"});
 //        words.put("", new String[]{"", "", ""});
         return words;
     }
