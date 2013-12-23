@@ -1,5 +1,6 @@
 package ru.n5g.learningenglish.controller;
 
+import ru.n5g.learningenglish.Settings;
 import ru.n5g.learningenglish.util.IrregularVerbs;
 import ru.n5g.learningenglish.util.PlayerMpr3;
 import ru.n5g.learningenglish.view.IrregularVerbsView;
@@ -11,6 +12,7 @@ public class IrregularVerbsController extends ExerciseControllerAbs {
     protected IrregularVerbsView view;
     protected String word;
     protected IrregularVerbs irregularVerbs;
+    private boolean isRight = true;
 
     public IrregularVerbsController(IrregularVerbsView view) {
         super(view);
@@ -35,13 +37,15 @@ public class IrregularVerbsController extends ExerciseControllerAbs {
 
 
         String rightWords[] = irregularVerbs.translate(word);
-        boolean isRight = rightWords[0].equals(enteredWords[0]) && rightWords[1].equals(enteredWords[1]) && rightWords[2].equals(enteredWords[2]);
+        boolean know = isRight;
+        isRight = rightWords[0].equals(enteredWords[0]) && rightWords[1].equals(enteredWords[1]) && rightWords[2].equals(enteredWords[2]);
         view.setResultQuestion(isRight);
         if (isRight) {
             trueQuestions++;
             irregularVerbs.rideAnswer(word);
         } else {
-            view.setRightAnswers(rightWords);
+            if (know)
+                view.setRightAnswers(rightWords);
         }
         PlayerMpr3.play("irregularverbs/" + rightWords[0]);
         isEnteredAnswer = true;
@@ -49,7 +53,7 @@ public class IrregularVerbsController extends ExerciseControllerAbs {
 
     @Override
     protected Integer getTotalQuestions() {
-        return 60;
+        return Settings.numberRepetitionsIrregularVerbs;
     }
 
     @Override
@@ -59,7 +63,8 @@ public class IrregularVerbsController extends ExerciseControllerAbs {
 
     @Override
     protected String getNewQuestion() {
-        word = irregularVerbs.getRandom();
+        if (isRight)
+            word = irregularVerbs.getRandom();
         return word;
     }
 }

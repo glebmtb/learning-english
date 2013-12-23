@@ -17,4 +17,5 @@ public class Settings {
     public static int numberRepetitionsDaysWeek = 30;
     public static int numberRepetitionsTimeDay = 20;
     public static int numberRepetitionsAdverbsOfFrequency = 30;
+    public static int numberRepetitionsIrregularVerbs = 100;
 }
