@@ -16,7 +16,7 @@ public class GenerateRandom {
     }
 
     public static Integer randomNumberTo20() {
-        return random.nextInt(21);
+        return random.nextInt(100);
     }
 
     public static Integer randomNumberToMax() {

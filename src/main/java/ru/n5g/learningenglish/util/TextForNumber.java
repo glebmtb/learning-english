@@ -75,7 +75,7 @@ public class TextForNumber {
         if (y == 0) {
             return xx;
         } else {
-            return xx + "-" + yy;
+            return xx + " " + yy;
         }
     }
 
