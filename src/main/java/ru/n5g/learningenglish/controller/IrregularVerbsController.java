@@ -1,6 +1,7 @@
 package ru.n5g.learningenglish.controller;
 
 import ru.n5g.learningenglish.util.IrregularVerbs;
+import ru.n5g.learningenglish.util.PlayerMpr3;
 import ru.n5g.learningenglish.view.IrregularVerbsView;
 
 /**
@@ -42,7 +43,7 @@ public class IrregularVerbsController extends ExerciseControllerAbs {
         } else {
             view.setRightAnswers(rightWords);
         }
-
+        PlayerMpr3.play("irregularverbs/" + rightWords[0]);
         isEnteredAnswer = true;
     }
 
