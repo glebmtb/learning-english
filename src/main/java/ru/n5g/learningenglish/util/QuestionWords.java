@@ -17,7 +17,6 @@ public class QuestionWords extends RandomAndTranslate {
         map.put("почему?", "why");
         map.put("как?", "how");
         map.put("который?", "which");
-        map.put("какой?", "what");
         map.put("чей?", "whose");
         return map;
     }
