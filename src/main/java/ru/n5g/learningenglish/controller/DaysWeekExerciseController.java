@@ -11,7 +11,7 @@ import static ru.n5g.learningenglish.util.DaysWeeks.translateDaysWeek;
  * Gleb Belyaev
  * 13.12.13.
  */
-public class DaysWeekExerciseController extends  ExerciseControllerAbs{
+public class DaysWeekExerciseController extends ExerciseControllerAbs {
 
     private String daysWeek;
 

@@ -11,7 +11,7 @@ import java.text.DecimalFormat;
  * Gleb Belyaev
  * 13.12.13.
  */
-public class NumberFrom0ToMoreExerciseController extends ExerciseControllerAbs{
+public class NumberFrom0ToMoreExerciseController extends ExerciseControllerAbs {
 
     private Integer number;
     private DecimalFormat myFormatter;

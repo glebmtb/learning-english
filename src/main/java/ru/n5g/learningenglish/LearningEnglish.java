@@ -8,9 +8,9 @@ import ru.n5g.learningenglish.view.StartViewImpl;
  */
 public class LearningEnglish {
 
-  public static void main(String args[]) {
-    new StartViewImpl();
-  }
+    public static void main(String args[]) {
+        new StartViewImpl();
+    }
 }
 
 

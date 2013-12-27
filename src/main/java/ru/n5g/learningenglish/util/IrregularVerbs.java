@@ -5,10 +5,10 @@ import java.util.Map;
 
 /**
  * @author Belyaev
- *
- * Неправельные глаголы
+ *         <p/>
+ *         Неправельные глаголы
  */
-public class IrregularVerbs implements WordRandom<String>, WordTranslate<String[], String>{
+public class IrregularVerbs implements WordRandom<String>, WordTranslate<String[], String> {
     private Map<String, String[]> map;
     private SmartRandom<String, String[]> smartRandom;
 
@@ -71,7 +71,7 @@ public class IrregularVerbs implements WordRandom<String>, WordTranslate<String[
         return map.get(timesYear);
     }
 
-    public void rideAnswer(String word){
+    public void rideAnswer(String word) {
         smartRandom.understand(word);
     }
 }

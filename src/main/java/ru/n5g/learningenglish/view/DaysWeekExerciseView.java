@@ -6,7 +6,7 @@ import ru.n5g.learningenglish.controller.DaysWeekExerciseController;
  * Gleb Belyaev
  * 13.12.13.
  */
-public class DaysWeekExerciseView extends ExerciseViewAbs{
+public class DaysWeekExerciseView extends ExerciseViewAbs {
     private DaysWeekExerciseController controller;
 
     public DaysWeekExerciseView() {

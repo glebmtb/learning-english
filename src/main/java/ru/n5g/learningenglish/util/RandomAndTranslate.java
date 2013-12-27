@@ -9,16 +9,16 @@ import java.util.Random;
 public abstract class RandomAndTranslate {
     private Map<String, String> map = getMap();
 
-    protected abstract Map<String,String> getMap();
+    protected abstract Map<String, String> getMap();
 
     private Random random = new Random(System.nanoTime());
 
-    public String getRandom(){
+    public String getRandom() {
         int month = random.nextInt(map.size());
         return String.valueOf(map.keySet().toArray()[month]);
     }
 
-    public String translate(String timesYear){
+    public String translate(String timesYear) {
         return map.get(timesYear);
     }
 }

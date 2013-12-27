@@ -3,8 +3,7 @@ package ru.n5g.learningenglish.util;
 /**
  * @author Belyaev
  */
-public enum ABC
-{
+public enum ABC {
     A,
     B,
     C,

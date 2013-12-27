@@ -248,8 +248,8 @@ public abstract class ExerciseViewAbs implements ExerciseView {
     public void setResultTest(String resultTest) {
         resultTestLabel.setText(resultTest);
     }
-    
-    protected void grabFocus(){
+
+    protected void grabFocus() {
         inputFieldResponse.grabFocus();
     }
 }

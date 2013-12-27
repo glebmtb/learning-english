@@ -29,12 +29,12 @@ public class Months {
         return months;
     }
 
-    public static String getRandomMonth(){
+    public static String getRandomMonth() {
         int month = random.nextInt(12);
         return String.valueOf(months.keySet().toArray()[month]);
     }
 
-    public static String translateMonth(String month){
+    public static String translateMonth(String month) {
         return months.get(month);
     }
 }

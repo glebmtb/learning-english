@@ -1,7 +1,6 @@
 package ru.n5g.learningenglish.controller;
 
 import ru.n5g.learningenglish.Settings;
-import ru.n5g.learningenglish.util.Months;
 import ru.n5g.learningenglish.util.PlayerMpr3;
 import ru.n5g.learningenglish.view.ExerciseView;
 

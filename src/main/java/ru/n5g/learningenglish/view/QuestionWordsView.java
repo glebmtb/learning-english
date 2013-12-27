@@ -5,7 +5,7 @@ import ru.n5g.learningenglish.util.QuestionWords;
 /**
  * @author Belyaev
  */
-public class QuestionWordsView extends ExerciseViewImpl{
+public class QuestionWordsView extends ExerciseViewImpl {
 
     public QuestionWordsView() {
         super(new QuestionWords());

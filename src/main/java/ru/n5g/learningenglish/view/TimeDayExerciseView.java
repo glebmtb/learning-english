@@ -10,7 +10,7 @@ public class TimeDayExerciseView extends ExerciseViewAbs {
     private TimeDayExerciseController controller;
 
     public TimeDayExerciseView() {
-        controller= new TimeDayExerciseController(this);
+        controller = new TimeDayExerciseController(this);
     }
 
     @Override

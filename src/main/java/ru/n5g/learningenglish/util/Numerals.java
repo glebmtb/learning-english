@@ -48,12 +48,12 @@ public class Numerals {
         return numerals;
     }
 
-    public static String getRandomNumeral(){
-        int month = random.nextInt(30)+1;
+    public static String getRandomNumeral() {
+        int month = random.nextInt(30) + 1;
         return String.valueOf(numerals.keySet().toArray()[month]);
     }
 
-    public static String translateNumeral(String numeral){
+    public static String translateNumeral(String numeral) {
         return numerals.get(numeral);
     }
 }

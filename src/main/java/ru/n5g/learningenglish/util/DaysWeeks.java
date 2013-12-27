@@ -25,12 +25,12 @@ public class DaysWeeks {
         return months;
     }
 
-    public static String getRandomDaysWeek(){
+    public static String getRandomDaysWeek() {
         int month = random.nextInt(7);
         return String.valueOf(daysWeeks.keySet().toArray()[month]);
     }
 
-    public static String translateDaysWeek(String daysWeek){
+    public static String translateDaysWeek(String daysWeek) {
         return daysWeeks.get(daysWeek);
     }
 }

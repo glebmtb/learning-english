@@ -22,12 +22,12 @@ public class TimeDays {
         return months;
     }
 
-    public static String getRandomTimeDay(){
+    public static String getRandomTimeDay() {
         int month = random.nextInt(4);
         return String.valueOf(timeDays.keySet().toArray()[month]);
     }
 
-    public static String translateTimeDay(String timesYear){
+    public static String translateTimeDay(String timesYear) {
         return timeDays.get(timesYear);
     }
 }

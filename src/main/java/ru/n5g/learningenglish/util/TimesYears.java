@@ -22,12 +22,12 @@ public class TimesYears {
         return months;
     }
 
-    public static String getRandomTimesYear(){
+    public static String getRandomTimesYear() {
         int month = random.nextInt(4);
         return String.valueOf(timesYears.keySet().toArray()[month]);
     }
 
-    public static String translateTimesYear(String timesYear){
+    public static String translateTimesYear(String timesYear) {
         return timesYears.get(timesYear);
     }
 }

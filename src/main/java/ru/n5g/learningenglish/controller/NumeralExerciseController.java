@@ -10,7 +10,7 @@ import static ru.n5g.learningenglish.util.Numerals.translateNumeral;
  * Gleb Belyaev
  * 13.12.13.
  */
-public class NumeralExerciseController extends ExerciseControllerAbs{
+public class NumeralExerciseController extends ExerciseControllerAbs {
     private String numeral;
 
     public NumeralExerciseController(ExerciseView view) {
