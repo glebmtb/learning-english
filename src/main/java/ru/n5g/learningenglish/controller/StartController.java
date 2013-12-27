@@ -29,8 +29,8 @@ public class StartController {
     /**
      * Диктовка цифр с 1 до 10
      */
-    public void clickNumberFrom1To10Exercise() {
-        new NumberFrom0To20ExerciseView();
+    public void clickNumberFrom0To100Exercise() {
+        new NumberFrom0To100ExerciseView();
     }
 
     /**
@@ -116,5 +116,12 @@ public class StartController {
 
     public void clickQuestionWordsExercise() {
         new QuestionWordsView();
+    }
+
+    /**
+     * числа от 0 до 19
+     */
+    public void clickNumberFrom1To19Exercise() {
+        new NumberFrom0To19ExerciseView();
     }
 }

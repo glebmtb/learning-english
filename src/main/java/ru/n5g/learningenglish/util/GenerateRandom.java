@@ -1,7 +1,5 @@
 package ru.n5g.learningenglish.util;
 
-import com.sun.org.apache.regexp.internal.recompile;
-
 import java.util.Random;
 
 /**
@@ -11,12 +9,16 @@ import java.util.Random;
 public class GenerateRandom {
     private static Random random = new Random(System.nanoTime());
 
-    public static ABC randomABC(){
+    public static ABC randomABC() {
         return ABC.values()[random.nextInt(ABC.values().length)];
     }
 
-    public static Integer randomNumberTo20() {
+    public static Integer randomNumberTo100() {
         return random.nextInt(100);
+    }
+
+    public static Integer randomNumberTo19() {
+        return random.nextInt(19);
     }
 
     public static Integer randomNumberToMax() {

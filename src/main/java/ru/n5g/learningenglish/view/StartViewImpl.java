@@ -46,12 +46,21 @@ public class StartViewImpl implements StartView {
             }
         });
 
-        JButton numberFrom1To10Exercise = new JButton("Числа от 0 до 99");
-        numberFrom1To10Exercise.setBounds(leftMargin, yPosition += heightButton + topMargin, widthButton, heightButton);
-        numberFrom1To10Exercise.addActionListener(new ActionListener() {
+        JButton numberFrom0To19Exercise = new JButton("Числа от 0 до 19");
+        numberFrom0To19Exercise.setBounds(leftMargin, yPosition += heightButton + topMargin, widthButton, heightButton);
+        numberFrom0To19Exercise.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.clickNumberFrom1To10Exercise();
+                controller.clickNumberFrom1To19Exercise();
+            }
+        });
+
+        JButton numberFrom0To100Exercise = new JButton("Числа от 0 до 99");
+        numberFrom0To100Exercise.setBounds(leftMargin, yPosition += heightButton + topMargin, widthButton, heightButton);
+        numberFrom0To100Exercise.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.clickNumberFrom0To100Exercise();
             }
         });
 
@@ -183,7 +192,8 @@ public class StartViewImpl implements StartView {
 
         mainFrame.add(allExercises);
         mainFrame.add(abcExercise);
-        mainFrame.add(numberFrom1To10Exercise);
+        mainFrame.add(numberFrom0To19Exercise);
+        mainFrame.add(numberFrom0To100Exercise);
         mainFrame.add(numberFrom1To1999999999Exercise);
         mainFrame.add(numberFrom1stTo31thExercise);
         mainFrame.add(clockExercise);

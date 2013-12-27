@@ -4,24 +4,24 @@ import ru.n5g.learningenglish.Settings;
 import ru.n5g.learningenglish.util.TextForNumber;
 import ru.n5g.learningenglish.view.ExerciseView;
 
-import static ru.n5g.learningenglish.util.GenerateRandom.randomNumberTo20;
+import static ru.n5g.learningenglish.util.GenerateRandom.randomNumberTo19;
 
 /**
  * Gleb Belyaev
  * 12.12.13.
  */
-public class NumberFrom0To20ExerciseController extends ExerciseControllerAbs {
+public class NumberFrom0To19ExerciseController extends ExerciseControllerAbs {
 
     private Integer number;
 
 
-    public NumberFrom0To20ExerciseController(ExerciseView view) {
+    public NumberFrom0To19ExerciseController(ExerciseView view) {
         super(view);
     }
 
     @Override
     protected Integer getTotalQuestions() {
-        return Settings.numberRepetitionsNumberFrom0To20;
+        return Settings.numberRepetitionsNumberFrom0To19;
     }
 
     @Override
@@ -31,7 +31,7 @@ public class NumberFrom0To20ExerciseController extends ExerciseControllerAbs {
 
     @Override
     protected String getNewQuestion() {
-        number = randomNumberTo20();
+        number = randomNumberTo19();
         return number.toString();
     }
 }

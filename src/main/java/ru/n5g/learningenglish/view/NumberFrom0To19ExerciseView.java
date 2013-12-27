@@ -1,16 +1,16 @@
 package ru.n5g.learningenglish.view;
 
-import ru.n5g.learningenglish.controller.NumberFrom0To20ExerciseController;
+import ru.n5g.learningenglish.controller.NumberFrom0To19ExerciseController;
 
 /**
  * Gleb Belyaev
  * 12.12.13.
  */
-public class NumberFrom0To20ExerciseView extends ExerciseViewAbs {
-    private NumberFrom0To20ExerciseController controller;
+public class NumberFrom0To19ExerciseView extends ExerciseViewAbs {
+    private NumberFrom0To19ExerciseController controller;
 
-    public NumberFrom0To20ExerciseView() {
-        controller = new NumberFrom0To20ExerciseController(this);
+    public NumberFrom0To19ExerciseView() {
+        controller = new NumberFrom0To19ExerciseController(this);
     }
 
     @Override
