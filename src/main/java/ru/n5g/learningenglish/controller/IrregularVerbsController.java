@@ -43,9 +43,10 @@ public class IrregularVerbsController extends ExerciseControllerAbs {
         if (isRight) {
             trueQuestions++;
             if (know)
-                irregularVerbs.rideAnswer(word);
+                irregularVerbs.rightAnswer(word);
         } else {
             view.setRightAnswers(rightWords);
+            irregularVerbs.wrongAnswer(word);
         }
         PlayerMpr3.play("irregularverbs/" + rightWords[0]);
         isEnteredAnswer = true;

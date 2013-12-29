@@ -71,7 +71,11 @@ public class IrregularVerbs implements WordRandom<String>, WordTranslate<String[
         return map.get(timesYear);
     }
 
-    public void rideAnswer(String word) {
+    public void rightAnswer(String word) {
         smartRandom.understand(word);
+    }
+
+    public void wrongAnswer(String word) {
+        smartRandom.repeat(word);
     }
 }

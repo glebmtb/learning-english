@@ -67,4 +67,8 @@ public class SmartRandom<WordRusType, WordEngType> implements WordRandom<WordRus
         }
         return true;
     }
+
+    public void repeat(WordRusType word) {
+        smartRandom.put(word, 0);
+    }
 }
