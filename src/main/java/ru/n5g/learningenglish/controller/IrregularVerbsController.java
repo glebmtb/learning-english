@@ -42,10 +42,10 @@ public class IrregularVerbsController extends ExerciseControllerAbs {
         view.setResultQuestion(isRight);
         if (isRight) {
             trueQuestions++;
-            irregularVerbs.rideAnswer(word);
-        } else {
             if (know)
-                view.setRightAnswers(rightWords);
+                irregularVerbs.rideAnswer(word);
+        } else {
+            view.setRightAnswers(rightWords);
         }
         PlayerMpr3.play("irregularverbs/" + rightWords[0]);
         isEnteredAnswer = true;
