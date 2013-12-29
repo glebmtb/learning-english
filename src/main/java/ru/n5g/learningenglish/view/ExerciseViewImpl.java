@@ -7,7 +7,7 @@ import ru.n5g.learningenglish.util.RandomAndTranslate;
  * @author Belyaev
  */
 public class ExerciseViewImpl extends ExerciseViewAbs {
-    private ExerciseControllerAbsImpl controller;
+    protected ExerciseControllerAbsImpl controller;
 
 
     public ExerciseViewImpl(RandomAndTranslate randomAndTranslate) {

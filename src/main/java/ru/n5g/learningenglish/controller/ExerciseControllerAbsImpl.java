@@ -9,7 +9,7 @@ import ru.n5g.learningenglish.view.ExerciseView;
  */
 public class ExerciseControllerAbsImpl extends ExerciseControllerAbs {
     private RandomAndTranslate adverbsOfFrequency;
-    private String word;
+    protected String word;
 
     public ExerciseControllerAbsImpl(ExerciseView view, RandomAndTranslate adverbsOfFrequency) {
         super(view);
