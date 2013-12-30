@@ -19,6 +19,7 @@ public class ExerciseControllerAbsImpl extends ExerciseControllerAbs {
     private WordRandom<String> random;
     private Map<String, Integer> studiedWordsMap;
     private int studiedWords;
+    private final int REPEAT_COUNT = 3;
 
     public ExerciseControllerAbsImpl(ExerciseView view, Words<String, String> words) {
         super(view);
@@ -29,20 +30,50 @@ public class ExerciseControllerAbsImpl extends ExerciseControllerAbs {
 
     @Override
     protected Integer getTotalQuestions() {
-        return Integer.MAX_VALUE;
+        return currentQuestion;
+    }
+
+    @Override
+    protected void wrongAnswer() {
+        super.wrongAnswer();
+        studiedWordsMap.put(rusWord, 0);
+    }
+
+    @Override
+    protected void correctAnswer() {
+        super.correctAnswer();
+        int countRight = studiedWordsMap.get(rusWord) + 1;
+        if (countRight == REPEAT_COUNT) {
+            studiedWords++;
+        }
+        studiedWordsMap.put(rusWord, countRight);
     }
 
     @Override
     protected String getRightAnswer() {
-        String engWord = words.translate(rusWord);
+        return words.translate(rusWord);
+    }
+
+    @Override
+    protected boolean isFinish() {
+        return words.size() == studiedWords;
+    }
+
+    @Override
+    protected void playWord() {
         if (words.isSound())
-            Mp3Player.play(words.pathSound(), engWord);
-        return engWord;
+            Mp3Player.play(words.pathSound(), getRightAnswer());
     }
 
     @Override
     protected String getNewQuestion() {
-        rusWord = random.getRandomWord();
+        while (true) {
+            rusWord = random.getRandomWord();
+            int countRight = studiedWordsMap.get(rusWord);
+            if (countRight < REPEAT_COUNT) {
+                break;
+            }
+        }
         return rusWord;
     }
 
