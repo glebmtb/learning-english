@@ -3,9 +3,9 @@ package ru.n5g.learningenglish.controller;
 import ru.n5g.learningenglish.view.ExerciseView;
 
 /**
- * @author Belyaev
+ * @author Gleb Belyaev
  */
-public abstract class ExerciseControllerAbs {
+public abstract class ExerciseControllerAbs<WordRusType, WordEngType> {
     protected ExerciseView view;
 
     protected Integer currentQuestion;

@@ -1,17 +1,16 @@
 package ru.n5g.learningenglish.view;
 
-import ru.n5g.learningenglish.controller.MonthExerciseController;
+
+import ru.n5g.learningenglish.words.MonthsWords;
 
 /**
  * Gleb Belyaev
  * 13.12.13.
  */
-public class MonthExerciseView extends ExerciseViewAbs {
-
-    private MonthExerciseController controller;
+public class MonthExerciseView extends ExerciseViewImpl {
 
     public MonthExerciseView() {
-        controller = new MonthExerciseController(this);
+        super(new MonthsWords());
     }
 
     @Override
@@ -19,25 +18,5 @@ public class MonthExerciseView extends ExerciseViewAbs {
         super.initComponents();
         frame.setTitle("Диктовка название месяца");
         commandInfoLabel.setText("Введите название месяца на английском:");
-    }
-
-    @Override
-    protected void clickNext() {
-        controller.clickNext();
-    }
-
-    @Override
-    protected void clickVerify() {
-        controller.clickVerify();
-    }
-
-    @Override
-    protected void clickEnterInInputField() {
-        controller.clickEnterInInputField();
-    }
-
-    @Override
-    protected void clickStart() {
-        controller.clickStart();
     }
 }

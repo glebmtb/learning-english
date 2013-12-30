@@ -1,16 +1,15 @@
 package ru.n5g.learningenglish.view;
 
-import ru.n5g.learningenglish.controller.DaysWeekExerciseController;
+import ru.n5g.learningenglish.words.DaysWeeksWords;
 
 /**
  * Gleb Belyaev
  * 13.12.13.
  */
-public class DaysWeekExerciseView extends ExerciseViewAbs {
-    private DaysWeekExerciseController controller;
+public class DaysWeekExerciseView extends ExerciseViewImpl {
 
     public DaysWeekExerciseView() {
-        controller = new DaysWeekExerciseController(this);
+        super(new DaysWeeksWords());
     }
 
     @Override
@@ -19,25 +18,5 @@ public class DaysWeekExerciseView extends ExerciseViewAbs {
         frame.setTitle("Диктовка дней недели");
         commandInfoLabel.setText("Введите название дня недели на английском:");
         commandInfoLabel.setBounds(30, 35, 300, 20);
-    }
-
-    @Override
-    protected void clickNext() {
-        controller.clickNext();
-    }
-
-    @Override
-    protected void clickVerify() {
-        controller.clickVerify();
-    }
-
-    @Override
-    protected void clickEnterInInputField() {
-        controller.clickEnterInInputField();
-    }
-
-    @Override
-    protected void clickStart() {
-        controller.clickStart();
     }
 }

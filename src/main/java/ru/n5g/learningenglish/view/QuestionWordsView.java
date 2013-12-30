@@ -1,7 +1,6 @@
 package ru.n5g.learningenglish.view;
 
-import ru.n5g.learningenglish.controller.QuestionWordsController;
-import ru.n5g.learningenglish.util.QuestionWords;
+import ru.n5g.learningenglish.words.QuestionWords;
 
 /**
  * @author Belyaev
@@ -10,7 +9,6 @@ public class QuestionWordsView extends ExerciseViewImpl {
 
     public QuestionWordsView() {
         super(new QuestionWords());
-        controller =  new QuestionWordsController(this, new QuestionWords());
     }
 
     @Override

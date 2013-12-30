@@ -1,19 +1,24 @@
 package ru.n5g.learningenglish.controller;
 
 import ru.n5g.learningenglish.Settings;
-import ru.n5g.learningenglish.util.RandomAndTranslate;
+import ru.n5g.learningenglish.util.Mp3Player;
+import ru.n5g.learningenglish.util.StupidRandom;
+import ru.n5g.learningenglish.util.WordRandom;
 import ru.n5g.learningenglish.view.ExerciseView;
+import ru.n5g.learningenglish.words.Words;
 
 /**
- * @author Belyaev
+ * @author Gleb Belyaev
  */
 public class ExerciseControllerAbsImpl extends ExerciseControllerAbs {
-    private RandomAndTranslate adverbsOfFrequency;
-    protected String word;
+    private Words<String, String> words;
+    protected String rusWord;
+    private WordRandom<String> random;
 
-    public ExerciseControllerAbsImpl(ExerciseView view, RandomAndTranslate adverbsOfFrequency) {
+    public ExerciseControllerAbsImpl(ExerciseView view, Words<String, String> words) {
         super(view);
-        this.adverbsOfFrequency = adverbsOfFrequency;
+        this.words = words;
+        random = new StupidRandom<String>(words);
     }
 
     @Override
@@ -23,13 +28,15 @@ public class ExerciseControllerAbsImpl extends ExerciseControllerAbs {
 
     @Override
     protected String getRightAnswer() {
-        String translate = adverbsOfFrequency.translate(word);
-        return translate;
+        String engWord = words.translate(rusWord);
+        if (words.isSound())
+            Mp3Player.play(words.pathSound(), engWord);
+        return engWord;
     }
 
     @Override
     protected String getNewQuestion() {
-        word = adverbsOfFrequency.getRandom();
-        return word;
+        rusWord = random.getRandomWord();
+        return rusWord;
     }
 }

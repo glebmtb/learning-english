@@ -1,18 +1,19 @@
-package ru.n5g.learningenglish.util;
+package ru.n5g.learningenglish.words;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
 /**
+ * Дни недели
+ *
  * Gleb Belyaev
  * 13.12.13.
  */
-public class DaysWeeks {
-    private static Map<String, String> daysWeeks = getDaysWeeks();
-    private static Random random = new Random(System.nanoTime());
+public class DaysWeeksWords extends WordsAbs<String , String >{
 
-    private static Map<String, String> getDaysWeeks() {
+    @Override
+    protected Map<String, String> initializationWords() {
         Map<String, String> months = new HashMap<String, String>();
         months.put("понедельник", "monday");
         months.put("вторник", "tuesday");
@@ -25,12 +26,13 @@ public class DaysWeeks {
         return months;
     }
 
-    public static String getRandomDaysWeek() {
-        int month = random.nextInt(7);
-        return String.valueOf(daysWeeks.keySet().toArray()[month]);
+    @Override
+    public boolean isSound() {
+        return true;
     }
 
-    public static String translateDaysWeek(String daysWeek) {
-        return daysWeeks.get(daysWeek);
+    @Override
+    public String pathSound() {
+        return "daysweek";
     }
 }

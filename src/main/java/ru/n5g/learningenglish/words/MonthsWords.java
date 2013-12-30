@@ -1,18 +1,19 @@
-package ru.n5g.learningenglish.util;
+package ru.n5g.learningenglish.words;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
 /**
+ * Месяца года
+ *
  * Gleb Belyaev
  * 13.12.13.
  */
-public class Months {
-    private static Map<String, String> months = getMonths();
-    private static Random random = new Random(System.nanoTime());
+public class MonthsWords extends WordsAbs<String, String>{
 
-    private static Map<String, String> getMonths() {
+    @Override
+    protected Map<String, String> initializationWords() {
         Map<String, String> months = new HashMap<String, String>();
         months.put("январь", "january");
         months.put("февраль", "february");
@@ -29,12 +30,13 @@ public class Months {
         return months;
     }
 
-    public static String getRandomMonth() {
-        int month = random.nextInt(12);
-        return String.valueOf(months.keySet().toArray()[month]);
+    @Override
+    public boolean isSound() {
+        return true;
     }
 
-    public static String translateMonth(String month) {
-        return months.get(month);
+    @Override
+    public String pathSound() {
+        return "month";
     }
 }

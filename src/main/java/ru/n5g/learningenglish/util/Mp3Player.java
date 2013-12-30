@@ -31,7 +31,7 @@ public class Mp3Player {
         });
     }
 
-    public static void play(String path, String fileName) {
-        play(path + "/" + fileName);
+    public static void play(String path, String engWord) {
+        play(path + "/" + engWord);
     }
 }

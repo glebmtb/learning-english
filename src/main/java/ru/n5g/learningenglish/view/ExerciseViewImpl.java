@@ -2,6 +2,7 @@ package ru.n5g.learningenglish.view;
 
 import ru.n5g.learningenglish.controller.ExerciseControllerAbsImpl;
 import ru.n5g.learningenglish.util.RandomAndTranslate;
+import ru.n5g.learningenglish.words.Words;
 
 /**
  * @author Belyaev
@@ -10,8 +11,8 @@ public class ExerciseViewImpl extends ExerciseViewAbs {
     protected ExerciseControllerAbsImpl controller;
 
 
-    public ExerciseViewImpl(RandomAndTranslate randomAndTranslate) {
-        controller = new ExerciseControllerAbsImpl(this, randomAndTranslate);
+    public ExerciseViewImpl(Words<String, String> words) {
+        controller = new ExerciseControllerAbsImpl(this, words);
     }
 
     @Override

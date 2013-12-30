@@ -1,6 +1,6 @@
 package ru.n5g.learningenglish.view;
 
-import ru.n5g.learningenglish.util.AdverbsOfFrequency;
+import ru.n5g.learningenglish.words.AdverbsOfFrequencyWords;
 
 /**
  * @author Belyaev
@@ -8,7 +8,7 @@ import ru.n5g.learningenglish.util.AdverbsOfFrequency;
 public class AdverbsOfFrequencyExerciseView extends ExerciseViewImpl {
 
     public AdverbsOfFrequencyExerciseView() {
-        super(new AdverbsOfFrequency());
+        super(new AdverbsOfFrequencyWords());
     }
 
     @Override

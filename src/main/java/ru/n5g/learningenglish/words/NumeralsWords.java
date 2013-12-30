@@ -1,18 +1,19 @@
-package ru.n5g.learningenglish.util;
+package ru.n5g.learningenglish.words;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
 /**
+ * Числительные
+ *
  * Gleb Belyaev
  * 13.12.13.
  */
-public class Numerals {
-    private static Map<String, String> numerals = getNumerals();
-    private static Random random = new Random(System.nanoTime());
+public class NumeralsWords extends WordsAbs{
 
-    public static Map<String, String> getNumerals() {
+    @Override
+    protected Map initializationWords() {
         Map<String, String> numerals = new HashMap<String, String>();
         numerals.put("1st", "first");
         numerals.put("2nd", "second");
@@ -48,12 +49,13 @@ public class Numerals {
         return numerals;
     }
 
-    public static String getRandomNumeral() {
-        int month = random.nextInt(30) + 1;
-        return String.valueOf(numerals.keySet().toArray()[month]);
+    @Override
+    public boolean isSound() {
+        return false;
     }
 
-    public static String translateNumeral(String numeral) {
-        return numerals.get(numeral);
+    @Override
+    public String pathSound() {
+        return null;
     }
 }

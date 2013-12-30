@@ -1,14 +1,17 @@
-package ru.n5g.learningenglish.util;
+package ru.n5g.learningenglish.words;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author Belyaev
+ * Наречия частотности
+ *
+ * @author Gleb Belyaev
  */
-public class AdverbsOfFrequency extends RandomAndTranslate {
+public class AdverbsOfFrequencyWords extends WordsAbs<String, String> {
+
     @Override
-    protected Map<String, String> getMap() {
+    protected Map<String, String> initializationWords() {
         Map<String, String> adverbsOfFrequency = new HashMap<String, String>();
         adverbsOfFrequency.put("всегда (100%)", "always");
         adverbsOfFrequency.put("обычно (75%)", "usually");
@@ -18,5 +21,15 @@ public class AdverbsOfFrequency extends RandomAndTranslate {
         adverbsOfFrequency.put("редко (5%)", "seldom");
         adverbsOfFrequency.put("никогда (0%)", "never");
         return adverbsOfFrequency;
+    }
+
+    @Override
+    public boolean isSound() {
+        return false;
+    }
+
+    @Override
+    public String pathSound() {
+        return null;
     }
 }

@@ -1,8 +1,6 @@
 package ru.n5g.learningenglish.words;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -10,7 +8,7 @@ import java.util.Map;
  *
  * @author Gleb Belyaev
  */
-public class IrregularVerbsWords extends WordsAbs<String, String[]>{
+public class IrregularVerbsWords extends WordsAbs<String, String[]> {
 
     protected Map<String, String[]> initializationWords() {
         Map<String, String[]> words = new HashMap<String, String[]>();
@@ -54,5 +52,15 @@ public class IrregularVerbsWords extends WordsAbs<String, String[]>{
         words.put("расти", new String[]{"grow", "grew", "grown"});
 //        words.put("", new String[]{"", "", ""});
         return words;
+    }
+
+    @Override
+    public boolean isSound() {
+        return true;
+    }
+
+    @Override
+    public String pathSound() {
+        return "irregularverbs";
     }
 }
