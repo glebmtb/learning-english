@@ -9,7 +9,6 @@ public abstract class ExerciseControllerAbs<WordRusType, WordEngType> {
     protected ExerciseView view;
 
     protected Integer currentQuestion;
-    protected Integer totalQuestions;
     protected Integer trueQuestions;
     protected boolean isEnteredAnswer;
 
@@ -23,7 +22,6 @@ public abstract class ExerciseControllerAbs<WordRusType, WordEngType> {
         view.setVisibleLessonPage(true);
 
         currentQuestion = 0;
-        totalQuestions = getTotalQuestions();
         trueQuestions = 0;
         view.setTrueQuestions("0");
         nextQuestion();
@@ -32,8 +30,8 @@ public abstract class ExerciseControllerAbs<WordRusType, WordEngType> {
     protected abstract Integer getTotalQuestions();
 
     public void clickNext() {
-        if (currentQuestion.equals(totalQuestions)) {
-            view.setResultTest("правельных ответов: " + trueQuestions + " из: " + totalQuestions);
+        if (isFinish()) {
+            view.setResultTest("правельных ответов: " + trueQuestions + " из: " + getTotalQuestions());
             view.setVisibleStartPage(true);
             view.setVisibleLessonPage(false);
             return;
@@ -52,7 +50,7 @@ public abstract class ExerciseControllerAbs<WordRusType, WordEngType> {
     protected void nextQuestion() {
         currentQuestion++;
         view.clearInformantsResultQuestion();
-        view.setCounterRepetition(currentQuestion + "/" + totalQuestions);
+        view.setCounterRepetition(currentQuestion + "/" + getTotalQuestions());
         view.setPassedQuestions(String.valueOf(currentQuestion - 1));
         view.setTrueQuestions(trueQuestions.toString());
         view.setTextForInput(getNewQuestion());
@@ -63,23 +61,46 @@ public abstract class ExerciseControllerAbs<WordRusType, WordEngType> {
         if (isEnteredAnswer) {
             return;
         }
+
+        boolean isRight = isRightAnswer();
+        view.setResultQuestion(isRight);
+        if (isRight) {
+            correctAnswer();
+        } else {
+            wrongAnswer();
+        }
+
+        playWord();
+        isEnteredAnswer = true;
+    }
+
+    protected void playWord() {
+
+    }
+
+    private boolean isRightAnswer() {
         String enteredWord = view.getEnteredText();
         if (enteredWord != null && !enteredWord.isEmpty()) {
             enteredWord = enteredWord.trim().toLowerCase();
         }
         String rightWord = getRightAnswer().toLowerCase();
-        boolean isRight = rightWord.equals(enteredWord);
-        view.setResultQuestion(isRight);
-        if (isRight) {
-            trueQuestions++;
-        } else {
-            view.setRightAnswer(rightWord);
-        }
+        rightWord.equals(enteredWord);
+        return rightWord.equals(enteredWord);
+    }
 
-        isEnteredAnswer = true;
+    protected void wrongAnswer() {
+        view.setRightAnswer(getRightAnswer());
+    }
+
+    protected void correctAnswer() {
+        trueQuestions++;
     }
 
     protected abstract String getRightAnswer();
 
     protected abstract String getNewQuestion();
+
+    protected boolean isFinish() {
+        return currentQuestion.equals(getTotalQuestions());
+    }
 }
