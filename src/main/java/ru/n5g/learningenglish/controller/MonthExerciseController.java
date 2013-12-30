@@ -1,7 +1,7 @@
 package ru.n5g.learningenglish.controller;
 
 import ru.n5g.learningenglish.Settings;
-import ru.n5g.learningenglish.util.PlayerMpr3;
+import ru.n5g.learningenglish.util.Mp3Player;
 import ru.n5g.learningenglish.view.ExerciseView;
 
 import static ru.n5g.learningenglish.util.Months.getRandomMonth;
@@ -28,7 +28,7 @@ public class MonthExerciseController extends ExerciseControllerAbs {
     @Override
     protected String getRightAnswer() {
         String translate = translateMonth(month);
-        PlayerMpr3.play("month/" + translate);
+        Mp3Player.play("month/" + translate);
         return translate;
     }
 

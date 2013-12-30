@@ -1,44 +1,46 @@
 package ru.n5g.learningenglish.util;
 
+import ru.n5g.learningenglish.words.Words;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
 /**
- * @author Belyaev
+ * @author Gleb Belyaev
  */
 public class SmartRandom<WordRusType, WordEngType> implements WordRandom<WordRusType> {
-    private final Map<WordRusType, WordEngType> map;
+    private final Words<WordRusType, WordEngType> words;
     private Random random;
     private Map<WordRusType, Integer> smartRandom;
     private int understanding;
 
-    public SmartRandom(Map<WordRusType, WordEngType> map) {
-        this(map, 2);
+    public SmartRandom(Words<WordRusType, WordEngType> words) {
+        this(words, 2);
     }
 
-    public SmartRandom(Map<WordRusType, WordEngType> map, int understanding) {
-        this.map = map;
+    public SmartRandom(Words<WordRusType, WordEngType> words, int understanding) {
+        this.words = words;
         this.understanding = understanding;
         random = new Random(System.nanoTime());
-        smartRandom = getSmartRandom(map);
+        smartRandom = getSmartRandom(words);
     }
 
-    private Map<WordRusType, Integer> getSmartRandom(Map<WordRusType, WordEngType> map) {
+    private Map<WordRusType, Integer> getSmartRandom(Words<WordRusType, WordEngType> map) {
         Map<WordRusType, Integer> smartRandom = new HashMap<WordRusType, Integer>();
-        for (WordRusType key : map.keySet()) {
+        for (WordRusType key : map.getListRusWord()) {
             smartRandom.put(key, 0);
         }
         return smartRandom;
     }
 
     @SuppressWarnings("unchecked")
-    public WordRusType getRandom() {
+    public WordRusType getRandomWord() {
         WordRusType word;
         while (true) {
-            int item = random.nextInt(map.size());
-            word = (WordRusType) map.keySet().toArray()[item];
+            int item = random.nextInt(words.size());
+            word = (WordRusType) words.getRusWord(item);
             if (smartRandom.get(word) < understanding) {
                 break;
             }

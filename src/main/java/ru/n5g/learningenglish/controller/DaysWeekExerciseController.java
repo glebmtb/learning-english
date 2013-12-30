@@ -1,7 +1,7 @@
 package ru.n5g.learningenglish.controller;
 
 import ru.n5g.learningenglish.Settings;
-import ru.n5g.learningenglish.util.PlayerMpr3;
+import ru.n5g.learningenglish.util.Mp3Player;
 import ru.n5g.learningenglish.view.ExerciseView;
 
 import static ru.n5g.learningenglish.util.DaysWeeks.getRandomDaysWeek;
@@ -27,7 +27,7 @@ public class DaysWeekExerciseController extends ExerciseControllerAbs {
     @Override
     protected String getRightAnswer() {
         String translate = translateDaysWeek(daysWeek);
-        PlayerMpr3.play("daysweek/" + translate);
+        Mp3Player.play("daysweek/" + translate);
         return translate;
     }
 

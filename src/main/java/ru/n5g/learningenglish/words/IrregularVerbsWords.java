@@ -1,23 +1,18 @@
-package ru.n5g.learningenglish.util;
+package ru.n5g.learningenglish.words;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
- * @author Belyaev
- *         <p/>
- *         Неправельные глаголы
+ * Неправельные глаголы
+ *
+ * @author Gleb Belyaev
  */
-public class IrregularVerbs implements WordRandom<String>, WordTranslate<String[], String> {
-    private Map<String, String[]> map;
-    private SmartRandom<String, String[]> smartRandom;
+public class IrregularVerbsWords extends WordsAbs<String, String[]>{
 
-    public IrregularVerbs() {
-        map = getMap();
-        smartRandom = new SmartRandom<String, String[]>(map);
-    }
-
-    protected Map<String, String[]> getMap() {
+    protected Map<String, String[]> initializationWords() {
         Map<String, String[]> words = new HashMap<String, String[]>();
         words.put("быть", new String[]{"be", "was were", "been"});
         words.put("бить", new String[]{"beat", "beat", "beaten"});
@@ -59,23 +54,5 @@ public class IrregularVerbs implements WordRandom<String>, WordTranslate<String[
         words.put("расти", new String[]{"grow", "grew", "grown"});
 //        words.put("", new String[]{"", "", ""});
         return words;
-    }
-
-    @Override
-    public String getRandom() {
-        return smartRandom.getRandom();
-    }
-
-    @Override
-    public String[] translate(String timesYear) {
-        return map.get(timesYear);
-    }
-
-    public void rightAnswer(String word) {
-        smartRandom.understand(word);
-    }
-
-    public void wrongAnswer(String word) {
-        smartRandom.repeat(word);
     }
 }

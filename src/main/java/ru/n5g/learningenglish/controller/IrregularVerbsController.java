@@ -1,23 +1,26 @@
 package ru.n5g.learningenglish.controller;
 
 import ru.n5g.learningenglish.Settings;
-import ru.n5g.learningenglish.util.IrregularVerbs;
-import ru.n5g.learningenglish.util.PlayerMpr3;
+import ru.n5g.learningenglish.util.Mp3Player;
+import ru.n5g.learningenglish.words.IrregularVerbsWords;
+import ru.n5g.learningenglish.util.SmartRandom;
 import ru.n5g.learningenglish.view.IrregularVerbsView;
 
 /**
- * @author Belyaev
+ * @author Gleb Belyaev
  */
 public class IrregularVerbsController extends ExerciseControllerAbs {
     protected IrregularVerbsView view;
     protected String word;
-    protected IrregularVerbs irregularVerbs;
+    protected IrregularVerbsWords irregularVerbsWords;
     private boolean isRight = true;
+    private SmartRandom<String, String[]> smartRandom;
 
     public IrregularVerbsController(IrregularVerbsView view) {
         super(view);
         this.view = view;
-        irregularVerbs = new IrregularVerbs();
+        irregularVerbsWords = new IrregularVerbsWords();
+        smartRandom = new SmartRandom<String, String[]>(irregularVerbsWords);
     }
 
     public void clickVerify() {
@@ -36,19 +39,19 @@ public class IrregularVerbsController extends ExerciseControllerAbs {
         }
 
 
-        String rightWords[] = irregularVerbs.translate(word);
+        String rightWords[] = irregularVerbsWords.translate(word);
         boolean know = isRight;
         isRight = rightWords[0].equals(enteredWords[0]) && rightWords[1].equals(enteredWords[1]) && rightWords[2].equals(enteredWords[2]);
         view.setResultQuestion(isRight);
         if (isRight) {
             trueQuestions++;
             if (know)
-                irregularVerbs.rightAnswer(word);
+                rightAnswer(word);
         } else {
             view.setRightAnswers(rightWords);
-            irregularVerbs.wrongAnswer(word);
+            wrongAnswer(word);
         }
-        PlayerMpr3.play("irregularverbs/" + rightWords[0]);
+        Mp3Player.play("irregularverbs/" + rightWords[0]);
         isEnteredAnswer = true;
     }
 
@@ -65,7 +68,19 @@ public class IrregularVerbsController extends ExerciseControllerAbs {
     @Override
     protected String getNewQuestion() {
         if (isRight)
-            word = irregularVerbs.getRandom();
+            word = getRandom();
         return word;
+    }
+
+    private void rightAnswer(String word) {
+        smartRandom.understand(word);
+    }
+
+    private String getRandom() {
+        return smartRandom.getRandomWord();
+    }
+
+    private void wrongAnswer(String word) {
+        smartRandom.repeat(word);
     }
 }

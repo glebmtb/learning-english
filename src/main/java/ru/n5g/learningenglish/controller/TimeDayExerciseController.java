@@ -1,11 +1,12 @@
 package ru.n5g.learningenglish.controller;
 
 import ru.n5g.learningenglish.Settings;
-import ru.n5g.learningenglish.util.PlayerMpr3;
+import ru.n5g.learningenglish.util.Mp3Player;
+import ru.n5g.learningenglish.util.StupidRandom;
+import ru.n5g.learningenglish.util.WordRandom;
 import ru.n5g.learningenglish.view.ExerciseView;
-
-import static ru.n5g.learningenglish.util.TimeDays.getRandomTimeDay;
-import static ru.n5g.learningenglish.util.TimeDays.translateTimeDay;
+import ru.n5g.learningenglish.words.TimeDaysWords;
+import ru.n5g.learningenglish.words.Words;
 
 /**
  * Gleb Belyaev
@@ -13,9 +14,13 @@ import static ru.n5g.learningenglish.util.TimeDays.translateTimeDay;
  */
 public class TimeDayExerciseController extends ExerciseControllerAbs {
     private String timeDay;
+    private WordRandom<String> stupidRandom;
+    private Words<String, String> words;
 
     public TimeDayExerciseController(ExerciseView view) {
         super(view);
+        words = new TimeDaysWords();
+        stupidRandom = new StupidRandom<String>(words);
     }
 
     @Override
@@ -25,14 +30,14 @@ public class TimeDayExerciseController extends ExerciseControllerAbs {
 
     @Override
     protected String getRightAnswer() {
-        String translate = translateTimeDay(timeDay);
-        PlayerMpr3.play("timeday/" + translate);
+        String translate = words.translate(timeDay);
+        Mp3Player.play("timeday/" + translate);
         return translate;
     }
 
     @Override
     protected String getNewQuestion() {
-        timeDay = getRandomTimeDay();
+        timeDay = stupidRandom.getRandomWord();
         return timeDay;
     }
 }
