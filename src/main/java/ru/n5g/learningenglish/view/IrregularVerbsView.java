@@ -5,6 +5,8 @@ import ru.n5g.learningenglish.controller.IrregularVerbsController;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 /**
  * @author Belyaev
@@ -63,6 +65,14 @@ public class IrregularVerbsView extends ExerciseViewAbs {
                 inputField3Response.grabFocus();
             }
         });
+        inputField2Response.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE && inputField2Response.getText().isEmpty()) {
+                    inputField1Response.grabFocus();
+                }
+            }
+        });
 
         rightAnswer2Label = new JLabel();
         rightAnswer2Label.setBounds(xPosition, 80, heightLabel, 20);
@@ -75,6 +85,14 @@ public class IrregularVerbsView extends ExerciseViewAbs {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 clickEnterInInputField();
+            }
+        });
+        inputField3Response.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE && inputField3Response.getText().isEmpty()) {
+                    inputField2Response.grabFocus();
+                }
             }
         });
 
