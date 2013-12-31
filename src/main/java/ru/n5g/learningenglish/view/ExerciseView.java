@@ -22,7 +22,7 @@ public interface ExerciseView {
     void setCounterRepetition(String counterRepetition);
 
     /**
-     * Записать количество правельных ответов
+     * Записать количество правильных ответов
      */
     void setTrueQuestions(String correctAnswers);
 
@@ -47,13 +47,13 @@ public interface ExerciseView {
     String getEnteredText();
 
     /**
-     * Записать правельный ответ
+     * Записать правильный ответ
      */
     void setRightAnswer(String rightAnswer);
 
     /**
      * Записать результат тестов
-     * Пример: "10 правельных из 20"
+     * Пример: "10 правильных из 20"
      */
     void setResultTest(String resultTest);
 

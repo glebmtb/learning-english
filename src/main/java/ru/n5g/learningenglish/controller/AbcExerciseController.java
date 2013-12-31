@@ -45,7 +45,7 @@ public class AbcExerciseController {
 
     public void clickNext() {
         if (currentQuestion.equals(totalQuestions)) {
-            view.setResultTest("правельных ответов: " + trueQuestions + " из: " + totalQuestions);
+            view.setResultTest("правильных ответов: " + trueQuestions + " из: " + totalQuestions);
             view.setVisibleStartPage(true);
             view.setVisibleLessonPage(false);
             return;

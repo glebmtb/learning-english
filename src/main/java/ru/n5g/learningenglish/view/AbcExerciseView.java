@@ -73,7 +73,7 @@ public class AbcExerciseView implements ExerciseView {
         counterRepetitionLabel.setBounds(20, 15, 40, 20);
         counterRepetitionLabel.setVisible(false);
 
-        correctAnswersTextStartLabel = new JLabel("Правельных ответов:");
+        correctAnswersTextStartLabel = new JLabel("Правильных ответов:");
         correctAnswersTextStartLabel.setBounds(120, 15, 140, 20);
         correctAnswersTextStartLabel.setVisible(false);
 

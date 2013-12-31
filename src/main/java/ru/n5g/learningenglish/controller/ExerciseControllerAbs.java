@@ -31,7 +31,7 @@ public abstract class ExerciseControllerAbs<WordRusType, WordEngType> {
 
     public void clickNext() {
         if (isFinish()) {
-            view.setResultTest("правельных ответов: " + trueQuestions + " из: " + getTotalQuestions());
+            view.setResultTest("правильных ответов: " + trueQuestions + " из: " + getTotalQuestions());
             view.setVisibleStartPage(true);
             view.setVisibleLessonPage(false);
             return;
