@@ -138,7 +138,7 @@ public class StartViewImpl implements StartView {
         });
         yearExercise.setEnabled(false); //TODO
 
-        JButton irregularVerbsExercise = new JButton("Неправельные глаголы");
+        JButton irregularVerbsExercise = new JButton("Неправильные глаголы");
         irregularVerbsExercise.setBounds(leftMargin, yPosition += heightButton + topMargin, widthButton, heightButton);
         irregularVerbsExercise.addActionListener(new ActionListener() {
             @Override

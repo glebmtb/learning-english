@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Неправельные глаголы
+ * Неправильные глаголы
  *
  * @author Gleb Belyaev
  */
