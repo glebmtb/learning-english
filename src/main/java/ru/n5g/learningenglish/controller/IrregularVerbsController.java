@@ -104,11 +104,12 @@ public class IrregularVerbsController extends ExerciseControllerAbs {
     }
 
     private String getRandom() {
-        String  rusWord;
+        String rusWord;
         while (true) {
             rusWord = random.getRandomWord();
             int countRight = studiedWordsMap.get(rusWord);
-            if (countRight < REPEAT_COUNT) {
+            boolean isNotRepetition = studiedWords == irregularVerbsWords.size() - 1 || !rusWord.equals(this.word);
+            if (countRight < REPEAT_COUNT && isNotRepetition) {
                 break;
             }
         }
