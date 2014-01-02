@@ -94,8 +94,7 @@ public class IrregularVerbsWords extends WordsAbs<String, String[]> {
         words.put("показывать", new String[]{"show", "showed", "shown"});
         words.put("уменьшать", new String[]{"shrink", "shrank", "shrunk"});
         words.put("закрывать", new String[]{"shut", "shut", "shut"});
-        words.put("уменьшать", new String[]{"shut", "shut", "shut"});
-        words.put("закрывать", new String[]{"sing", "sang", "sung"});
+        words.put("петь", new String[]{"sing", "sang", "sung"});
         words.put("тонуть", new String[]{"sink", "sank sunk", "sunk"});
         words.put("сидеть", new String[]{"sit", "sat", "sat"});
         words.put("спать", new String[]{"sleep", "slept", "slept"});
