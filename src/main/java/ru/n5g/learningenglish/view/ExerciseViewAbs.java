@@ -76,7 +76,7 @@ public abstract class ExerciseViewAbs implements ExerciseView {
         correctAnswersTextStartLabel.setVisible(false);
 
         correctAnswersLabel = new JLabel();
-        correctAnswersLabel.setBounds(250, 15, 30, 20);
+        correctAnswersLabel.setBounds(248, 15, 30, 20);
         correctAnswersLabel.setVisible(false);
 
         correctAnswersTextFromLabel = new JLabel("из:");
@@ -84,7 +84,7 @@ public abstract class ExerciseViewAbs implements ExerciseView {
         correctAnswersTextFromLabel.setVisible(false);
 
         passedQuestionsLabel = new JLabel();
-        passedQuestionsLabel.setBounds(290, 15, 30, 20);
+        passedQuestionsLabel.setBounds(288, 15, 30, 20);
         passedQuestionsLabel.setVisible(false);
 
         commandInfoLabel = new JLabel("Введите цифру на английском языке:");
