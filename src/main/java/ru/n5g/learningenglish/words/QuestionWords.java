@@ -13,7 +13,7 @@ public class QuestionWords extends WordsAbs<String, String> {
     @Override
     protected Map<String, String> initializationWords() {
         Map<String, String> map = new HashMap<String, String>();
-        map.put("что? какой?", "what");
+        map.put("что? какой? каков?", "what");
         map.put("кто?", "who");
         map.put("где? куда?", "where");
         map.put("когда?", "when");

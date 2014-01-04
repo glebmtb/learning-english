@@ -24,6 +24,8 @@ public class IrregularVerbsWords extends WordsAbs<String, String[]> {
         words.put("гореть", new String[]{"burn", "burnt", "burnt"});
         words.put("ворваться, разрываться, взрываться", new String[]{"burst", "burst", "burst"});
         words.put("покупать", new String[]{"buy", "bought", "bought"});
+        words.put("предлагать цену", new String[]{"bid", "bid", "bid"});
+        words.put("кусать", new String[]{"bite", "bit", "bitten"});
         words.put("ловить, хватать, успеть", new String[]{"catch", "caught", "caught"});
         words.put("выбирать", new String[]{"choose", "chose", "chosen"});
         words.put("приходить", new String[]{"come", "came", "come"});
@@ -116,12 +118,13 @@ public class IrregularVerbsWords extends WordsAbs<String, String[]> {
         words.put("плавать", new String[]{"swim", "swam", "swum"});
         words.put("качать", new String[]{"swing", "swung", "swung"});
         words.put("брать, взять", new String[]{"take", "took", "taken"});
-        words.put("учить", new String[]{"teach", "took", "taken"});
+        words.put("учить, обучать", new String[]{"teach", "took", "taken"});
         words.put("рвать", new String[]{"tear", "tore", "torn"});
         words.put("рассказывать", new String[]{"tell", "told", "told"});
         words.put("думать", new String[]{"think", "thought", "thought"});
         words.put("бросать", new String[]{"throw", "threw", "thrown"});
         words.put("понимать", new String[]{"understand", "understood", "understood"});
+        words.put("предпринимать", new String[]{"undertake", "undertook", "undertaken"});
         words.put("просыпаться", new String[]{"wake", "woke", "woken"});
         words.put("носить", new String[]{"wear", "wore", "worn"});
         words.put("плакать", new String[]{"weep", "wept", "wept"});
