@@ -20,12 +20,12 @@ public class ExerciseControllerAbsImpl extends ExerciseControllerAbs {
     private Map<String, Integer> studiedWordsMap;
     private int studiedWords;
     private final int REPEAT_COUNT = 3;
+    private Boolean isTrueAnswer;
 
     public ExerciseControllerAbsImpl(ExerciseView view, Words<String, String> words) {
         super(view);
         this.words = words;
         random = new StupidRandom<String>(words);
-        studiedWordsMap = getStudiedWordsMap(words.getListRusWord());
     }
 
     @Override
@@ -37,16 +37,20 @@ public class ExerciseControllerAbsImpl extends ExerciseControllerAbs {
     protected void wrongAnswer() {
         super.wrongAnswer();
         studiedWordsMap.put(rusWord, 0);
+        isTrueAnswer = false;
     }
 
     @Override
     protected void correctAnswer() {
         super.correctAnswer();
-        int countRight = studiedWordsMap.get(rusWord) + 1;
-        if (countRight == REPEAT_COUNT) {
-            studiedWords++;
+        if (isTrueAnswer) {
+            int countRight = studiedWordsMap.get(rusWord) + 1;
+            if (countRight == REPEAT_COUNT) {
+                studiedWords++;
+            }
+            studiedWordsMap.put(rusWord, countRight);
         }
-        studiedWordsMap.put(rusWord, countRight);
+        isTrueAnswer = true;
     }
 
     @Override
@@ -67,12 +71,17 @@ public class ExerciseControllerAbsImpl extends ExerciseControllerAbs {
 
     @Override
     protected String getNewQuestion() {
-        while (true) {
-            rusWord = random.getRandomWord();
-            int countRight = studiedWordsMap.get(rusWord);
-            if (countRight < REPEAT_COUNT) {
-                break;
+        String rusWord = this.rusWord;
+        if (isTrueAnswer) {
+            while (true) {
+                rusWord = random.getRandomWord();
+                int countRight = studiedWordsMap.get(rusWord);
+                boolean isNotRepetition = studiedWords == words.size() - 1 || !rusWord.equals(this.rusWord);
+                if (countRight < REPEAT_COUNT && isNotRepetition) {
+                    break;
+                }
             }
+            this.rusWord = rusWord;
         }
         return rusWord;
     }
@@ -85,8 +94,10 @@ public class ExerciseControllerAbsImpl extends ExerciseControllerAbs {
 
     @Override
     public void clickStart() {
-        super.clickStart();
         studiedWords = 0;
+        studiedWordsMap = getStudiedWordsMap(words.getListRusWord());
+        isTrueAnswer = true;
+        super.clickStart();
     }
 
     private Map<String, Integer> getStudiedWordsMap(List<String> list) {
