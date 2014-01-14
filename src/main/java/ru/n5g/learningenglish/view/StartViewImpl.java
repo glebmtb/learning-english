@@ -165,6 +165,15 @@ public class StartViewImpl implements StartView {
             }
         });
 
+        JButton prepositionsOfPlace = new JButton("Предлоги места");
+        prepositionsOfPlace.setBounds(leftMargin, yPosition += heightButton + topMargin, widthButton, heightButton);
+        prepositionsOfPlace.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.clickPrepositionsOfPlace();
+            }
+        });
+
         JButton result = new JButton("Результаты");
         result.setBounds(leftMargin, yPosition += heightButton + topMargin + 20, 130, heightButton);
         result.addActionListener(new ActionListener() {
@@ -205,6 +214,7 @@ public class StartViewImpl implements StartView {
         mainFrame.add(irregularVerbsExercise);
         mainFrame.add(adverbsOfFrequencyExercise);
         mainFrame.add(questionWordsExercise);
+        mainFrame.add(prepositionsOfPlace);
         mainFrame.add(result);
         mainFrame.add(settings);
 

@@ -124,4 +124,11 @@ public class StartController {
     public void clickNumberFrom1To19Exercise() {
         new NumberFrom0To19ExerciseView();
     }
+
+    /**
+     * Предлоги места
+     */
+    public void clickPrepositionsOfPlace() {
+        new PrepositionsOfPlaceView();
+    }
 }
