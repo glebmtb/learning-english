@@ -69,7 +69,7 @@
                             <!--<icon>src/main/resources/icons/exeIcon.ico</icon>-->
                             <jre>
                                 <minVersion>1.5.0</minVersion>
-                                <maxVersion>1.6.0</maxVersion>
+                                <maxVersion>1.8.0</maxVersion>
                                 <initialHeapSize>128</initialHeapSize>
                                 <maxHeapSize>1024</maxHeapSize>
                             </jre>
