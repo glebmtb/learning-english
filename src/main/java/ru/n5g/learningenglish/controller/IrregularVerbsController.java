@@ -27,8 +27,15 @@ public class IrregularVerbsController extends ExerciseControllerAbs {
         super(view);
         this.view = view;
         irregularVerbsWords = new IrregularVerbsWords();
-        random = new StupidRandom<String>(irregularVerbsWords);
+        view.setMaxWord(String.valueOf(irregularVerbsWords.size()));
+    }
+
+    @Override
+    public void clickStart() {
+        irregularVerbsWords.setIntervalWords(view.getStartWord(), view.getEndWord());
         studiedWordsMap = getStudiedWordsMap(irregularVerbsWords.getListRusWord());
+        random = new StupidRandom<String>(irregularVerbsWords);
+        super.clickStart();
     }
 
     private Map<String, Integer> getStudiedWordsMap(List<String> listRusWord) {

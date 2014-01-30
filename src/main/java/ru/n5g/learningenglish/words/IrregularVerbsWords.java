@@ -1,7 +1,6 @@
 package ru.n5g.learningenglish.words;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Неправильные глаголы
@@ -10,8 +9,15 @@ import java.util.Map;
  */
 public class IrregularVerbsWords extends WordsAbs<String, String[]> {
 
+    protected Map<String, String[]> originalMap;
+
+    public IrregularVerbsWords() {
+        super();
+        originalMap = new LinkedHashMap<String, String[]>(map);
+    }
+
     protected Map<String, String[]> initializationWords() {
-        Map<String, String[]> words = new HashMap<String, String[]>();
+        Map<String, String[]> words = new LinkedHashMap<String, String[]>();
         words.put("быть", new String[]{"be", "was were", "been"});
         words.put("бить", new String[]{"beat", "beat", "beaten"});
         words.put("становиться", new String[]{"become", "became", "become"});
@@ -133,6 +139,16 @@ public class IrregularVerbsWords extends WordsAbs<String, String[]> {
         words.put("извиваться", new String[]{"wind", "wound", "wound"});
         words.put("писать", new String[]{"write", "wrote", "written"});
         return words;
+    }
+
+    public void setIntervalWords(int startWord, int endWord) {
+        map = new LinkedHashMap<String, String[]>();
+        List<String> keys = new ArrayList<String>(originalMap.keySet());
+        for (int i = 0; i < keys.size(); i++) {
+            if (i >= startWord && i < endWord) {
+                map.put(keys.get(i), originalMap.get(keys.get(i)));
+            }
+        }
     }
 
     @Override

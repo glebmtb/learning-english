@@ -21,6 +21,10 @@ public class IrregularVerbsView extends ExerciseViewAbs {
     protected JTextField inputField2Response;
     protected JTextField inputField3Response;
 
+    protected JLabel intervalWords;
+    protected JTextField startWord;
+    protected JTextField endWord;
+
     protected IrregularVerbsController controller;
 
     public IrregularVerbsView() {
@@ -102,6 +106,15 @@ public class IrregularVerbsView extends ExerciseViewAbs {
 
         inputResultLabel.setLocation(xPosition + heightLabel + leftMargin, 98);
 
+        intervalWords = new JLabel("Можно выбрать промежуток слов:");
+        intervalWords.setBounds(20, 80, 200, 20);
+
+        startWord = new JTextField("0");
+        startWord.setBounds(225, 80, 50, 20);
+
+        endWord = new JTextField();
+        endWord.setBounds(275, 80, 50, 20);
+
         frame.add(rightAnswer1Label);
         frame.add(rightAnswer2Label);
         frame.add(rightAnswer3Label);
@@ -109,6 +122,10 @@ public class IrregularVerbsView extends ExerciseViewAbs {
         frame.add(inputField1Response);
         frame.add(inputField2Response);
         frame.add(inputField3Response);
+
+        frame.add(intervalWords);
+        frame.add(startWord);
+        frame.add(endWord);
     }
 
     @Override
@@ -122,6 +139,14 @@ public class IrregularVerbsView extends ExerciseViewAbs {
         inputField1Response.setVisible(isVisible);
         inputField2Response.setVisible(isVisible);
         inputField3Response.setVisible(isVisible);
+    }
+
+    @Override
+    public void setVisibleStartPage(boolean isVisible) {
+        super.setVisibleStartPage(isVisible);
+        intervalWords.setVisible(isVisible);
+        startWord.setVisible(isVisible);
+        endWord.setVisible(isVisible);
     }
 
     @Override
@@ -186,5 +211,17 @@ public class IrregularVerbsView extends ExerciseViewAbs {
     @Override
     protected void grabFocus() {
         inputField1Response.grabFocus();
+    }
+
+    public void setMaxWord(String maxWord){
+        endWord.setText(maxWord);
+    }
+
+    public int getStartWord(){
+        return Integer.valueOf(startWord.getText());
+    }
+
+    public int getEndWord(){
+        return Integer.valueOf(endWord.getText());
     }
 }
