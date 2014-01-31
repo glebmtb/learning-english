@@ -24,6 +24,8 @@ public class IrregularVerbsView extends ExerciseViewAbs {
     protected JLabel intervalWords;
     protected JTextField startWord;
     protected JTextField endWord;
+    protected JLabel wrongWordTextLabel;
+    protected JLabel wrongWord;
 
     protected IrregularVerbsController controller;
 
@@ -115,6 +117,14 @@ public class IrregularVerbsView extends ExerciseViewAbs {
         endWord = new JTextField();
         endWord.setBounds(275, 80, 50, 20);
 
+        wrongWordTextLabel = new JLabel("Допущено ошибок:");
+        wrongWordTextLabel.setBounds(20, 100, 200, 20);
+        wrongWordTextLabel.setVisible(false);
+
+        wrongWord = new JLabel("0");
+        wrongWord.setBounds(130, 100, 200, 20);
+        wrongWord.setVisible(false);
+
         frame.add(rightAnswer1Label);
         frame.add(rightAnswer2Label);
         frame.add(rightAnswer3Label);
@@ -126,6 +136,8 @@ public class IrregularVerbsView extends ExerciseViewAbs {
         frame.add(intervalWords);
         frame.add(startWord);
         frame.add(endWord);
+        frame.add(wrongWordTextLabel);
+        frame.add(wrongWord);
     }
 
     @Override
@@ -147,6 +159,8 @@ public class IrregularVerbsView extends ExerciseViewAbs {
         intervalWords.setVisible(isVisible);
         startWord.setVisible(isVisible);
         endWord.setVisible(isVisible);
+        wrongWordTextLabel.setVisible(isVisible);
+        wrongWord.setVisible(isVisible);
     }
 
     @Override
@@ -223,5 +237,22 @@ public class IrregularVerbsView extends ExerciseViewAbs {
 
     public int getEndWord(){
         return Integer.valueOf(endWord.getText());
+    }
+
+    private int correctAnswers;
+    private int passedQuestions;
+
+    @Override
+    public void setTrueQuestions(String correctAnswers) {
+        super.setTrueQuestions(correctAnswers);
+        this.correctAnswers = Integer.valueOf(correctAnswers);
+        wrongWord.setText(String.valueOf(this.passedQuestions-this.correctAnswers));
+    }
+
+    @Override
+    public void setPassedQuestions(String passedQuestions) {
+        super.setPassedQuestions(passedQuestions);
+        this.passedQuestions = Integer.valueOf(passedQuestions);
+        wrongWord.setText(String.valueOf(this.passedQuestions-this.correctAnswers));
     }
 }
