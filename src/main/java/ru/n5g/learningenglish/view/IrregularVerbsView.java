@@ -54,7 +54,13 @@ public class IrregularVerbsView extends ExerciseViewAbs {
         inputField1Response.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                inputField2Response.grabFocus();
+                if (inputField1Response.getText().isEmpty()
+                        && inputField2Response.getText().isEmpty()
+                        && inputField3Response.getText().isEmpty()) {
+                    clickEnterInInputField();
+                } else {
+                    inputField2Response.grabFocus();
+                }
             }
         });
 
@@ -68,7 +74,13 @@ public class IrregularVerbsView extends ExerciseViewAbs {
         inputField2Response.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                inputField3Response.grabFocus();
+                if (inputField1Response.getText().isEmpty()
+                        || (inputField2Response.getText().isEmpty()
+                        && inputField3Response.getText().isEmpty())) {
+                    clickEnterInInputField();
+                } else {
+                    inputField3Response.grabFocus();
+                }
             }
         });
         inputField2Response.addKeyListener(new KeyAdapter() {
@@ -227,15 +239,15 @@ public class IrregularVerbsView extends ExerciseViewAbs {
         inputField1Response.grabFocus();
     }
 
-    public void setMaxWord(String maxWord){
+    public void setMaxWord(String maxWord) {
         endWord.setText(maxWord);
     }
 
-    public int getStartWord(){
+    public int getStartWord() {
         return Integer.valueOf(startWord.getText());
     }
 
-    public int getEndWord(){
+    public int getEndWord() {
         return Integer.valueOf(endWord.getText());
     }
 
@@ -246,13 +258,13 @@ public class IrregularVerbsView extends ExerciseViewAbs {
     public void setTrueQuestions(String correctAnswers) {
         super.setTrueQuestions(correctAnswers);
         this.correctAnswers = Integer.valueOf(correctAnswers);
-        wrongWord.setText(String.valueOf(this.passedQuestions-this.correctAnswers));
+        wrongWord.setText(String.valueOf(this.passedQuestions - this.correctAnswers));
     }
 
     @Override
     public void setPassedQuestions(String passedQuestions) {
         super.setPassedQuestions(passedQuestions);
         this.passedQuestions = Integer.valueOf(passedQuestions);
-        wrongWord.setText(String.valueOf(this.passedQuestions-this.correctAnswers));
+        wrongWord.setText(String.valueOf(this.passedQuestions - this.correctAnswers));
     }
 }
