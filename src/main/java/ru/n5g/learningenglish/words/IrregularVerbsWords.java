@@ -124,7 +124,7 @@ public class IrregularVerbsWords extends WordsAbs<String, String[]> {
         words.put("плавать", new String[]{"swim", "swam", "swum"});
         words.put("качать", new String[]{"swing", "swung", "swung"});
         words.put("брать, взять", new String[]{"take", "took", "taken"});
-        words.put("учить, обучать", new String[]{"teach", "took", "taken"});
+        words.put("учить, обучать", new String[]{"teach", "taught", "taught"});
         words.put("рвать", new String[]{"tear", "tore", "torn"});
         words.put("рассказывать", new String[]{"tell", "told", "told"});
         words.put("думать", new String[]{"think", "thought", "thought"});
