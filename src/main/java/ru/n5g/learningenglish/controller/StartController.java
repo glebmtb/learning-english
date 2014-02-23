@@ -13,10 +13,10 @@ public class StartController {
     }
 
     /**
-     * Все занятия
+     * Свои наборы
      */
-    public void clickAllExercises() {
-
+    public void clickCustomerList() {
+        new CustomList();
     }
 
     /**

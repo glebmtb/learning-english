@@ -27,12 +27,12 @@ public class StartViewImpl implements StartView {
         int widthButton = 272;
         int heightButton = 35;
 
-        JButton allExercises = new JButton("Все упражнения по очереди");
+        JButton allExercises = new JButton("Свои наборы");
         allExercises.setBounds(leftMargin, yPosition += 10, widthButton, heightButton);
         allExercises.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.clickAllExercises();
+                controller.clickCustomerList();
             }
         });
         allExercises.setEnabled(false); //TODO
