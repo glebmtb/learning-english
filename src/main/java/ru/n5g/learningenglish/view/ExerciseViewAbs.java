@@ -72,19 +72,19 @@ public abstract class ExerciseViewAbs implements ExerciseView {
         counterRepetitionLabel.setVisible(false);
 
         correctAnswersTextStartLabel = new JLabel("Правильных ответов:");
-        correctAnswersTextStartLabel.setBounds(120, 15, 140, 20);
+        correctAnswersTextStartLabel.setBounds(120, 15, 153, 20);
         correctAnswersTextStartLabel.setVisible(false);
 
         correctAnswersLabel = new JLabel();
-        correctAnswersLabel.setBounds(248, 15, 30, 20);
+        correctAnswersLabel.setBounds(275, 15, 30, 20);
         correctAnswersLabel.setVisible(false);
 
         correctAnswersTextFromLabel = new JLabel("из:");
-        correctAnswersTextFromLabel.setBounds(270, 15, 20, 20);
+        correctAnswersTextFromLabel.setBounds(305, 15, 20, 20);
         correctAnswersTextFromLabel.setVisible(false);
 
         passedQuestionsLabel = new JLabel();
-        passedQuestionsLabel.setBounds(288, 15, 30, 20);
+        passedQuestionsLabel.setBounds(327, 15, 30, 20);
         passedQuestionsLabel.setVisible(false);
 
         commandInfoLabel = new JLabel("Введите цифру на английском языке:");

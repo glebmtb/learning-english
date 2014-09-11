@@ -39,7 +39,7 @@ public class IrregularVerbsView extends ExerciseViewAbs {
 
         frame.setTitle("Диктовка неправильных глаголов");
         commandInfoLabel.setText("Введите три формы неправильного глагола:");
-        commandInfoLabel.setBounds(30, 35, 300, 20);
+        commandInfoLabel.setBounds(30, 35, 330, 20);
 
         frame.remove(inputFieldResponse);
         frame.remove(rightAnswerLabel);
