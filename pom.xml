@@ -58,50 +58,6 @@
                     <shadedClassifierName>shaded</shadedClassifierName> <!-- set the suffix to the shaded jar -->
                 </configuration>
             </plugin>
-
-            <plugin>
-                <groupId>org.bluestemsoftware.open.maven.plugin</groupId>
-                <artifactId>launch4j-plugin</artifactId>
-                <version>1.5.0.0</version>
-                <executions>
-
-                    <!-- GUI exe -->
-                    <execution>
-                        <id>l4j-gui</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>launch4j</goal>
-                        </goals>
-                        <configuration>
-                            <headerType>gui</headerType>
-                            <outfile>target/learning-english.exe</outfile>
-                            <jar>target/${artifactId}-${version}-shaded.jar</jar> <!-- 'shaded' is the value set on shadedClassifierName above -->
-                            <errTitle>App Err</errTitle>
-                            <classPath>
-                                <mainClass>ru.n5g.learningenglish.LearningEnglish</mainClass>
-                            </classPath>
-                            <!--<icon>src/main/resources/icons/exeIcon.ico</icon>-->
-                            <jre>
-                                <minVersion>1.5.0</minVersion>
-                                <maxVersion>1.8.0</maxVersion>
-                                <initialHeapSize>128</initialHeapSize>
-                                <maxHeapSize>1024</maxHeapSize>
-                            </jre>
-                            <versionInfo>
-                                <fileVersion>1.0.0.0</fileVersion>
-                                <txtFileVersion>1.0.0.0</txtFileVersion>
-                                <fileDescription>Learning english</fileDescription>
-                                <copyright>Gleb Belyaev</copyright>
-                                <productVersion>1.0.0.0</productVersion>
-                                <txtProductVersion>1.0.0.0</txtProductVersion>
-                                <productName>Learning english</productName>
-                                <internalName>Learning english</internalName>
-                                <originalFilename>learning-english.exe</originalFilename>
-                            </versionInfo>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
 
