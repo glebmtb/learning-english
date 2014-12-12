@@ -42,23 +42,26 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>1.6</version>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>appassembler-maven-plugin</artifactId>
+                <version>1.9</version>
+                <configuration>
+                    <programs>
+                        <program>
+                            <mainClass>ru.n5g.learningenglish.LearningEnglish</mainClass>
+                            <id>app</id>
+                        </program>
+                    </programs>
+                </configuration>
                 <executions>
                     <execution>
-                        <phase>package</phase>
+                        <id>package</id>
                         <goals>
-                            <goal>shade</goal>
+                            <goal>assemble</goal>
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <shadedArtifactAttached>true</shadedArtifactAttached> <!-- Make the shaded artifact not the main one -->
-                    <shadedClassifierName>shaded</shadedClassifierName> <!-- set the suffix to the shaded jar -->
-                </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>
