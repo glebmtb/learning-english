@@ -51,6 +51,7 @@ public abstract class ExerciseControllerAbs<WordRusType, WordEngType> {
         currentQuestion++;
         view.clearInformantsResultQuestion();
         view.setCounterRepetition(currentQuestion + "/" + getTotalQuestions());
+        view.setCounterRepetition(currentQuestion, getTotalQuestions());
         view.setPassedQuestions(String.valueOf(currentQuestion - 1));
         view.setTrueQuestions(trueQuestions.toString());
         view.setTextForInput(getNewQuestion());

@@ -16,8 +16,8 @@ public class AbcExerciseController {
     private AbcSpeak abcSpeak;
 
     private Integer currentQuestion;
-    private Integer totalQuestions;
-    private Integer trueQuestions;
+    private Integer countQuestions;
+    private Integer rightAnswers;
     private ABC symbol;
     private boolean isEnteredSymbol;
 
@@ -31,8 +31,8 @@ public class AbcExerciseController {
         view.setVisibleLessonPage(true);
 
         currentQuestion = 0;
-        totalQuestions = Settings.numberRepetitionsAbc;
-        trueQuestions = 0;
+        countQuestions = Settings.numberRepetitionsAbc;
+        rightAnswers = 0;
         symbol = null;
         isEnteredSymbol = false;
 
@@ -44,8 +44,8 @@ public class AbcExerciseController {
     }
 
     public void clickNext() {
-        if (currentQuestion.equals(totalQuestions)) {
-            view.setResultTest("правильных ответов: " + trueQuestions + " из: " + totalQuestions);
+        if (currentQuestion.equals(countQuestions)) {
+            view.setResultTest(rightAnswers, countQuestions);
             view.setVisibleStartPage(true);
             view.setVisibleLessonPage(false);
             return;
@@ -66,7 +66,7 @@ public class AbcExerciseController {
         Boolean trueQuestion = String.valueOf(symbol).equals(enteredSymbol);
         view.setResultQuestion(trueQuestion);
         if (trueQuestion) {
-            trueQuestions++;
+            rightAnswers++;
         } else {
             view.setRightAnswer(String.valueOf(symbol).toUpperCase());
         }
@@ -75,9 +75,8 @@ public class AbcExerciseController {
     }
 
     private void refreshInfo() {
-        view.setCounterRepetition(currentQuestion + "/" + totalQuestions);
-        view.setTrueQuestions(trueQuestions.toString());
-        view.setPassedQuestions(String.valueOf(currentQuestion - 1));
+        view.setCounterRepetition(currentQuestion, countQuestions);
+        view.setCountRightAnswer(rightAnswers, currentQuestion - 1);
         view.clearInformantsResultQuestion();
     }
 

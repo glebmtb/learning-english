@@ -19,20 +19,30 @@ public interface ExerciseView {
      * Записать количество пройденых повторов и сколько осталось
      * пример: "0/50"
      */
+    @Deprecated
     void setCounterRepetition(String counterRepetition);
+
+    /**
+     * Записать количество пройденых вопросв и сколько осталось
+     * currentQuestion - номер текущего вопроса
+     * countQuestions - всего вопросов
+     */
+    void setCounterRepetition(Integer currentQuestion, Integer countQuestions);
 
     /**
      * Записать количество правильных ответов
      */
+    @Deprecated
     void setTrueQuestions(String correctAnswers);
 
     /**
      * Записать количество пройденых вопросов
      */
+    @Deprecated
     void setPassedQuestions(String passedQuestions);
 
     /**
-     * Записать результат успешности ответа
+     * Записать результат ответа
      */
     void setResultQuestion(boolean isSuccessfully);
 
@@ -55,10 +65,25 @@ public interface ExerciseView {
      * Записать результат тестов
      * Пример: "10 правильных из 20"
      */
+    @Deprecated
     void setResultTest(String resultTest);
+
+    /**
+     * Записать результат тестов
+     * rightAnswers - количество правельных ответов
+     * countQuestions - количество вопросов
+     */
+    void setResultTest(Integer rightAnswers, Integer countQuestions);
 
     /**
      * Показать текст который нужжно ввести на английском
      */
     void setTextForInput(String textForInput);
+
+    /**
+     * Записать количество правильных ответов
+     * rightAnswers - количество правельных ответов
+     * countQuestions - количество заданных вопросов
+     */
+    void setCountRightAnswer(Integer rightAnswers, Integer countQuestions);
 }

@@ -252,4 +252,19 @@ public abstract class ExerciseViewAbs implements ExerciseView {
     protected void grabFocus() {
         inputFieldResponse.grabFocus();
     }
+
+    @Override
+    public void setResultTest(Integer rightAnswers, Integer countQuestions) {
+
+    }
+
+    @Override
+    public void setCounterRepetition(Integer currentQuestion, Integer countQuestions) {
+
+    }
+
+    @Override
+    public void setCountRightAnswer(Integer rightAnswers, Integer countQuestions) {
+
+    }
 }

@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 import java.net.URL;
 
 /**
+ * Диктовка алфавита
  * Belyaev Gleb
  * 11.12.13.
  */
@@ -18,13 +19,10 @@ public class AbcExerciseView implements ExerciseView {
 
     private JButton startButton;
     private JLabel resultTestTextLabel;
-    private JLabel resultTestLabel;
 
-    private JLabel counterRepetitionLabel;
-    private JLabel correctAnswersTextStartLabel;
-    private JLabel correctAnswersLabel;
-    private JLabel correctAnswersTextFromLabel;
-    private JLabel passedQuestionsLabel;
+
+    private JLabel progressLabel;
+    private JLabel countRightAnswerLabel;
     private JLabel enteringLetterTextStartLabel;
     private JTextField enteringLetterText;
     private JLabel rightAnswerLabel;
@@ -45,7 +43,7 @@ public class AbcExerciseView implements ExerciseView {
      */
     private void initComponents() {
         startButton = new JButton("Начать");
-        startButton.setBounds(75, 30, 200, 40);
+        startButton.setBounds(70, 20, 200, 40);
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -61,33 +59,17 @@ public class AbcExerciseView implements ExerciseView {
             }
         });
 
-        resultTestTextLabel = new JLabel("Ваше результат:");
-        resultTestTextLabel.setBounds(30, 80, 110, 20);
+        resultTestTextLabel = new JLabel();
+        resultTestTextLabel.setBounds(25, 80, 320, 20);
         resultTestTextLabel.setVisible(false);
 
-        resultTestLabel = new JLabel();
-        resultTestLabel.setBounds(140, 80, 200, 20);
-        resultTestLabel.setVisible(false);
+        progressLabel = new JLabel();
+        progressLabel.setBounds(20, 5, 100, 20);
+        progressLabel.setVisible(false);
 
-        counterRepetitionLabel = new JLabel();
-        counterRepetitionLabel.setBounds(20, 15, 40, 20);
-        counterRepetitionLabel.setVisible(false);
-
-        correctAnswersTextStartLabel = new JLabel("Правильных ответов:");
-        correctAnswersTextStartLabel.setBounds(120, 15, 140, 20);
-        correctAnswersTextStartLabel.setVisible(false);
-
-        correctAnswersLabel = new JLabel();
-        correctAnswersLabel.setBounds(255, 15, 30, 20);
-        correctAnswersLabel.setVisible(false);
-
-        correctAnswersTextFromLabel = new JLabel("из:");
-        correctAnswersTextFromLabel.setBounds(270, 15, 20, 20);
-        correctAnswersTextFromLabel.setVisible(false);
-
-        passedQuestionsLabel = new JLabel();
-        passedQuestionsLabel.setBounds(290, 15, 30, 20);
-        passedQuestionsLabel.setVisible(false);
+        countRightAnswerLabel = new JLabel();
+        countRightAnswerLabel.setBounds(120, 5, 180, 20);
+        countRightAnswerLabel.setVisible(false);
 
         enteringLetterTextStartLabel = new JLabel("Введите букву которая прозвучала:");
         enteringLetterTextStartLabel.setBounds(25, 45, 235, 20);
@@ -145,12 +127,8 @@ public class AbcExerciseView implements ExerciseView {
 
         frame.add(startButton);
         frame.add(resultTestTextLabel);
-        frame.add(resultTestLabel);
-        frame.add(counterRepetitionLabel);
-        frame.add(correctAnswersTextStartLabel);
-        frame.add(correctAnswersLabel);
-        frame.add(correctAnswersTextFromLabel);
-        frame.add(passedQuestionsLabel);
+        frame.add(progressLabel);
+        frame.add(countRightAnswerLabel);
         frame.add(enteringLetterTextStartLabel);
         frame.add(enteringLetterText);
         frame.add(rightAnswerLabel);
@@ -165,18 +143,14 @@ public class AbcExerciseView implements ExerciseView {
     public void setVisibleStartPage(boolean isVisible) {
         startButton.setVisible(isVisible);
         resultTestTextLabel.setVisible(isVisible);
-        resultTestLabel.setVisible(isVisible);
         if (isVisible)
             startButton.grabFocus();
     }
 
     @Override
     public void setVisibleLessonPage(boolean isVisible) {
-        counterRepetitionLabel.setVisible(isVisible);
-        correctAnswersTextStartLabel.setVisible(isVisible);
-        correctAnswersLabel.setVisible(isVisible);
-        correctAnswersTextFromLabel.setVisible(isVisible);
-        passedQuestionsLabel.setVisible(isVisible);
+        progressLabel.setVisible(isVisible);
+        countRightAnswerLabel.setVisible(isVisible);
         enteringLetterTextStartLabel.setVisible(isVisible);
         enteringLetterText.setVisible(isVisible);
         rightAnswerLabel.setVisible(isVisible);
@@ -189,18 +163,20 @@ public class AbcExerciseView implements ExerciseView {
     }
 
     @Override
-    public void setCounterRepetition(String counterRepetition) {
-        counterRepetitionLabel.setText(counterRepetition);
+    public void setCounterRepetition(String counterRepetition) {    }
+
+    @Override
+    public void setCounterRepetition(Integer currentQuestion, Integer countQuestions) {
+        progressLabel.setText("Прогресс: " + currentQuestion + "/" + countQuestions);
     }
 
     @Override
     public void setTrueQuestions(String correctAnswers) {
-        correctAnswersLabel.setText(correctAnswers);
     }
 
     @Override
     public void setPassedQuestions(String passedQuestions) {
-        passedQuestionsLabel.setText(passedQuestions);
+
     }
 
     @Override
@@ -240,11 +216,21 @@ public class AbcExerciseView implements ExerciseView {
 
     @Override
     public void setResultTest(String resultTest) {
-        resultTestLabel.setText(resultTest);
+
+    }
+
+    @Override
+    public void setResultTest(Integer rightAnswers, Integer countQuestions) {
+        resultTestTextLabel.setText("Ваше результат: правильных ответов " + rightAnswers + " из " + countQuestions);
     }
 
     @Override
     public void setTextForInput(String textForInput) {
 
+    }
+
+    @Override
+    public void setCountRightAnswer(Integer rightAnswers, Integer countQuestions){
+        countRightAnswerLabel.setText("Правильных ответов " + rightAnswers + " из " + countQuestions);
     }
 }
