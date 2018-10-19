@@ -91,7 +91,7 @@ public class IrregularVerbsWords extends WordsAbs<String, String[]> {
         words.put("звенеть", new String[]{"ring", "rang", "rung"});
         words.put("подниматься", new String[]{"rise", "rose", "risen"});
         words.put("бежать", new String[]{"run", "ran", "run"});
-        words.put("говорить", new String[]{"say", "said", "said"});
+        words.put("сказать, говорить, утверждать", new String[]{"say", "said", "said"});
         words.put("видеть", new String[]{"see", "saw", "seen"});
         words.put("искать", new String[]{"seek", "sought", "sought"});
         words.put("продавать", new String[]{"sell", "sold", "sold"});
@@ -108,7 +108,7 @@ public class IrregularVerbsWords extends WordsAbs<String, String[]> {
         words.put("спать", new String[]{"sleep", "slept", "slept"});
         words.put("скользить", new String[]{"slide", "slid", "slid"});
         words.put("сеять", new String[]{"sow", "sowed", "sown"});
-        words.put("говорить", new String[]{"speak", "spoke", "spoken"});
+        words.put("говорить, выступать, разговаривать", new String[]{"speak", "spoke", "spoken"});
         words.put("произносить по буквам", new String[]{"spell", "spelt", "spelt"});
         words.put("тратить", new String[]{"spend", "spent", "spent"});
         words.put("проливать", new String[]{"spill", "spilt", "spilt"});

@@ -134,7 +134,7 @@ public class IrregularVerbsView extends ExerciseViewAbs {
         wrongWordTextLabel.setVisible(false);
 
         wrongWord = new JLabel("0");
-        wrongWord.setBounds(130, 100, 200, 20);
+        wrongWord.setBounds(150, 100, 200, 20);
         wrongWord.setVisible(false);
 
         frame.add(rightAnswer1Label);
