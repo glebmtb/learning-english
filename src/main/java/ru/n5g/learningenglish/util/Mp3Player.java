@@ -20,12 +20,16 @@ public class Mp3Player {
                 if (resource == null) {
                     throw new RuntimeException("not found sample: " + fileMp3);
                 }
-                AdvancedPlayer player;
+                AdvancedPlayer player = null;
                 try {
                     player = new AdvancedPlayer(resource.openStream());
                     player.play();
                 } catch (Exception ignore) {
 
+                } finally {
+                    if (player != null) {
+                        player.close();
+                    }
                 }
             }
         });
