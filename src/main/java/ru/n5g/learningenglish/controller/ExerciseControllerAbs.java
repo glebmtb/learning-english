@@ -85,7 +85,6 @@ public abstract class ExerciseControllerAbs<WordRusType, WordEngType> {
             enteredWord = enteredWord.trim().toLowerCase();
         }
         String rightWord = getRightAnswer().toLowerCase();
-        rightWord.equals(enteredWord);
         return rightWord.equals(enteredWord);
     }
 

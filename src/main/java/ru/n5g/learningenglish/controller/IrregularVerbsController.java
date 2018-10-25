@@ -1,56 +1,36 @@
 package ru.n5g.learningenglish.controller;
 
+import ru.n5g.learningenglish.service.IrregularVerbsService;
+import ru.n5g.learningenglish.service.Lesson;
 import ru.n5g.learningenglish.util.Mp3Player;
-import ru.n5g.learningenglish.util.StupidRandom;
-import ru.n5g.learningenglish.util.WordRandom;
 import ru.n5g.learningenglish.view.IrregularVerbsView;
-import ru.n5g.learningenglish.words.IrregularVerbsWords;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
- * @author Gleb Belyaev
+ * Неправильные глаголы
  */
 public class IrregularVerbsController extends ExerciseControllerAbs {
     protected IrregularVerbsView view;
-    protected String word;
-    protected IrregularVerbsWords irregularVerbsWords;
-    private boolean isRight = true;
-    private WordRandom<String> random;
-    private final int REPEAT_COUNT = 2;
-    private Map<String, Integer> studiedWordsMap;
-    private int studiedWords;
+    private IrregularVerbsService service;
+    private Lesson lesson;
 
     public IrregularVerbsController(IrregularVerbsView view) {
         super(view);
         this.view = view;
-        irregularVerbsWords = new IrregularVerbsWords();
-        view.setMaxWord(String.valueOf(irregularVerbsWords.size()));
+        this.service = new IrregularVerbsService();
+        view.setMaxWord(service.sizeDictionary());
     }
 
     @Override
     public void clickStart() {
-        studiedWords = 0;
-        irregularVerbsWords.setIntervalWords(view.getStartWord(), view.getEndWord());
-        studiedWordsMap = getStudiedWordsMap(irregularVerbsWords.getListRusWord());
-        random = new StupidRandom<String>(irregularVerbsWords);
+        lesson = service.start(view.getStartWord(), view.getEndWord());
         super.clickStart();
-    }
-
-    private Map<String, Integer> getStudiedWordsMap(List<String> listRusWord) {
-        Map<String, Integer> smartRandom = new HashMap<String, Integer>();
-        for (String key : listRusWord) {
-            smartRandom.put(key, 0);
-        }
-        return smartRandom;
     }
 
     public void clickVerify() {
         if (isEnteredAnswer) {
             return;
         }
+
         String[] enteredWords = view.getEnteredTexts();
         if (enteredWords[0] != null && !enteredWords[0].isEmpty()) {
             enteredWords[0] = enteredWords[0].trim().toLowerCase();
@@ -62,20 +42,17 @@ public class IrregularVerbsController extends ExerciseControllerAbs {
             enteredWords[2] = enteredWords[2].trim().toLowerCase();
         }
 
+        boolean isRight = lesson.checkAnswer(enteredWords[0], enteredWords[1], enteredWords[2]);
 
-        String rightWords[] = irregularVerbsWords.translate(word);
-        boolean know = isRight;
-        isRight = rightWords[0].equals(enteredWords[0]) && rightWords[1].equals(enteredWords[1]) && rightWords[2].equals(enteredWords[2]);
         view.setResultQuestion(isRight);
         if (isRight) {
             trueQuestions++;
-            if (know)
-                rightAnswer(word);
         } else {
-            view.setRightAnswers(rightWords);
-            wrongAnswer(word);
+            view.setRightAnswers(lesson.getAnswer());
+            wrongAnswer();
         }
-        Mp3Player.play("irregularverbs/" + rightWords[0]);
+
+        Mp3Player.play("irregularverbs/" + lesson.geInfinitiveWord());
         isEnteredAnswer = true;
     }
 
@@ -86,8 +63,9 @@ public class IrregularVerbsController extends ExerciseControllerAbs {
 
     @Override
     protected void nextQuestion() {
+        lesson.nextQuestion();
         super.nextQuestion();
-        view.setCounterRepetition(studiedWords + "/" + irregularVerbsWords.size());
+        view.setCounterRepetition(lesson.wordsLearned() + "/" + lesson.countWordsOnLesson());
     }
 
     @Override
@@ -97,39 +75,11 @@ public class IrregularVerbsController extends ExerciseControllerAbs {
 
     @Override
     protected String getNewQuestion() {
-        if (isRight)
-            word = getRandom();
-        return word;
-    }
-
-    private void rightAnswer(String word) {
-
-        int countRight = studiedWordsMap.get(word) + 1;
-        if (countRight == REPEAT_COUNT) {
-            studiedWords++;
-        }
-        studiedWordsMap.put(word, countRight);
-    }
-
-    private String getRandom() {
-        String rusWord;
-        while (true) {
-            rusWord = random.getRandomWord();
-            int countRight = studiedWordsMap.get(rusWord);
-            boolean isNotRepetition = studiedWords == irregularVerbsWords.size() - 1 || !rusWord.equals(this.word);
-            if (countRight < REPEAT_COUNT && isNotRepetition) {
-                break;
-            }
-        }
-        return rusWord;
-    }
-
-    private void wrongAnswer(String word) {
-        studiedWordsMap.put(word, 0);
+        return lesson.translateWord();
     }
 
     @Override
     protected boolean isFinish() {
-        return irregularVerbsWords.size() == studiedWords;
+        return lesson.isFinished();
     }
 }

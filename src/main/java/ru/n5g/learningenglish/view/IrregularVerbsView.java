@@ -123,7 +123,7 @@ public class IrregularVerbsView extends ExerciseViewAbs {
         intervalWords = new JLabel("Можно выбрать промежуток слов:");
         intervalWords.setBounds(20, 80, 200, 20);
 
-        startWord = new JTextField("0");
+        startWord = new JTextField("1");
         startWord.setBounds(225, 80, 50, 20);
 
         endWord = new JTextField();
@@ -241,6 +241,10 @@ public class IrregularVerbsView extends ExerciseViewAbs {
 
     public void setMaxWord(String maxWord) {
         endWord.setText(maxWord);
+    }
+
+    public void setMaxWord(Integer maxWord) {
+        setMaxWord(String.valueOf(maxWord));
     }
 
     public int getStartWord() {
