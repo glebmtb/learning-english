@@ -4,7 +4,6 @@ import ru.n5g.learningenglish.words.IrregularVerbWord
 import ru.n5g.learningenglish.words.IrregularVerbsWords
 import java.util.*
 
-
 class IrregularVerbsService {
     private val words = IrregularVerbsWords()
 
@@ -21,6 +20,8 @@ class IrregularVerbsService {
 class Lesson(words: List<IrregularVerbWord>) {
     private val lessonWords = words.map { LessonWord(it) }
     private var currentQuestion: LessonWord
+    private var isCheck = false
+    private var lastResultCorrect = false
 
     init {
         currentQuestion = findNextQuestion()
@@ -30,13 +31,7 @@ class Lesson(words: List<IrregularVerbWord>) {
         if (isFinished()) {
             return currentQuestion
         }
-
-        while (true) {
-            val word = lessonWords[Random().nextInt(lessonWords.size)]
-            if (!word.answered) {
-                return word
-            }
-        }
+        return lessonWords.nextRandom()
     }
 
     //public api
@@ -50,28 +45,75 @@ class Lesson(words: List<IrregularVerbWord>) {
 
     fun countWordsOnLesson() = lessonWords.size
 
-    fun wordsLearned() = lessonWords.filter { it.answered }.size
+    fun wordsLearned() = lessonWords.filter { it.isAnswered() }.size
 
     fun translateWord() = currentQuestion.word.translate
 
-    fun isFinished() = lessonWords.none { it.answered.not() }
+    fun isFinished() = lessonWords.none { it.isAnswered().not() }
 
     fun checkAnswer(infinitive: String?, pastSimple: String?, pastParticiple: String?): Boolean {
         val correct = currentQuestion.word.infinitive == infinitive
                 && currentQuestion.word.pastSimple == pastSimple
                 && currentQuestion.word.pastParticiple == pastParticiple
 
-        if (correct) {
-            currentQuestion.answered = correct
+        if (isCheck.not()) {
+            currentQuestion.doResult(correct)
+            isCheck = true
+            lastResultCorrect = correct
         }
 
         return correct
     }
 
     fun nextQuestion() {
-        currentQuestion = findNextQuestion()
+        isCheck = false
+        if (lastResultCorrect) {
+            currentQuestion = findNextQuestion()
+        }
     }
 }
 
 data class LessonWord(val word: IrregularVerbWord,
-                      var answered: Boolean = false)
+                      private var isAnswered: Boolean = false,
+                      private var incorrectAnswerCount: Int = 0,
+                      private var rightAnswered: Int = 0,
+                      private var countAnswered: Int = 0) {
+
+    fun isAnswered() = isAnswered
+    fun countAnswered() = countAnswered
+
+    private fun doRightAnswer() {
+        rightAnswered++
+        isAnswered = canAnswered()
+    }
+
+    private fun canAnswered(): Boolean {
+        return when (incorrectAnswerCount) {
+            0 -> rightAnswered > 0
+            1 -> rightAnswered > 2
+            2 -> rightAnswered > 3
+            else -> rightAnswered > 5
+        }
+    }
+
+    private fun doIncorrectAnswer() {
+        rightAnswered = 0
+        incorrectAnswerCount++
+    }
+
+    fun doResult(result: Boolean) {
+        countAnswered++
+        if (result) {
+            doRightAnswer()
+        } else {
+            doIncorrectAnswer()
+        }
+    }
+}
+
+fun List<LessonWord>.nextRandom(): LessonWord {
+    val notAnswered = asSequence().filterNot { it.isAnswered() }.toList()
+    val minV = notAnswered.minBy { it.countAnswered() }!!.countAnswered()
+    val minL = notAnswered.asSequence().filter { it.countAnswered() == minV }.toList()
+    return minL[Random().nextInt(minL.size)]
+}
