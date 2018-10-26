@@ -35,7 +35,7 @@ class Lesson(words: List<IrregularVerbWord>) {
     }
 
     //public api
-    fun geInfinitiveWord() = currentQuestion.word.translate
+    fun geInfinitiveWord() = currentQuestion.word.infinitive
 
     fun getAnswer() = listOf(
             currentQuestion.word.infinitive,
