@@ -1,14 +1,14 @@
 package ru.n5g.learningenglish.view;
 
 import ru.n5g.learningenglish.controller.IrregularVerbsController;
+import ru.n5g.learningenglish.util.JLabelUtilKt;
 
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-/**
- * @author Belyaev
- */
+import static ru.n5g.learningenglish.util.JLabelUtilKt.*;
+
 public class IrregularVerbsView extends ExerciseViewAbs {
 
     private JLabel rightAnswer1Label;
@@ -107,22 +107,12 @@ public class IrregularVerbsView extends ExerciseViewAbs {
 
         inputResultLabel.setLocation(xPosition + widthLabel + leftMargin, 98);
 
-        intervalWords = new JLabel("Можно выбрать промежуток слов:");
-        intervalWords.setBounds(20, 80, 200, 20);
+        intervalWords = newLabel("Можно выбрать промежуток слов:", 20, 80);
+        startWord = newTextFieldFollow("1", 50, intervalWords);
+        endWord = newTextFieldFollow(50, startWord);
 
-        startWord = new JTextField("1");
-        startWord.setBounds(225, 80, 50, 20);
-
-        endWord = new JTextField();
-        endWord.setBounds(275, 80, 50, 20);
-
-        wrongWordTextLabel = new JLabel("Допущено ошибок:");
-        wrongWordTextLabel.setBounds(20, 100, 200, 20);
-        wrongWordTextLabel.setVisible(false);
-
-        wrongWord = new JLabel("0");
-        wrongWord.setBounds(150, 100, 200, 20);
-        wrongWord.setVisible(false);
+        wrongWordTextLabel = newLabelNextLine("Допущено ошибок:", intervalWords, false);
+        wrongWord = newLabelFollow("0", wrongWordTextLabel, false);
 
         frame.add(rightAnswer1Label);
         frame.add(rightAnswer2Label);
@@ -258,4 +248,6 @@ public class IrregularVerbsView extends ExerciseViewAbs {
         this.passedQuestions = Integer.valueOf(passedQuestions);
         wrongWord.setText(String.valueOf(this.passedQuestions - this.correctAnswers));
     }
+
+
 }
