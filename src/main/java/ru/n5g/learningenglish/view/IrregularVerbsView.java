@@ -3,8 +3,6 @@ package ru.n5g.learningenglish.view;
 import ru.n5g.learningenglish.controller.IrregularVerbsController;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -13,19 +11,19 @@ import java.awt.event.KeyEvent;
  */
 public class IrregularVerbsView extends ExerciseViewAbs {
 
-    protected JLabel rightAnswer1Label;
-    protected JLabel rightAnswer2Label;
-    protected JLabel rightAnswer3Label;
+    private JLabel rightAnswer1Label;
+    private JLabel rightAnswer2Label;
+    private JLabel rightAnswer3Label;
 
-    protected JTextField inputField1Response;
-    protected JTextField inputField2Response;
-    protected JTextField inputField3Response;
+    private JTextField inputField1Response;
+    private JTextField inputField2Response;
+    private JTextField inputField3Response;
 
-    protected JLabel intervalWords;
-    protected JTextField startWord;
-    protected JTextField endWord;
-    protected JLabel wrongWordTextLabel;
-    protected JLabel wrongWord;
+    private JLabel intervalWords;
+    private JTextField startWord;
+    private JTextField endWord;
+    private JLabel wrongWordTextLabel;
+    private JLabel wrongWord;
 
     protected IrregularVerbsController controller;
 
@@ -45,42 +43,36 @@ public class IrregularVerbsView extends ExerciseViewAbs {
         frame.remove(rightAnswerLabel);
 
         int xPosition = 20;
-        int heightLabel = 90;
+        int widthLabel = 90;
         int leftMargin = 10;
 
         inputField1Response = new JTextField();
-        inputField1Response.setBounds(xPosition, 100, heightLabel, 20);
+        inputField1Response.setBounds(xPosition, 100, widthLabel, 20);
         inputField1Response.setVisible(false);
-        inputField1Response.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                if (inputField1Response.getText().isEmpty()
-                        && inputField2Response.getText().isEmpty()
-                        && inputField3Response.getText().isEmpty()) {
-                    clickEnterInInputField();
-                } else {
-                    inputField2Response.grabFocus();
-                }
+        inputField1Response.addActionListener(actionEvent -> {
+            if (inputField1Response.getText().isEmpty()
+                    && inputField2Response.getText().isEmpty()
+                    && inputField3Response.getText().isEmpty()) {
+                clickEnterInInputField();
+            } else {
+                inputField2Response.grabFocus();
             }
         });
 
         rightAnswer1Label = new JLabel();
-        rightAnswer1Label.setBounds(xPosition, 80, heightLabel, 20);
+        rightAnswer1Label.setBounds(xPosition, 80, widthLabel, 20);
         rightAnswer1Label.setVisible(false);
 
         inputField2Response = new JTextField();
-        inputField2Response.setBounds(xPosition += heightLabel + leftMargin, 100, heightLabel, 20);
+        inputField2Response.setBounds(xPosition += widthLabel + leftMargin, 100, widthLabel, 20);
         inputField2Response.setVisible(false);
-        inputField2Response.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                if (inputField1Response.getText().isEmpty()
-                        || (inputField2Response.getText().isEmpty()
-                        && inputField3Response.getText().isEmpty())) {
-                    clickEnterInInputField();
-                } else {
-                    inputField3Response.grabFocus();
-                }
+        inputField2Response.addActionListener(actionEvent -> {
+            if (inputField1Response.getText().isEmpty()
+                    || (inputField2Response.getText().isEmpty()
+                    && inputField3Response.getText().isEmpty())) {
+                clickEnterInInputField();
+            } else {
+                inputField3Response.grabFocus();
             }
         });
         inputField2Response.addKeyListener(new KeyAdapter() {
@@ -93,18 +85,13 @@ public class IrregularVerbsView extends ExerciseViewAbs {
         });
 
         rightAnswer2Label = new JLabel();
-        rightAnswer2Label.setBounds(xPosition, 80, heightLabel, 20);
+        rightAnswer2Label.setBounds(xPosition, 80, widthLabel, 20);
         rightAnswer2Label.setVisible(false);
 
         inputField3Response = new JTextField();
-        inputField3Response.setBounds(xPosition += heightLabel + leftMargin, 100, heightLabel, 20);
+        inputField3Response.setBounds(xPosition += widthLabel + leftMargin, 100, widthLabel, 20);
         inputField3Response.setVisible(false);
-        inputField3Response.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                clickEnterInInputField();
-            }
-        });
+        inputField3Response.addActionListener(actionEvent -> clickEnterInInputField());
         inputField3Response.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -115,10 +102,10 @@ public class IrregularVerbsView extends ExerciseViewAbs {
         });
 
         rightAnswer3Label = new JLabel();
-        rightAnswer3Label.setBounds(xPosition, 80, heightLabel, 20);
+        rightAnswer3Label.setBounds(xPosition, 80, widthLabel, 20);
         rightAnswer3Label.setVisible(false);
 
-        inputResultLabel.setLocation(xPosition + heightLabel + leftMargin, 98);
+        inputResultLabel.setLocation(xPosition + widthLabel + leftMargin, 98);
 
         intervalWords = new JLabel("Можно выбрать промежуток слов:");
         intervalWords.setBounds(20, 80, 200, 20);
@@ -239,7 +226,7 @@ public class IrregularVerbsView extends ExerciseViewAbs {
         inputField1Response.grabFocus();
     }
 
-    public void setMaxWord(String maxWord) {
+    private void setMaxWord(String maxWord) {
         endWord.setText(maxWord);
     }
 
