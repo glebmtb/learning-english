@@ -1,7 +1,6 @@
 package ru.n5g.learningenglish.view;
 
 import ru.n5g.learningenglish.controller.IrregularVerbsController;
-import ru.n5g.learningenglish.util.JLabelUtilKt;
 
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
@@ -109,10 +108,13 @@ public class IrregularVerbsView extends ExerciseViewAbs {
 
         intervalWords = newLabel("Можно выбрать промежуток слов:", 20, 80);
         startWord = newTextFieldFollow("1", 50, intervalWords);
+        startWord.addActionListener(action -> endWord.grabFocus());
         endWord = newTextFieldFollow(50, startWord);
+        endWord.addActionListener(action -> clickStart());
+
 
         wrongWordTextLabel = newLabelNextLine("Допущено ошибок:", intervalWords, false);
-        wrongWord = newLabelFollow("0", wrongWordTextLabel, false);
+        wrongWord = newLabelFollow(wrongWordTextLabel, "0", false);
 
         frame.add(rightAnswer1Label);
         frame.add(rightAnswer2Label);

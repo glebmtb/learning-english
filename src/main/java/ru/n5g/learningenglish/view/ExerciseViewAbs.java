@@ -1,11 +1,17 @@
 package ru.n5g.learningenglish.view;
 
+import ru.n5g.learningenglish.util.JLabelUtilKt;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.net.URL;
+
+import static ru.n5g.learningenglish.util.JLabelUtilKt.newLabel;
+import static ru.n5g.learningenglish.util.JLabelUtilKt.newLabelFollow;
 
 /**
  * @author Belyaev
@@ -71,21 +77,10 @@ public abstract class ExerciseViewAbs implements ExerciseView {
         counterRepetitionLabel.setBounds(20, 15, 40, 20);
         counterRepetitionLabel.setVisible(false);
 
-        correctAnswersTextStartLabel = new JLabel("Правильных ответов:");
-        correctAnswersTextStartLabel.setBounds(120, 15, 153, 20);
-        correctAnswersTextStartLabel.setVisible(false);
-
-        correctAnswersLabel = new JLabel();
-        correctAnswersLabel.setBounds(275, 15, 30, 20);
-        correctAnswersLabel.setVisible(false);
-
-        correctAnswersTextFromLabel = new JLabel("из:");
-        correctAnswersTextFromLabel.setBounds(305, 15, 20, 20);
-        correctAnswersTextFromLabel.setVisible(false);
-
-        passedQuestionsLabel = new JLabel();
-        passedQuestionsLabel.setBounds(327, 15, 30, 20);
-        passedQuestionsLabel.setVisible(false);
+        correctAnswersTextStartLabel = newLabel("Правильных ответов:", 120, 15, false);
+        correctAnswersLabel = newLabelFollow(correctAnswersTextStartLabel, "", false, 2);
+        correctAnswersTextFromLabel = newLabelFollow(correctAnswersLabel, "из:", false);
+        passedQuestionsLabel = newLabelFollow(correctAnswersTextFromLabel, "", false, 2);
 
         commandInfoLabel = new JLabel("Введите цифру на английском языке:");
         commandInfoLabel.setBounds(30, 35, 250, 20);
@@ -206,6 +201,15 @@ public abstract class ExerciseViewAbs implements ExerciseView {
     @Override
     public void setPassedQuestions(String passedQuestions) {
         passedQuestionsLabel.setText(passedQuestions);
+        resizeCounter();
+    }
+
+    private void resizeCounter() {
+        correctAnswersLabel.setSize(correctAnswersLabel.getPreferredSize());
+        passedQuestionsLabel.setSize(passedQuestionsLabel.getPreferredSize());
+
+        JLabelUtilKt.locationFollow(correctAnswersTextFromLabel, correctAnswersLabel);
+        JLabelUtilKt.locationFollow(passedQuestionsLabel, correctAnswersTextFromLabel, 2);
     }
 
     @Override
