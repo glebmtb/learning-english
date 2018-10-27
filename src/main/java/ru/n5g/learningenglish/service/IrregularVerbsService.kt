@@ -112,11 +112,12 @@ data class LessonWord(val word: IrregularVerbWord,
 }
 
 fun List<LessonWord>.nextRandom(exclude: LessonWord?): LessonWord {
+    val notAnswered = asSequence().filterNot { it.isAnswered() }.toList()
+    val notDuplicated = if (notAnswered.size > 1 && exclude != null) excludeElement(exclude) else notAnswered
 
-    val notAnswered = (if (size > 1 && exclude != null) asSequence().filter { it != exclude } else this.asSequence())
-            .filterNot { it.isAnswered() }.toList()
-
-    val minV = notAnswered.minBy { it.countAnswered() }!!.countAnswered()
-    val minL = notAnswered.asSequence().filter { it.countAnswered() == minV }.toList()
+    val minV = notDuplicated.minBy { it.countAnswered() }!!.countAnswered()
+    val minL = notDuplicated.asSequence().filter { it.countAnswered() == minV }.toList()
     return minL[Random().nextInt(minL.size)]
 }
+
+fun <E> List<E>.excludeElement(excludeElement: E): List<E> = this.asSequence().filter { it != excludeElement }.toList()
