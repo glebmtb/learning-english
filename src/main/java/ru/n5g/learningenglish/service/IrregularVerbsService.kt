@@ -111,13 +111,34 @@ data class LessonWord(val word: IrregularVerbWord,
     }
 }
 
+/**
+ * выбрать следующее случайное слово, исключив из поиска excludeWord
+ */
 fun List<LessonWord>.nextRandom(exclude: LessonWord?): LessonWord {
-    val notAnswered = asSequence().filterNot { it.isAnswered() }.toList()
-    val notDuplicated = if (notAnswered.size > 1 && exclude != null) excludeElement(exclude) else notAnswered
-
-    val minV = notDuplicated.minBy { it.countAnswered() }!!.countAnswered()
-    val minL = notDuplicated.asSequence().filter { it.countAnswered() == minV }.toList()
-    return minL[Random().nextInt(minL.size)]
+    val wordsForStudy = showOnlyNotAnswered().excludeElement(exclude).showMinAnswered()
+    return wordsForStudy[Random().nextInt(wordsForStudy.size)]
 }
 
-fun <E> List<E>.excludeElement(excludeElement: E): List<E> = this.asSequence().filter { it != excludeElement }.toList()
+/**
+ * Исключить из списка елемент, если список больше 1. Если список из одного елемента то исключать не будет
+ */
+fun <E> List<E>.excludeElement(excludeElement: E?): List<E> {
+    if (this.size > 1 && excludeElement != null) {
+        return this.asSequence().filter { it != excludeElement }.toList()
+    } else {
+        return this
+    }
+}
+
+/**
+ * показать только те слова которые не отвечены
+ */
+fun List<LessonWord>.showOnlyNotAnswered(): List<LessonWord> = asSequence().filterNot { it.isAnswered() }.toList()
+
+/**
+ * получить елементы которые меньше всех показывались
+ */
+fun List<LessonWord>.showMinAnswered(): List<LessonWord> {
+    val minimumHits = this.minBy { it.countAnswered() }!!.countAnswered()
+    return asSequence().filter { it.countAnswered() == minimumHits }.toList()
+}
