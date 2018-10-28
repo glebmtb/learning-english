@@ -114,7 +114,7 @@ public class IrregularVerbsView extends ExerciseViewAbs {
 
 
         wrongWordTextLabel = newLabelNextLine("Допущено ошибок:", intervalWords, false);
-        wrongWord = newLabelFollow(wrongWordTextLabel, "0", false);
+        wrongWord = newLabelFollow(wrongWordTextLabel, "000", false);
 
         frame.add(rightAnswer1Label);
         frame.add(rightAnswer2Label);
