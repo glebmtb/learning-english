@@ -8,8 +8,18 @@ fun JComponent.followPositionX(): Int = x + width
 fun JComponent.nextLineY(): Int = y + 20
 
 @JvmOverloads
-fun newLabel(text: String = "", positionX: Int, positionY: Int, isVisible: Boolean = true): JLabel {
-    val jLabel = JLabel(text);
+fun newLabel(text: String = "",
+             positionX: Int,
+             positionY: Int,
+             isVisible: Boolean = true,
+             listenerChangeText: () -> Unit = { }): JLabel {
+    val jLabel = object : JLabel(text) {
+        override fun setText(text: String) {
+            super.setText(text)
+            listenerChangeText()
+        }
+    }
+
     val preferSize = jLabel.preferredSize
     jLabel.setBounds(positionX, positionY, preferSize.width, preferSize.height)
     jLabel.isVisible = isVisible
@@ -19,9 +29,23 @@ fun newLabel(text: String = "", positionX: Int, positionY: Int, isVisible: Boole
 fun newLabelNextLine(text: String, followComponent: JComponent, isVisible: Boolean = true) =
         newLabel(text, followComponent.x, followComponent.nextLineY(), isVisible)
 
+fun newLabelFollow(followComponent: JComponent, text: String, isVisible: Boolean,
+                   listenerChangeText: () -> Unit = { }) =
+        newLabelFollow(followComponent, text, isVisible, 5, listenerChangeText)
+
 @JvmOverloads
-fun newLabelFollow(followComponent: JComponent, text: String, isVisible: Boolean, offset: Int = 5) =
-        newLabel(text, followComponent.followPositionX() + offset, followComponent.y, isVisible)
+fun newLabelFollow(followComponent: JComponent, text: String, isVisible: Boolean, offset: Int = 5,
+                   listenerChangeText: () -> Unit = { }) =
+        newLabel(text, followComponent.followPositionX() + offset, followComponent.y, isVisible, listenerChangeText)
+
+
+fun resizeElements(vararg followComponent: JComponent) {
+
+    for ((i, c) in followComponent.filter { it != null }.withIndex()) {
+        c.size = c.preferredSize
+        if (i != 0) c.locationFollow(followComponent[i - 1])
+    }
+}
 
 @JvmOverloads
 fun newTextFieldFollow(text: String = "", with: Int, followComponent: JComponent, offset: Int = 5): JTextField {

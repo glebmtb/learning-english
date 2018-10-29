@@ -9,8 +9,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.net.URL;
 
-import static ru.n5g.learningenglish.util.JLabelUtilKt.newLabel;
-import static ru.n5g.learningenglish.util.JLabelUtilKt.newLabelFollow;
+import static ru.n5g.learningenglish.util.JLabelUtilKt.*;
 
 /**
  * @author Belyaev
@@ -64,22 +63,28 @@ public abstract class ExerciseViewAbs implements ExerciseView {
             }
         });
 
-        resultTestTextLabel = new JLabel("Ваше результат:");
-        resultTestTextLabel.setBounds(30, 125, 110, 20);
-        resultTestTextLabel.setVisible(false);
+        resultTestTextLabel = newLabel("Ваше результат:", 30, 125, false);
+        resultTestLabel = newLabelFollow(resultTestTextLabel, "", false,
+                () -> {
+                    resizeElements(resultTestLabel);
+                    return null;
+                });
 
-        resultTestLabel = new JLabel();
-        resultTestLabel.setBounds(140, 125, 200, 20);
-        resultTestLabel.setVisible(false);
-
-        counterRepetitionLabel = new JLabel();
-        counterRepetitionLabel.setBounds(20, 15, 40, 20);
-        counterRepetitionLabel.setVisible(false);
+        counterRepetitionLabel = newLabel("", 20, 15, false,
+                () -> {
+                    resizeElements(counterRepetitionLabel);
+                    return null;
+                });
 
         correctAnswersTextStartLabel = newLabel("Правильных ответов:", 120, 15, false);
         correctAnswersLabel = newLabelFollow(correctAnswersTextStartLabel, "", false, 2);
         correctAnswersTextFromLabel = newLabelFollow(correctAnswersLabel, "из:", false);
-        passedQuestionsLabel = newLabelFollow(correctAnswersTextFromLabel, "", false, 2);
+        passedQuestionsLabel = newLabelFollow(correctAnswersTextFromLabel, "", false, 2,
+                () -> {
+                    resizeElements(correctAnswersLabel, correctAnswersTextFromLabel, passedQuestionsLabel);
+                    return null;
+                });
+
 
         commandInfoLabel = new JLabel("Введите цифру на английском языке:");
         commandInfoLabel.setBounds(30, 35, 250, 20);
@@ -96,12 +101,7 @@ public abstract class ExerciseViewAbs implements ExerciseView {
         inputFieldResponse = new JTextField();
         inputFieldResponse.setBounds(30, 100, 250, 20);
         inputFieldResponse.setVisible(false);
-        inputFieldResponse.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                clickEnterInInputField();
-            }
-        });
+        inputFieldResponse.addActionListener(actionEvent -> clickEnterInInputField());
 
         inputResultLabel = new JLabel();
         inputResultLabel.setBounds(295, 98, 24, 24);
@@ -110,23 +110,17 @@ public abstract class ExerciseViewAbs implements ExerciseView {
         verifyButton = new JButton("Проверить");
         verifyButton.setBounds(20, 135, 110, 25);
         verifyButton.setVisible(false);
-        verifyButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                clickVerify();
-                grabFocus();
-            }
+        verifyButton.addActionListener(e -> {
+            clickVerify();
+            grabFocus();
         });
 
         nextButton = new JButton("Дальше");
         nextButton.setBounds(150, 135, 180, 25);
         nextButton.setVisible(false);
-        nextButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                clickNext();
-                grabFocus();
-            }
+        nextButton.addActionListener(e -> {
+            clickNext();
+            grabFocus();
         });
 
         frame = new JFrame("Диктовка цифр");
