@@ -91,7 +91,7 @@ public abstract class ExerciseViewAbs implements ExerciseView {
         commandInfoLabel.setVisible(false);
 
         textForInputLabel = new JLabel();
-        textForInputLabel.setBounds(30, 55, 250, 20);
+        textForInputLabel.setBounds(30, 55, 350, 20);
         textForInputLabel.setVisible(false);
 
         rightAnswerLabel = new JLabel();
